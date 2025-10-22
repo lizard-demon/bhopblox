@@ -5,11 +5,10 @@ import {
 } from "../shared/types/api";
 import { navigateTo } from "@devvit/web/client";
 
-// Declare global Go class from wasm_exec.js
+// Declare global Module interface for voxel engine
 declare global {
-  class Go {
-    importObject: WebAssembly.Imports;
-    run(instance: WebAssembly.Instance): void;
+  interface Window {
+    Module: any;
   }
 }
 
@@ -28,8 +27,11 @@ const playtestLink = document.getElementById("playtest-link") as HTMLDivElement;
 const discordLink = document.getElementById("discord-link") as HTMLDivElement;
 
 // WASM elements
-const wasmButton = document.getElementById("wasm-multiply") as HTMLButtonElement;
+const wasmLaunchButton = document.getElementById("wasm-launch") as HTMLButtonElement;
+const wasmCloseButton = document.getElementById("wasm-close") as HTMLButtonElement;
 const wasmResult = document.getElementById("wasm-result") as HTMLDivElement;
+const voxelContainer = document.getElementById("voxel-container") as HTMLDivElement;
+const voxelCanvas = document.getElementById("voxel-canvas") as HTMLCanvasElement;
 
 docsLink.addEventListener("click", () => {
   navigateTo("https://developers.reddit.com/docs");
@@ -46,7 +48,7 @@ discordLink.addEventListener("click", () => {
 const titleElement = document.getElementById("title") as HTMLHeadingElement;
 
 let currentPostId: string | null = null;
-let wasmInstance: WebAssembly.Instance | null = null;
+let voxelEngineLoaded = false;
 
 async function fetchInitialCount() {
   try {
@@ -102,72 +104,81 @@ async function updateCounter(action: "increment" | "decrement") {
 incrementButton.addEventListener("click", () => updateCounter("increment"));
 decrementButton.addEventListener("click", () => updateCounter("decrement"));
 
-// Load wasm_exec.js dynamically
-async function loadWasmExec(): Promise<void> {
+// Load voxel engine dynamically
+async function loadVoxelEngine(): Promise<void> {
   return new Promise((resolve, reject) => {
+    if (voxelEngineLoaded) {
+      resolve();
+      return;
+    }
+
+    wasmResult.textContent = "Loading voxel engine...";
+    
+    // Set up the Module object for the voxel engine
+    (window as any).Module = {
+      canvas: voxelCanvas,
+      preRun: [],
+      postRun: [() => {
+        voxelEngineLoaded = true;
+        wasmResult.textContent = "Voxel engine loaded successfully!";
+        resolve();
+      }],
+      print: (text: string) => {
+        console.log("Voxel Engine:", text);
+      },
+      printErr: (text: string) => {
+        console.error("Voxel Engine Error:", text);
+      },
+      onAbort: (what: string) => {
+        console.error("Voxel Engine Aborted:", what);
+        wasmResult.textContent = "Voxel engine failed to load";
+        reject(new Error(what));
+      }
+    };
+
     const script = document.createElement('script');
-    script.src = 'wasm_exec.js';
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error('Failed to load wasm_exec.js'));
+    script.src = 'voxels.js';
+    script.onload = () => {
+      console.log("Voxel engine script loaded");
+    };
+    script.onerror = () => {
+      wasmResult.textContent = "Failed to load voxel engine";
+      reject(new Error('Failed to load voxels.js'));
+    };
     document.head.appendChild(script);
   });
 }
 
-// WASM initialization
-async function initWasm() {
+// Launch voxel engine
+async function launchVoxelEngine() {
   try {
-    wasmResult.textContent = "Loading WASM...";
+    wasmLaunchButton.disabled = true;
     
-    // Load wasm_exec.js first
-    await loadWasmExec();
+    if (!voxelEngineLoaded) {
+      await loadVoxelEngine();
+    }
     
-    const go = new Go();
+    // Show the voxel container
+    voxelContainer.style.display = 'flex';
+    wasmResult.textContent = "Voxel engine running! Use WASD to move, mouse to look around.";
     
-    const result = await WebAssembly.instantiateStreaming(
-      fetch("lib.wasm"),
-      go.importObject
-    );
-    
-    wasmInstance = result.instance;
-    go.run(result.instance);
-    
-    wasmResult.textContent = "WASM loaded successfully";
-    wasmButton.disabled = false;
-    
-    console.log("WASM loaded successfully");
   } catch (error) {
-    console.error("Failed to load WASM:", error);
-    wasmResult.textContent = "Failed to load WASM";
-    wasmButton.disabled = true;
+    console.error("Failed to launch voxel engine:", error);
+    wasmResult.textContent = "Failed to launch voxel engine";
+    wasmLaunchButton.disabled = false;
   }
 }
 
-// WASM multiply function
-function testWasmMultiply() {
-  if (!wasmInstance) {
-    wasmResult.textContent = "WASM not loaded";
-    return;
-  }
-  
-  try {
-    // Access the multiply function from the global scope (set by Go WASM)
-    const multiplyFn = (window as any).multiply;
-    if (typeof multiplyFn === 'function') {
-      const result = multiplyFn(3, 2);
-      wasmResult.textContent = `3 × 2 = ${result}`;
-      console.log("WASM multiply result:", result);
-    } else {
-      wasmResult.textContent = "Multiply function not found";
-    }
-  } catch (error) {
-    console.error("Error calling WASM function:", error);
-    wasmResult.textContent = "Error calling WASM function";
-  }
+// Close voxel engine
+function closeVoxelEngine() {
+  voxelContainer.style.display = 'none';
+  wasmResult.textContent = "Voxel engine closed. Click Launch to restart.";
+  wasmLaunchButton.disabled = false;
 }
 
 // Event listeners
-wasmButton.addEventListener("click", testWasmMultiply);
+wasmLaunchButton.addEventListener("click", launchVoxelEngine);
+wasmCloseButton.addEventListener("click", closeVoxelEngine);
 
 // Initialize everything when the page loads
 fetchInitialCount();
-initWasm();

@@ -24,10 +24,14 @@
     </div>
     
     <div class="wasm-section">
-      <h2>WASM4 Integration</h2>
+      <h2>Voxel Engine (WASM)</h2>
       <div class="wasm-controls">
-        <button class="wasm-button" id="wasm-multiply">Test WASM Multiply (3 × 2)</button>
-        <div class="wasm-result" id="wasm-result">WASM not loaded</div>
+        <button class="wasm-button" id="wasm-launch">Launch Voxel Engine</button>
+        <div class="wasm-result" id="wasm-result">Click to load voxel engine</div>
+      </div>
+      <div class="voxel-container" id="voxel-container" style="display: none;">
+        <canvas class="voxel-canvas" id="voxel-canvas"></canvas>
+        <button class="wasm-button" id="wasm-close">Close Voxel Engine</button>
       </div>
     </div>
     
