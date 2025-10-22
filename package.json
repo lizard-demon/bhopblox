@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "postinstall": "npm run build",
-    "build:client": "cd src/client && vite build",
+    "build:wasm": "cd src/wasm && make",
+    "build:client": "npm run build:wasm && cd src/client && vite build",
     "build:server": "cd src/server && vite build",
     "build": "npm run build:client && npm run build:server",
     "deploy": "npm run build && devvit upload",

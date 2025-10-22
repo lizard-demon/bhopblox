@@ -101,3 +101,59 @@
   text-align: center;
   line-height: 1;
 }
+
+.wasm-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid #e5ebee;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.wasm-section h2 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.wasm-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.wasm-button {
+  background-color: #0079d3;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease;
+}
+
+.wasm-button:hover {
+  background-color: #0066b3;
+}
+
+.wasm-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.wasm-result {
+  font-family: monospace;
+  background-color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  min-width: 200px;
+  text-align: center;
+  color: #666;
+}
