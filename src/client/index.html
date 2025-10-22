@@ -10,38 +10,26 @@
     <title>Devvit Experimental</title>
   </head>
   <body class="app">
-    <img class="snoo" src="/snoo.png" alt="Snoo" />
     <div class="content">
-      <h1 class="title" id="title"></h1>
+      <h1 class="title" id="title">Voxel World</h1>
       <p class="description">
-        Edit <span class="code">src/client/main.ts</span> to get started.
+        A 3D voxel world powered by WebAssembly
       </p>
     </div>
-    <div class="counter-row">
-      <button class="counter-button" id="decrement-button">-</button>
-      <span class="counter-value" id="counter-value">0</span>
-      <button class="counter-button" id="increment-button">+</button>
-    </div>
     
-    <div class="wasm-section">
-      <h2>Voxel Engine (WASM)</h2>
-      <div class="wasm-controls">
-        <button class="wasm-button" id="wasm-launch">Launch Voxel Engine</button>
-        <div class="wasm-result" id="wasm-result">Click to load voxel engine</div>
+    <div class="voxel-section">
+      <div class="voxel-controls" id="voxel-controls">
+        <button class="voxel-button" id="voxel-launch">Launch Voxel World</button>
+        <div class="voxel-status" id="voxel-status">Click to enter the voxel world</div>
       </div>
       <div class="voxel-container" id="voxel-container" style="display: none;">
         <canvas class="voxel-canvas" id="voxel-canvas"></canvas>
-        <button class="wasm-button" id="wasm-close">Close Voxel Engine</button>
+        <div class="voxel-ui">
+          <div class="controls-info">WASD to move • Mouse to look • ESC to exit</div>
+          <button class="voxel-button close-button" id="voxel-close">Exit Voxel World</button>
+        </div>
       </div>
     </div>
-    
-    <footer class="footer">
-      <div class="docs-link" tabindex="0" id="docs-link">Docs</div>
-      <span class="divider">|</span>
-      <div class="docs-link" tabindex="0" id="playtest-link">r/Devvit</div>
-      <span class="divider">|</span>
-      <div class="docs-link" tabindex="0" id="discord-link">Discord</div>
-    </footer>
     <script type="module" src="main.ts" defer></script>
   </body>
 </html>

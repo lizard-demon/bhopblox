@@ -1,9 +1,4 @@
-import {
-  IncrementResponse,
-  DecrementResponse,
-  InitResponse,
-} from "../shared/types/api";
-import { navigateTo } from "@devvit/web/client";
+import { InitResponse } from "../shared/types/api";
 
 // Declare global Module interface for voxel engine
 declare global {
@@ -12,45 +7,18 @@ declare global {
   }
 }
 
-const counterValueElement = document.getElementById(
-  "counter-value"
-) as HTMLSpanElement;
-const incrementButton = document.getElementById(
-  "increment-button"
-) as HTMLButtonElement;
-const decrementButton = document.getElementById(
-  "decrement-button"
-) as HTMLButtonElement;
-
-const docsLink = document.getElementById("docs-link") as HTMLDivElement;
-const playtestLink = document.getElementById("playtest-link") as HTMLDivElement;
-const discordLink = document.getElementById("discord-link") as HTMLDivElement;
-
-// WASM elements
-const wasmLaunchButton = document.getElementById("wasm-launch") as HTMLButtonElement;
-const wasmCloseButton = document.getElementById("wasm-close") as HTMLButtonElement;
-const wasmResult = document.getElementById("wasm-result") as HTMLDivElement;
+// Voxel engine elements
+const voxelLaunchButton = document.getElementById("voxel-launch") as HTMLButtonElement;
+const voxelCloseButton = document.getElementById("voxel-close") as HTMLButtonElement;
+const voxelStatus = document.getElementById("voxel-status") as HTMLDivElement;
 const voxelContainer = document.getElementById("voxel-container") as HTMLDivElement;
 const voxelCanvas = document.getElementById("voxel-canvas") as HTMLCanvasElement;
-
-docsLink.addEventListener("click", () => {
-  navigateTo("https://developers.reddit.com/docs");
-});
-
-playtestLink.addEventListener("click", () => {
-  navigateTo("https://www.reddit.com/r/Devvit");
-});
-
-discordLink.addEventListener("click", () => {
-  navigateTo("https://discord.com/invite/R7yu2wh9Qz");
-});
-
 const titleElement = document.getElementById("title") as HTMLHeadingElement;
 
-let currentPostId: string | null = null;
 let voxelEngineLoaded = false;
 
-async function fetchInitialCount() {
+// Initialize user greeting
+async function initializeApp() {
   try {
     const response = await fetch("/api/init");
     if (!response.ok) {
@@ -58,51 +26,13 @@ async function fetchInitialCount() {
     }
     const data = (await response.json()) as InitResponse;
     if (data.type === "init") {
-      counterValueElement.textContent = data.count.toString();
-      currentPostId = data.postId; // Store postId for later use
-      titleElement.textContent = `Hey ${data.username} 👋`;
-    } else {
-      console.error("Invalid response type from /api/init", data);
-      counterValueElement.textContent = "Error";
+      titleElement.textContent = `Welcome ${data.username}!`;
     }
   } catch (error) {
-    console.error("Error fetching initial count:", error);
-    counterValueElement.textContent = "Error";
+    console.error("Error initializing app:", error);
+    titleElement.textContent = "Voxel World";
   }
 }
-
-async function updateCounter(action: "increment" | "decrement") {
-  if (!currentPostId) {
-    console.error("Cannot update counter: postId is not initialized.");
-    // Optionally, you could try to re-initialize or show an error to the user.
-    return;
-  }
-
-  try {
-    const response = await fetch(`/api/${action}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // The body can be an empty JSON object or include the postId if your backend expects it,
-      // but based on your server code, postId is taken from req.devvit.
-      body: JSON.stringify({}),
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = (await response.json()) as
-      | IncrementResponse
-      | DecrementResponse;
-    counterValueElement.textContent = data.count.toString();
-  } catch (error) {
-    console.error(`Error ${action}ing count:`, error);
-    // Optionally, display an error message to the user in the UI
-  }
-}
-
-incrementButton.addEventListener("click", () => updateCounter("increment"));
-decrementButton.addEventListener("click", () => updateCounter("decrement"));
 
 // Load voxel engine dynamically
 async function loadVoxelEngine(): Promise<void> {
@@ -112,7 +42,8 @@ async function loadVoxelEngine(): Promise<void> {
       return;
     }
 
-    wasmResult.textContent = "Loading voxel engine...";
+    voxelStatus.textContent = "Loading voxel engine...";
+    voxelStatus.classList.add("loading");
     
     // Set up the Module object for the voxel engine
     (window as any).Module = {
@@ -120,7 +51,8 @@ async function loadVoxelEngine(): Promise<void> {
       preRun: [],
       postRun: [() => {
         voxelEngineLoaded = true;
-        wasmResult.textContent = "Voxel engine loaded successfully!";
+        voxelStatus.textContent = "Ready to explore!";
+        voxelStatus.classList.remove("loading");
         resolve();
       }],
       print: (text: string) => {
@@ -131,7 +63,8 @@ async function loadVoxelEngine(): Promise<void> {
       },
       onAbort: (what: string) => {
         console.error("Voxel Engine Aborted:", what);
-        wasmResult.textContent = "Voxel engine failed to load";
+        voxelStatus.textContent = "Failed to load voxel engine";
+        voxelStatus.classList.remove("loading");
         reject(new Error(what));
       }
     };
@@ -142,7 +75,8 @@ async function loadVoxelEngine(): Promise<void> {
       console.log("Voxel engine script loaded");
     };
     script.onerror = () => {
-      wasmResult.textContent = "Failed to load voxel engine";
+      voxelStatus.textContent = "Failed to load voxel engine";
+      voxelStatus.classList.remove("loading");
       reject(new Error('Failed to load voxels.js'));
     };
     document.head.appendChild(script);
@@ -152,7 +86,8 @@ async function loadVoxelEngine(): Promise<void> {
 // Launch voxel engine
 async function launchVoxelEngine() {
   try {
-    wasmLaunchButton.disabled = true;
+    voxelLaunchButton.disabled = true;
+    voxelLaunchButton.textContent = "Loading...";
     
     if (!voxelEngineLoaded) {
       await loadVoxelEngine();
@@ -160,25 +95,46 @@ async function launchVoxelEngine() {
     
     // Show the voxel container
     voxelContainer.style.display = 'flex';
-    wasmResult.textContent = "Voxel engine running! Use WASD to move, mouse to look around.";
+    
+    // Hide the launch controls
+    const voxelControls = document.getElementById("voxel-controls");
+    if (voxelControls) {
+      voxelControls.style.display = 'none';
+    }
     
   } catch (error) {
     console.error("Failed to launch voxel engine:", error);
-    wasmResult.textContent = "Failed to launch voxel engine";
-    wasmLaunchButton.disabled = false;
+    voxelStatus.textContent = "Failed to launch voxel engine";
+    voxelLaunchButton.disabled = false;
+    voxelLaunchButton.textContent = "Launch Voxel World";
   }
 }
 
 // Close voxel engine
 function closeVoxelEngine() {
   voxelContainer.style.display = 'none';
-  wasmResult.textContent = "Voxel engine closed. Click Launch to restart.";
-  wasmLaunchButton.disabled = false;
+  
+  // Show the launch controls again
+  const voxelControls = document.getElementById("voxel-controls");
+  if (voxelControls) {
+    voxelControls.style.display = 'flex';
+  }
+  
+  voxelStatus.textContent = "Click to enter the voxel world";
+  voxelLaunchButton.disabled = false;
+  voxelLaunchButton.textContent = "Launch Voxel World";
 }
 
 // Event listeners
-wasmLaunchButton.addEventListener("click", launchVoxelEngine);
-wasmCloseButton.addEventListener("click", closeVoxelEngine);
+voxelLaunchButton.addEventListener("click", launchVoxelEngine);
+voxelCloseButton.addEventListener("click", closeVoxelEngine);
 
-// Initialize everything when the page loads
-fetchInitialCount();
+// Handle escape key to exit voxel world
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && voxelContainer.style.display === 'flex') {
+    closeVoxelEngine();
+  }
+});
+
+// Initialize the app
+initializeApp();

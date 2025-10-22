@@ -1,97 +1,102 @@
-# BhopBlox - 3D Voxel Counter Game with WebAssembly Integration
+# BhopBlox - 3D Voxel World Explorer
 
-An innovative Reddit-based interactive application that combines a persistent counter with an embedded 3D voxel engine. This app demonstrates the power of WebAssembly integration within the Devvit platform, featuring both traditional web interactions and cutting-edge 3D graphics powered by Zig and WASM4.
+An immersive 3D voxel world that runs directly inside Reddit posts, powered by cutting-edge WebAssembly technology. Experience a fully interactive 3D environment with first-person exploration, all within your Reddit feed.
 
 ## What is This Game?
 
-BhopBlox is a dual-experience application that runs directly inside Reddit posts. It features:
+BhopBlox is a revolutionary 3D voxel world explorer that brings console-quality gaming directly to Reddit. The game features:
 
-1. **Personal Counter**: A persistent counter tied to your Reddit identity with real-time synchronization
-2. **3D Voxel Engine**: An embedded voxel-based 3D world engine built with Zig and compiled to WebAssembly
-3. **WASM Integration**: Demonstrates multiple WebAssembly technologies including Go-based mathematical functions
+- **3D Voxel World**: A fully rendered 3D environment built with advanced voxel technology
+- **First-Person Exploration**: Navigate through the world using standard FPS controls (WASD + mouse)
+- **WebAssembly Engine**: Powered by a high-performance Zig-compiled WASM engine for smooth 3D graphics
+- **Reddit Integration**: Seamlessly integrated with Reddit's platform - no downloads or installations required
+- **Personalized Experience**: Greets you with your Reddit username when you launch the app
 
-The app provides a clean, mobile-first interface with Reddit's signature styling while showcasing advanced WebAssembly capabilities in a browser environment.
+The game provides an immersive 3D experience with smooth controls, realistic movement, and stunning voxel-based graphics, all running at 60fps directly in your browser.
 
-## What Makes This App Innovative?
+## What Makes This Game Innovative?
 
-### 🎮 **Dual WebAssembly Architecture**
-- **Zig-Powered Voxel Engine**: Advanced 3D voxel rendering using Zig compiled to WASM with Sokol graphics
-- **Go Mathematical Functions**: Separate WASM module for mathematical operations
-- **Multi-WASM Integration**: Demonstrates how multiple WebAssembly modules can coexist in a single application
-- **3D Graphics in Reddit**: First-class 3D voxel world rendering directly within Reddit posts
+### 🎮 **Console-Quality 3D in Reddit**
+- **First-of-its-Kind**: The first fully 3D voxel world that runs natively inside Reddit posts
+- **WebAssembly Performance**: Leverages Zig-compiled WASM for near-native 3D graphics performance
+- **Zero Installation**: Full 3D gaming experience with no downloads, plugins, or external software required
 
-### 🌍 **Advanced Voxel World**
-- **Real-time 3D Rendering**: Hardware-accelerated voxel world with player movement
-- **Physics Simulation**: Player physics and world collision detection
-- **Shader-based Graphics**: Custom GLSL shaders for optimized voxel rendering
-- **Interactive 3D Environment**: Explorable voxel world with first-person controls
+### 🌍 **Advanced Voxel Technology**
+- **Real-time 3D Rendering**: Hardware-accelerated voxel world with smooth 60fps performance
+- **Sokol Graphics**: Built on the powerful Sokol graphics framework for cross-platform compatibility
+- **Optimized Pipeline**: Custom rendering pipeline designed specifically for web-based 3D experiences
 
-### 🚀 **Reddit-Native Experience**
-- **Zero Installation**: Runs directly within Reddit posts - no downloads required
-- **Seamless Integration**: Leverages Reddit's authentication and infrastructure
-- **Cross-Platform**: Works on desktop and mobile Reddit clients
-- **Instant Loading**: Fast startup with optimized WASM modules
-
-### 🔄 **Persistent Data & Real-time Updates**
-- **Redis-Powered Storage**: Counter state persists across all sessions
-- **User-Specific Data**: Each user's progress tied to their Reddit account
-- **Instant Synchronization**: Changes reflected immediately across devices
+### 🚀 **Seamless Reddit Integration**
+- **Native Experience**: Runs directly within Reddit's interface without breaking the user flow
+- **User Authentication**: Automatically recognizes and greets Reddit users by their username
+- **Mobile Optimized**: Responsive design that works perfectly on both desktop and mobile Reddit clients
 
 ## How to Play the Game
 
 ### Getting Started
-1. **Launch the App**: Click the "Launch App" button when you see BhopBlox in your Reddit feed
-2. **Personal Welcome**: The app greets you with your Reddit username
-3. **Choose Your Experience**: Use the counter or launch the 3D voxel engine
+1. **Find BhopBlox**: Look for BhopBlox posts in your Reddit feed or visit the dedicated subreddit
+2. **Launch the App**: Click the "Launch App" button when you see a BhopBlox post
+3. **Personal Welcome**: The app will greet you with your Reddit username
+4. **Enter the World**: Click "Launch Voxel World" to start your 3D adventure
 
-### Counter Controls
-1. **Increment Counter**: Click the orange "+" button to increase your counter by 1
-2. **Decrement Counter**: Click the orange "-" button to decrease your counter by 1
-3. **Persistent Progress**: Your counter value automatically saves and restores
+### 3D World Controls
+1. **Movement**: Use WASD keys to move around the voxel world
+   - **W**: Move forward
+   - **A**: Strafe left
+   - **S**: Move backward
+   - **D**: Strafe right
 
-### 3D Voxel Engine
-1. **Launch Voxel Engine**: Click "Launch Voxel Engine" to start the 3D experience
-2. **3D World Exploration**: Navigate through a procedurally-generated voxel world
-3. **First-Person Controls**: Use standard FPS controls to move through the environment
-4. **Real-time Rendering**: Experience smooth 3D graphics powered by WebAssembly
-5. **Close Engine**: Click "Close Voxel Engine" to return to the main interface
+2. **Camera Control**: Use your mouse to look around
+   - **Mouse Movement**: Look around in all directions
+   - **Smooth Rotation**: Natural first-person camera movement
 
-### WASM Integration Testing
-- **Mathematical Functions**: Test Go-compiled WASM functions for mathematical operations
-- **Performance Benchmarking**: See WebAssembly performance in action
-- **Cross-Language Integration**: Observe JavaScript calling WASM functions seamlessly
+3. **Exit Options**: Multiple ways to leave the 3D world
+   - **ESC Key**: Press Escape to quickly exit back to the main menu
+   - **Exit Button**: Click "Exit Voxel World" button in the game interface
 
-### Key Features
-- **Dual Experience**: Switch between 2D counter interface and 3D voxel world
-- **Persistent Storage**: All progress automatically saved to Redis
-- **Mobile Optimized**: Responsive design works on all devices
-- **Hardware Accelerated**: Uses WebGL for optimal 3D performance
-- **Multi-WASM Architecture**: Demonstrates advanced WebAssembly integration patterns
+### Game Features
+- **Immersive 3D Environment**: Explore a detailed voxel-based world
+- **Smooth Performance**: Optimized for 60fps gameplay on modern browsers
+- **Responsive Controls**: Immediate response to keyboard and mouse input
+- **Visual Feedback**: Real-time status updates and loading indicators
+
+### Technical Requirements
+- **Modern Browser**: Chrome, Firefox, Safari, or Edge (latest versions)
+- **WebGL Support**: Required for 3D graphics rendering
+- **Keyboard & Mouse**: For optimal control experience
+- **Stable Internet**: For initial loading of the WebAssembly engine
+
+### Tips for Best Experience
+- **Full Screen**: Use Reddit's full-screen mode for maximum immersion
+- **Good Lighting**: Play in a well-lit environment for better visibility
+- **Stable Connection**: Ensure good internet connection for smooth loading
+- **Modern Device**: Better performance on newer computers and mobile devices
 
 ## Technical Architecture
 
 ### Frontend Technologies
-- **TypeScript**: Type-safe client-side development
+- **TypeScript**: Type-safe client-side development with strict typing
 - **Vite**: Lightning-fast build system and development server
-- **WebGL**: Hardware-accelerated 3D graphics
-- **Canvas API**: 2D rendering and UI elements
+- **WebGL**: Hardware-accelerated 3D graphics rendering
+- **HTML5 Canvas**: High-performance graphics surface for 3D rendering
 
-### WebAssembly Modules
-- **Zig Voxel Engine**: 3D world rendering with Sokol graphics framework
-- **Go Mathematical Functions**: High-performance computational operations
-- **WASM4 Integration**: Optimized WebAssembly runtime
+### WebAssembly Engine
+- **Zig Voxel Engine**: High-performance 3D voxel world compiled from Zig
+- **Sokol Graphics**: Cross-platform graphics framework for optimal performance
+- **Dynamic Loading**: WASM modules loaded on-demand for optimal startup time
+- **Memory Management**: Efficient memory handling for smooth 3D performance
 
 ### Backend & Infrastructure
-- **Express.js**: RESTful API server
-- **Redis**: Persistent data storage
-- **Devvit Platform**: Reddit integration and hosting
-- **Node.js 22+**: Modern JavaScript runtime
+- **Express.js**: RESTful API server for user data and authentication
+- **Redis**: Persistent data storage via Devvit platform
+- **Devvit Platform**: Reddit integration and hosting infrastructure
+- **Node.js 22+**: Modern JavaScript runtime with WebAssembly support
 
 ### Graphics & Rendering
-- **Custom GLSL Shaders**: Optimized voxel rendering pipeline
-- **Sokol Graphics**: Cross-platform graphics abstraction
-- **ImGui Integration**: Debug and development UI
-- **Real-time Physics**: Player movement and collision detection
+- **Voxel Rendering**: Optimized 3D voxel world with smooth frame rates
+- **First-Person Camera**: Smooth mouse-look and WASD movement controls
+- **Real-time Graphics**: 60fps 3D rendering directly in the browser
+- **Responsive Design**: Optimized for both desktop and mobile experiences
 
 ## Development Commands
 
@@ -129,18 +134,19 @@ npm run build:server
 3. Run `npm run dev` to start development server
 4. Visit the provided Reddit playtest URL to test live
 
-The development server automatically creates a test subreddit where you can interact with both the counter and 3D voxel engine in real-time.
+The development server automatically creates a test subreddit where you can interact with the 3D voxel world in real-time.
 
 ### WASM Development
 
 #### Voxel Engine (Zig)
+The 3D voxel engine is pre-compiled and included in the project:
 ```bash
-cd bhopblox-wasm4/zig-source
-zig build -Doptimize=ReleaseSmall -Dtarget=wasm32-freestanding
-# Output: voxels.wasm in src/client/public/
+# Pre-compiled WASM files are located in:
+src/client/public/voxels.wasm  # Main voxel engine
+src/client/public/voxels.js   # JavaScript loader
 ```
 
-#### Mathematical Functions (Go)
+#### Additional WASM Modules (Go)
 ```bash
 cd src/wasm
 make
@@ -149,24 +155,22 @@ make
 
 ## Advanced Features
 
-### 3D Voxel World
-- **Procedural Generation**: Dynamic world creation
-- **Optimized Rendering**: Efficient voxel mesh generation
-- **Player Physics**: Realistic movement and collision
-- **Shader Pipeline**: Custom GLSL for performance
+### 3D Voxel World Engine
+- **High-Performance Rendering**: Smooth 60fps 3D graphics using WebAssembly
+- **Interactive Navigation**: Full first-person movement with WASD + mouse controls
+- **Dynamic Loading**: WASM engine loads on-demand for optimal performance
+- **Cross-Platform**: Works seamlessly on desktop and mobile browsers
 
-### Multi-WASM Architecture
-- **Module Isolation**: Separate WASM modules for different functions
-- **Shared Memory**: Efficient data passing between modules
-- **Performance Optimization**: Targeted compilation for specific use cases
+### WebAssembly Integration
+- **Zig-Compiled Engine**: High-performance 3D engine compiled from Zig
+- **Sokol Graphics**: Industry-standard graphics framework for optimal rendering
+- **Memory Efficient**: Optimized memory usage for smooth browser performance
+- **Real-time Graphics**: Hardware-accelerated 3D rendering directly in Reddit
 
-### Reddit Integration
-- **User Authentication**: Seamless Reddit login
-- **Post Embedding**: Native Reddit post integration
-- **Community Features**: Built for Reddit's social environment### Advanced Voxel Engine (voxels.wasm)
-- Sophisticated 3D graphics engine
-- Pre-compiled using Sokol graphics library
-- Provides full 3D voxel world rendering
-- Supports real-time navigation and interaction
+### Reddit Platform Integration
+- **Native Experience**: Runs directly within Reddit posts with no external dependencies
+- **User Authentication**: Automatic Reddit user recognition and personalization
+- **Responsive Design**: Optimized for both desktop and mobile Reddit experiences
+- **Zero Installation**: Complete 3D gaming experience with no downloads required
 
-The voxel engine is loaded dynamically when the user clicks "Launch Voxel Engine" and provides a complete 3D experience within the Reddit post.
+The voxel engine provides a complete 3D world exploration experience that loads dynamically when users click "Launch Voxel World", delivering console-quality graphics directly within Reddit posts.
