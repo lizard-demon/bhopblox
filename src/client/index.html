@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height, user-scalable=0"
-    />
-    <title>Devvit Experimental</title>
-  </head>
-  <body class="app">
-    <div class="content">
-      <h1 class="title" id="title">Voxel World</h1>
-      <p class="description">
-        A 3D voxel world powered by WebAssembly
-      </p>
-    </div>
-    
-    <div class="voxel-section">
-      <div class="voxel-controls" id="voxel-controls">
-        <button class="voxel-button" id="voxel-launch">Launch Voxel World</button>
-        <div class="voxel-status" id="voxel-status">Click to enter the voxel world</div>
-      </div>
-      <div class="voxel-container" id="voxel-container" style="display: none;">
-        <canvas class="voxel-canvas" id="voxel-canvas"></canvas>
-        <div class="voxel-ui">
-          <div class="controls-info">WASD to move • Mouse to look • ESC to exit</div>
-          <button class="voxel-button close-button" id="voxel-close">Exit Voxel World</button>
-        </div>
-      </div>
-    </div>
-    <script type="module" src="main.ts" defer></script>
-  </body>
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voxel World</title>
+</head>
+
+<body>
+  <div id="menu">
+    <h1 id="title">Voxel World</h1>
+    <button id="launch">Lunch</button>
+    <div id="status">Test</div>
+  </div>
+
+  <div id="game" style="display: none;">
+    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+    <button id="exit">Exit</button>
+  </div>
+
+  <script type="module" src="main.ts"></script>
+</body>
+
 </html>

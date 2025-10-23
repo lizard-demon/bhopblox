@@ -1,140 +1,77 @@
 import { InitResponse } from "../shared/types/api";
 
-// Declare global Module interface for voxel engine
-declare global {
-  interface Window {
-    Module: any;
-  }
-}
+// Elements
+const menu = document.getElementById("menu")!;
+const game = document.getElementById("game")!;
+const title = document.getElementById("title")!;
+const status = document.getElementById("status")!;
+const launch = document.getElementById("launch")! as HTMLButtonElement;
+const exit = document.getElementById("exit")!;
+const canvas = document.getElementById("canvas")!;
 
-// Voxel engine elements
-const voxelLaunchButton = document.getElementById("voxel-launch") as HTMLButtonElement;
-const voxelCloseButton = document.getElementById("voxel-close") as HTMLButtonElement;
-const voxelStatus = document.getElementById("voxel-status") as HTMLDivElement;
-const voxelContainer = document.getElementById("voxel-container") as HTMLDivElement;
-const voxelCanvas = document.getElementById("voxel-canvas") as HTMLCanvasElement;
-const titleElement = document.getElementById("title") as HTMLHeadingElement;
+let loaded = false;
 
-let voxelEngineLoaded = false;
-
-// Initialize user greeting
-async function initializeApp() {
-  try {
-    const response = await fetch("/api/init");
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = (await response.json()) as InitResponse;
+// Get username
+fetch("/api/init")
+  .then(res => res.json())
+  .then((data: InitResponse) => {
     if (data.type === "init") {
-      titleElement.textContent = `Welcome ${data.username}!`;
+      title.textContent = `Welcome ${data.username}!`;
     }
-  } catch (error) {
-    console.error("Error initializing app:", error);
-    titleElement.textContent = "Voxel World";
-  }
-}
+  })
+  .catch(() => {
+    title.textContent = "Voxel World";
+  });
 
-// Load voxel engine dynamically
-async function loadVoxelEngine(): Promise<void> {
+// Load voxel engine
+function loadEngine(): Promise<void> {
   return new Promise((resolve, reject) => {
-    if (voxelEngineLoaded) {
-      resolve();
-      return;
-    }
-
-    voxelStatus.textContent = "Loading voxel engine...";
-    voxelStatus.classList.add("loading");
+    if (loaded) return resolve();
     
-    // Set up the Module object for the voxel engine
+    status.textContent = "Loading...";
+    launch.disabled = true;
+    
+    // Setup WASM module
     (window as any).Module = {
-      canvas: voxelCanvas,
-      preRun: [],
+      canvas,
       postRun: [() => {
-        voxelEngineLoaded = true;
-        voxelStatus.textContent = "Ready to explore!";
-        voxelStatus.classList.remove("loading");
+        loaded = true;
+        status.textContent = "Ready!";
+        launch.disabled = false;
         resolve();
       }],
-      print: (text: string) => {
-        console.log("Voxel Engine:", text);
-      },
-      printErr: (text: string) => {
-        console.error("Voxel Engine Error:", text);
-      },
-      onAbort: (what: string) => {
-        console.error("Voxel Engine Aborted:", what);
-        voxelStatus.textContent = "Failed to load voxel engine";
-        voxelStatus.classList.remove("loading");
-        reject(new Error(what));
-      }
+      onAbort: reject
     };
-
-    const script = document.createElement('script');
-    script.src = 'voxels.js';
-    script.onload = () => {
-      console.log("Voxel engine script loaded");
-    };
-    script.onerror = () => {
-      voxelStatus.textContent = "Failed to load voxel engine";
-      voxelStatus.classList.remove("loading");
-      reject(new Error('Failed to load voxels.js'));
-    };
+    
+    // Load script
+    const script = document.createElement("script");
+    script.src = "voxels.js";
+    script.onerror = reject;
     document.head.appendChild(script);
   });
 }
 
-// Launch voxel engine
-async function launchVoxelEngine() {
+// Launch game
+launch.onclick = async () => {
   try {
-    voxelLaunchButton.disabled = true;
-    voxelLaunchButton.textContent = "Loading...";
-    
-    if (!voxelEngineLoaded) {
-      await loadVoxelEngine();
-    }
-    
-    // Show the voxel container
-    voxelContainer.style.display = 'flex';
-    
-    // Hide the launch controls
-    const voxelControls = document.getElementById("voxel-controls");
-    if (voxelControls) {
-      voxelControls.style.display = 'none';
-    }
-    
-  } catch (error) {
-    console.error("Failed to launch voxel engine:", error);
-    voxelStatus.textContent = "Failed to launch voxel engine";
-    voxelLaunchButton.disabled = false;
-    voxelLaunchButton.textContent = "Launch Voxel World";
+    await loadEngine();
+    menu.style.display = "none";
+    game.style.display = "flex";
+  } catch {
+    status.textContent = "Failed to load";
+    launch.disabled = false;
   }
-}
+};
 
-// Close voxel engine
-function closeVoxelEngine() {
-  voxelContainer.style.display = 'none';
-  
-  // Show the launch controls again
-  const voxelControls = document.getElementById("voxel-controls");
-  if (voxelControls) {
-    voxelControls.style.display = 'flex';
+// Exit game
+exit.onclick = () => {
+  menu.style.display = "block";
+  game.style.display = "none";
+};
+
+// ESC to exit
+document.onkeydown = (e) => {
+  if (e.key === "Escape" && game.style.display === "flex") {
+    exit.click();
   }
-  
-  voxelStatus.textContent = "Click to enter the voxel world";
-  voxelLaunchButton.disabled = false;
-  voxelLaunchButton.textContent = "Launch Voxel World";
-}
-
-// Event listeners
-voxelLaunchButton.addEventListener("click", launchVoxelEngine);
-voxelCloseButton.addEventListener("click", closeVoxelEngine);
-
-// Handle escape key to exit voxel world
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && voxelContainer.style.display === 'flex') {
-    closeVoxelEngine();
-  }
-});
-
-// Initialize the app
-initializeApp();
+};
