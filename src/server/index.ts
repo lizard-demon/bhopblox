@@ -6,14 +6,13 @@ import { createPost } from "./core/post";
 const app = express();
 app.use(express.json());
 
-// Get username for personalization
+// Initialize client with user info
 app.get("/api/init", async (_req, res) => {
   try {
     const username = await reddit.getCurrentUsername();
     res.json({
       type: "init",
       postId: context.postId || "unknown",
-      count: 0, // Not used but kept for compatibility
       username: username || "anonymous",
     } as InitResponse);
   } catch (error) {
@@ -22,7 +21,7 @@ app.get("/api/init", async (_req, res) => {
   }
 });
 
-// Create post when app is installed
+// Auto-create post on app install
 app.post("/internal/on-app-install", async (_req, res) => {
   try {
     const post = await createPost();
@@ -33,7 +32,7 @@ app.post("/internal/on-app-install", async (_req, res) => {
   }
 });
 
-// Create post from menu
+// Manual post creation from menu
 app.post("/internal/menu/post-create", async (_req, res) => {
   try {
     const post = await createPost();
@@ -46,5 +45,4 @@ app.post("/internal/menu/post-create", async (_req, res) => {
   }
 });
 
-const server = createServer(app);
-server.listen(getServerPort());
+createServer(app).listen(getServerPort());

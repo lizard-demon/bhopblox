@@ -7,20 +7,15 @@ export const createPost = async () => {
   }
 
   return await reddit.submitCustomPost({
-    splash: { // Splash Screen Configuration
-      appDisplayName: 'bhopblox', 
+    splash: {
+      appDisplayName: 'BhopBlox', 
       backgroundUri: 'default-splash.png',
-      buttonLabel: 'Tap to Start',
-      description: 'An exciting interactive experience',
-      entryUri: 'index.html',
-      heading: 'Welcome to the Game!',
+      buttonLabel: 'Play Now',
+      description: 'A 3D voxel world adventure',
+      heading: 'Enter the Voxel World',
       appIconUri: 'default-icon.png',
     },
-    postData: {
-      gameState: 'initial',
-      score: 0
-    },
-    subredditName: subredditName,
-    title: "bhopblox",
+    subredditName,
+    title: "BhopBlox - 3D Voxel Adventure",
   });
 };

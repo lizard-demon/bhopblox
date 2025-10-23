@@ -9,33 +9,32 @@ const launch = document.getElementById("launch")! as HTMLButtonElement;
 const exit = document.getElementById("exit")!;
 const canvas = document.getElementById("canvas")!;
 
-let loaded = false;
+let engineLoaded = false;
 
-// Get username
-fetch("/api/init")
-  .then(res => res.json())
-  .then((data: InitResponse) => {
-    if (data.type === "init") {
-      title.textContent = `Welcome ${data.username}!`;
-    }
-  })
-  .catch(() => {
+// Initialize app
+async function init() {
+  try {
+    const response = await fetch("/api/init");
+    const data: InitResponse = await response.json();
+    title.textContent = `Welcome ${data.username}!`;
+  } catch {
     title.textContent = "Voxel World";
-  });
+  }
+}
 
 // Load voxel engine
-function loadEngine(): Promise<void> {
-  return new Promise((resolve, reject) => {
-    if (loaded) return resolve();
-    
-    status.textContent = "Loading...";
-    launch.disabled = true;
-    
+async function loadEngine() {
+  if (engineLoaded) return;
+  
+  status.textContent = "Loading...";
+  launch.disabled = true;
+  
+  return new Promise<void>((resolve, reject) => {
     // Setup WASM module
     (window as any).Module = {
       canvas,
       postRun: [() => {
-        loaded = true;
+        engineLoaded = true;
         status.textContent = "Ready!";
         launch.disabled = false;
         resolve();
@@ -43,7 +42,7 @@ function loadEngine(): Promise<void> {
       onAbort: reject
     };
     
-    // Load script
+    // Load WASM script
     const script = document.createElement("script");
     script.src = "voxels.js";
     script.onerror = reject;
@@ -51,27 +50,29 @@ function loadEngine(): Promise<void> {
   });
 }
 
-// Launch game
+// Event handlers
 launch.onclick = async () => {
   try {
     await loadEngine();
     menu.style.display = "none";
     game.style.display = "flex";
   } catch {
-    status.textContent = "Failed to load";
+    status.textContent = "Failed to load engine";
     launch.disabled = false;
   }
 };
 
-// Exit game
 exit.onclick = () => {
   menu.style.display = "block";
   game.style.display = "none";
 };
 
-// ESC to exit
-document.onkeydown = (e) => {
+// ESC key to exit game
+document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && game.style.display === "flex") {
     exit.click();
   }
-};
+});
+
+// Initialize on load
+init();
