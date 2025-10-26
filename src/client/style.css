@@ -16,7 +16,8 @@ body {
 
 #menu {
   text-align: center;
-  max-width: 400px;
+  max-width: 500px;
+  width: 90vw;
 }
 
 #title {
@@ -48,6 +49,87 @@ button:disabled {
 #status {
   margin-top: 1rem;
   color: #b8c6db;
+}
+
+#database-section {
+  margin: 2rem 0;
+}
+
+#database-section h2 {
+  color: #4ecdc4;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+#entries-list {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  background: rgba(102, 126, 234, 0.1);
+  margin-bottom: 1rem;
+}
+
+.entry-item {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-align: left;
+}
+
+.entry-item:hover {
+  background: rgba(102, 126, 234, 0.2);
+}
+
+.entry-item:last-child {
+  border-bottom: none;
+}
+
+.entry-item.selected {
+  background: rgba(78, 205, 196, 0.2);
+  border-left: 4px solid #4ecdc4;
+}
+
+.entry-title {
+  font-weight: bold;
+  color: #4ecdc4;
+  margin-bottom: 0.5rem;
+}
+
+.entry-description {
+  color: #b8c6db;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.entry-meta {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.loading {
+  padding: 2rem;
+  color: #b8c6db;
+}
+
+/* Scrollbar styling */
+#entries-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+#entries-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+#entries-list::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 4px;
+}
+
+#entries-list::-webkit-scrollbar-thumb:hover {
+  background: #5a67d8;
 }
 
 #game {

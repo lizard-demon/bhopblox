@@ -1,4 +1,4 @@
-import { InitResponse } from "../shared/types/api";
+import { InitResponse, GetEntriesResponse, DatabaseEntry } from "../shared/types/api";
 
 // Elements
 const menu = document.getElementById("menu")!;
@@ -8,8 +8,59 @@ const status = document.getElementById("status")!;
 const launch = document.getElementById("launch")! as HTMLButtonElement;
 const exit = document.getElementById("exit")!;
 const canvas = document.getElementById("canvas")!;
+const entriesList = document.getElementById("entries-list")!
 
 let engineLoaded = false;
+let selectedEntry: DatabaseEntry | null = null;
+
+// Load and display database entries
+async function loadEntries() {
+  entriesList.innerHTML = '<div class="loading">Loading worlds...</div>';
+  
+  try {
+    const response = await fetch("/api/entries");
+    const data: GetEntriesResponse = await response.json();
+    
+    if (data.entries.length === 0) {
+      entriesList.innerHTML = '<div class="loading">No worlds found</div>';
+      return;
+    }
+    
+    entriesList.innerHTML = '';
+    
+    data.entries.forEach(entry => {
+      const entryElement = document.createElement('div');
+      entryElement.className = 'entry-item';
+      
+      const createdDate = new Date(entry.createdAt).toLocaleDateString();
+      
+      entryElement.innerHTML = `
+        <div class="entry-title">${entry.title}</div>
+        <div class="entry-description">${entry.description}</div>
+        <div class="entry-meta">By ${entry.author} • ${createdDate}</div>
+      `;
+      
+      entryElement.addEventListener('click', () => {
+        // Remove previous selection
+        document.querySelectorAll('.entry-item').forEach(el => {
+          el.classList.remove('selected');
+        });
+        
+        // Select this entry
+        entryElement.classList.add('selected');
+        selectedEntry = entry;
+        
+        // Update launch button text
+        launch.textContent = `Launch "${entry.title}"`;
+      });
+      
+      entriesList.appendChild(entryElement);
+    });
+  } catch (error) {
+    console.error('Failed to load entries:', error);
+    entriesList.innerHTML = '<div class="loading">Failed to load worlds</div>';
+  }
+}
 
 // Initialize app
 async function init() {
@@ -17,8 +68,10 @@ async function init() {
     const response = await fetch("/api/init");
     const data: InitResponse = await response.json();
     title.textContent = `Welcome ${data.username}!`;
+    await loadEntries();
   } catch {
     title.textContent = "Voxel World";
+    await loadEntries();
   }
 }
 
@@ -52,6 +105,11 @@ async function loadEngine() {
 
 // Event handlers
 launch.onclick = async () => {
+  if (!selectedEntry) {
+    status.textContent = "Please select a world first";
+    return;
+  }
+  
   try {
     await loadEngine();
     menu.style.display = "none";
