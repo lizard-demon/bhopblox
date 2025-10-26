@@ -6,7 +6,7 @@
 }
 
 body {
-  background: #1a1a2e;
+  background: #222;
   color: white;
   height: 100vh;
   display: flex;
@@ -16,120 +16,94 @@ body {
 
 #menu {
   text-align: center;
-  max-width: 500px;
+  max-width: 400px;
   width: 90vw;
 }
 
 #title {
   font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #4fc3f7;
+}
+
+#worlds {
+  margin: 2rem 0;
+}
+
+#worlds h2 {
+  color: #4fc3f7;
   margin-bottom: 1rem;
-  color: #4ecdc4;
+}
+
+#world-list {
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #333;
+  margin-bottom: 1rem;
+}
+
+.world-item {
+  padding: 0.75rem;
+  border-bottom: 1px solid #555;
+  cursor: pointer;
+  text-align: left;
+}
+
+.world-item:hover {
+  background: #444;
+}
+
+.world-item:last-child {
+  border-bottom: none;
+}
+
+.world-item.selected {
+  background: #4fc3f7;
+  color: #222;
+}
+
+.world-title {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.world-description {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.loading {
+  padding: 1rem;
+  opacity: 0.7;
 }
 
 button {
-  background: #667eea;
-  color: white;
+  background: #4fc3f7;
+  color: #222;
   border: none;
   padding: 12px 24px;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: bold;
   margin: 8px;
 }
 
 button:hover {
-  background: #5a67d8;
+  background: #29b6f6;
 }
 
 button:disabled {
   background: #666;
+  color: #999;
   cursor: not-allowed;
 }
 
 #status {
   margin-top: 1rem;
-  color: #b8c6db;
-}
-
-#database-section {
-  margin: 2rem 0;
-}
-
-#database-section h2 {
-  color: #4ecdc4;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-#entries-list {
-  max-height: 300px;
-  overflow-y: auto;
-  border: 2px solid #667eea;
-  border-radius: 8px;
-  background: rgba(102, 126, 234, 0.1);
-  margin-bottom: 1rem;
-}
-
-.entry-item {
-  padding: 1rem;
-  border-bottom: 1px solid rgba(102, 126, 234, 0.3);
-  cursor: pointer;
-  transition: background-color 0.2s;
-  text-align: left;
-}
-
-.entry-item:hover {
-  background: rgba(102, 126, 234, 0.2);
-}
-
-.entry-item:last-child {
-  border-bottom: none;
-}
-
-.entry-item.selected {
-  background: rgba(78, 205, 196, 0.2);
-  border-left: 4px solid #4ecdc4;
-}
-
-.entry-title {
-  font-weight: bold;
-  color: #4ecdc4;
-  margin-bottom: 0.5rem;
-}
-
-.entry-description {
-  color: #b8c6db;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-
-.entry-meta {
-  font-size: 0.8rem;
-  color: #888;
-}
-
-.loading {
-  padding: 2rem;
-  color: #b8c6db;
-}
-
-/* Scrollbar styling */
-#entries-list::-webkit-scrollbar {
-  width: 8px;
-}
-
-#entries-list::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-#entries-list::-webkit-scrollbar-thumb {
-  background: #667eea;
-  border-radius: 4px;
-}
-
-#entries-list::-webkit-scrollbar-thumb:hover {
-  background: #5a67d8;
+  opacity: 0.7;
 }
 
 #game {
@@ -140,7 +114,6 @@ button:disabled {
   height: 100%;
   background: black;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -148,19 +121,19 @@ button:disabled {
 #canvas {
   width: 90vw;
   height: 80vh;
-  max-width: 1200px;
-  max-height: 800px;
-  border: 2px solid #667eea;
-  background: black;
+  max-width: 1000px;
+  max-height: 700px;
+  border: 1px solid #555;
 }
 
 #exit {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: #ff6b6b;
+  background: #f44336;
+  color: white;
 }
 
 #exit:hover {
-  background: #ff5252;
+  background: #d32f2f;
 }

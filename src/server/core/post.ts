@@ -8,14 +8,14 @@ export const createPost = async () => {
 
   return await reddit.submitCustomPost({
     splash: {
-      appDisplayName: 'BhopBlox', 
+      appDisplayName: 'Voxel World', 
       backgroundUri: 'default-splash.png',
-      buttonLabel: 'Play Now',
-      description: 'A 3D voxel world adventure',
-      heading: 'Enter the Voxel World',
+      buttonLabel: 'Play',
+      description: 'Explore 3D voxel worlds',
+      heading: 'Voxel World Adventure',
       appIconUri: 'default-icon.png',
     },
     subredditName,
-    title: "BhopBlox - 3D Voxel Adventure",
+    title: "Voxel World - 3D Adventure Game",
   });
 };

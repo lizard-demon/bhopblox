@@ -1,64 +1,54 @@
 import { InitResponse, GetEntriesResponse, DatabaseEntry } from "../shared/types/api";
 
-// Elements
+// DOM elements
 const menu = document.getElementById("menu")!;
 const game = document.getElementById("game")!;
 const title = document.getElementById("title")!;
 const status = document.getElementById("status")!;
-const launch = document.getElementById("launch")! as HTMLButtonElement;
-const exit = document.getElementById("exit")!;
+const playBtn = document.getElementById("play")! as HTMLButtonElement;
+const exitBtn = document.getElementById("exit")!;
 const canvas = document.getElementById("canvas")!;
-const entriesList = document.getElementById("entries-list")!
+const worldList = document.getElementById("world-list")!;
 
 let engineLoaded = false;
-let selectedEntry: DatabaseEntry | null = null;
+let selectedWorld: DatabaseEntry | null = null;
 
-// Load and display database entries
-async function loadEntries() {
-  entriesList.innerHTML = '<div class="loading">Loading worlds...</div>';
-  
+// Load worlds from server
+async function loadWorlds() {
+  worldList.innerHTML = '<div class="loading">Loading worlds...</div>';
+
   try {
     const response = await fetch("/api/entries");
     const data: GetEntriesResponse = await response.json();
-    
+
     if (data.entries.length === 0) {
-      entriesList.innerHTML = '<div class="loading">No worlds found</div>';
+      worldList.innerHTML = '<div class="loading">No worlds available</div>';
       return;
     }
-    
-    entriesList.innerHTML = '';
-    
+
+    worldList.innerHTML = '';
+
     data.entries.forEach(entry => {
-      const entryElement = document.createElement('div');
-      entryElement.className = 'entry-item';
-      
-      const createdDate = new Date(entry.createdAt).toLocaleDateString();
-      
-      entryElement.innerHTML = `
-        <div class="entry-title">${entry.title}</div>
-        <div class="entry-description">${entry.description}</div>
-        <div class="entry-meta">By ${entry.author} • ${createdDate}</div>
+      const worldItem = document.createElement('div');
+      worldItem.className = 'world-item';
+      worldItem.innerHTML = `
+        <div class="world-title">${entry.title}</div>
+        <div class="world-description">${entry.description}</div>
       `;
-      
-      entryElement.addEventListener('click', () => {
-        // Remove previous selection
-        document.querySelectorAll('.entry-item').forEach(el => {
-          el.classList.remove('selected');
-        });
-        
-        // Select this entry
-        entryElement.classList.add('selected');
-        selectedEntry = entry;
-        
-        // Update launch button text
-        launch.textContent = `Launch "${entry.title}"`;
-      });
-      
-      entriesList.appendChild(entryElement);
+
+      worldItem.onclick = () => {
+        document.querySelectorAll('.world-item').forEach(el => el.classList.remove('selected'));
+        worldItem.classList.add('selected');
+        selectedWorld = entry;
+        playBtn.textContent = `Play "${entry.title}"`;
+        playBtn.disabled = false;
+      };
+
+      worldList.appendChild(worldItem);
     });
   } catch (error) {
-    console.error('Failed to load entries:', error);
-    entriesList.innerHTML = '<div class="loading">Failed to load worlds</div>';
+    console.error('Failed to load worlds:', error);
+    worldList.innerHTML = '<div class="loading">Failed to load worlds</div>';
   }
 }
 
@@ -68,34 +58,30 @@ async function init() {
     const response = await fetch("/api/init");
     const data: InitResponse = await response.json();
     title.textContent = `Welcome ${data.username}!`;
-    await loadEntries();
   } catch {
     title.textContent = "Voxel World";
-    await loadEntries();
   }
+  await loadWorlds();
 }
 
 // Load voxel engine
 async function loadEngine() {
   if (engineLoaded) return;
-  
-  status.textContent = "Loading...";
-  launch.disabled = true;
-  
+
+  status.textContent = "Loading engine...";
+  playBtn.disabled = true;
+
   return new Promise<void>((resolve, reject) => {
-    // Setup WASM module
     (window as any).Module = {
       canvas,
       postRun: [() => {
         engineLoaded = true;
-        status.textContent = "Ready!";
-        launch.disabled = false;
+        status.textContent = "Ready";
         resolve();
       }],
       onAbort: reject
     };
-    
-    // Load WASM script
+
     const script = document.createElement("script");
     script.src = "voxels.js";
     script.onerror = reject;
@@ -104,33 +90,31 @@ async function loadEngine() {
 }
 
 // Event handlers
-launch.onclick = async () => {
-  if (!selectedEntry) {
-    status.textContent = "Please select a world first";
+playBtn.onclick = async () => {
+  if (!selectedWorld) {
+    status.textContent = "Select a world first";
     return;
   }
-  
+
   try {
     await loadEngine();
     menu.style.display = "none";
     game.style.display = "flex";
   } catch {
     status.textContent = "Failed to load engine";
-    launch.disabled = false;
+    playBtn.disabled = false;
   }
 };
 
-exit.onclick = () => {
+exitBtn.onclick = () => {
   menu.style.display = "block";
   game.style.display = "none";
 };
 
-// ESC key to exit game
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && game.style.display === "flex") {
-    exit.click();
+    exitBtn.click();
   }
 });
 
-// Initialize on load
 init();

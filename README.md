@@ -7,7 +7,7 @@ An immersive 3D voxel world explorer that runs directly inside Reddit posts, pow
 Voxel World Explorer is a 3D voxel-based exploration game that brings interactive 3D gaming directly to Reddit. The game features:
 
 - **World Selection Interface**: Browse and select from a curated database of unique voxel worlds, each with distinct themes and environments
-- **12 Unique Worlds**: Pre-loaded with diverse worlds including Crystal Caves, Sky Islands, Ocean Mining, Volcano Bases, Ice Palaces, and more
+- **6 Unique Worlds**: Pre-loaded with diverse worlds including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
 - **3D Voxel Engine**: Fully rendered 3D environments powered by a WebAssembly engine (voxels.wasm) with smooth performance
 - **First-Person Exploration**: Navigate through selected worlds using standard FPS controls
 - **WebAssembly Performance**: Powered by a compiled WASM engine with JavaScript bridge for optimal 3D rendering
@@ -23,7 +23,7 @@ The game provides an immersive world selection and 3D exploration experience, al
 
 ### 🎮 **World Selection Gaming in Reddit Posts**
 - **Reddit-Native 3D**: A fully 3D voxel world explorer that runs natively inside Reddit posts
-- **Curated World Database**: Browse and select from 12 unique pre-loaded worlds with distinct themes and environments
+- **Curated World Database**: Browse and select from 6 unique pre-loaded worlds with distinct themes and environments
 - **WebAssembly Performance**: Leverages a high-performance WASM engine (voxels.wasm) with JavaScript bridge for smooth 3D graphics
 - **Zero Installation**: Full 3D world exploration experience with no downloads, plugins, or external software required
 - **Devvit Platform**: Built on Reddit's official developer platform for seamless integration
@@ -31,7 +31,7 @@ The game provides an immersive world selection and 3D exploration experience, al
 ### 🌍 **Dynamic World Selection System**
 - **World Database**: Redis-backed persistent storage of world metadata, descriptions, authors, and creation dates
 - **Interactive Selection**: Click-to-select interface with visual feedback and world previews
-- **Diverse Themes**: 12 unique worlds including Crystal Caves, Sky Islands, Ocean Mining, Volcano Bases, Ice Palaces, Desert Oases, and more
+- **Diverse Themes**: 6 unique worlds including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
 - **World Metadata**: Each world includes title, description, author, and creation timestamp for rich context
 - **Selection Validation**: Must select a world before launching the 3D engine
 
@@ -68,44 +68,38 @@ The game features a world selection interface before entering the 3D environment
 
 #### World Browser Interface
 - **Title**: Shows "Voxel World" or personalized greeting with your Reddit username
-- **Explore Worlds Section**: Scrollable list displaying all available worlds with detailed information
+- **Select World Section**: Scrollable list displaying all available worlds with detailed information
 - **World Cards**: Each world shows:
-  - **Title**: Name of the world (e.g., "Crystal Cave Explorer", "Sky Island Builder")
+  - **Title**: Name of the world (e.g., "Crystal Cave", "Sky Islands")
   - **Description**: Brief description of what makes the world unique
-  - **Author**: Creator of the world (e.g., "CaveExplorer42", "SkyArchitect")
+  - **Author**: Creator of the world (e.g., "Explorer", "Architect")
   - **Creation Date**: When the world was created
 - **Selection Feedback**: Click any world to select it - selected worlds are highlighted with teal background and left border
-- **Dynamic Launch Button**: Button text updates to show selected world (e.g., "Launch 'Crystal Cave Explorer'")
-- **Status Display**: Shows current status ("Ready to play", "Please select a world first", "Loading...", etc.)
+- **Dynamic Play Button**: Button text updates to show selected world (e.g., "Play 'Crystal Cave'")
+- **Status Display**: Shows current status ("Ready", "Please select a world first", "Loading...", etc.)
 
-#### Available Worlds (12 Unique Environments)
-1. **Crystal Cave Explorer** - Discover hidden crystals in underground caverns
-2. **Sky Island Builder** - Build floating islands in the clouds  
-3. **Ocean Floor Mining** - Deep sea mining operation with submarines
-4. **Volcano Base Camp** - Establish a research station near active volcanoes
-5. **Ice Palace Construction** - Build magnificent structures from ice blocks
-6. **Desert Oasis Project** - Create a thriving oasis in the harsh desert
-7. **Jungle Treehouse Network** - Connect treehouses with bridges and ziplines
-8. **Mountain Peak Observatory** - Build a stargazing observatory on the highest peak
-9. **Underground City** - Construct a sprawling underground metropolis
-10. **Floating Garden Paradise** - Create beautiful floating gardens with waterfalls
-11. **Ancient Temple Restoration** - Restore and expand mysterious ancient temples
-12. **Space Station Assembly** - Build a massive space station orbiting the planet
+#### Available Worlds (6 Unique Environments)
+1. **Crystal Cave** - Explore underground caverns filled with mysterious crystals
+2. **Sky Islands** - Build floating structures high above the clouds
+3. **Ocean Mining** - Deep sea operations and underwater exploration
+4. **Volcano Base** - Research station setup near active volcanic activity
+5. **Ice Palace** - Frozen architecture in a winter wonderland
+6. **Desert Oasis** - Survival challenge in harsh desert conditions
 
 ### World Selection Steps
 1. **Browse Worlds**: Scroll through the world list to see all available options
 2. **Read Descriptions**: Each world has a unique theme and description to help you choose
 3. **Select a World**: Click on any world card to select it (it will highlight in teal)
-4. **Confirm Selection**: The launch button will update to show your selected world
-5. **Launch**: Click the launch button to enter the selected 3D world
+4. **Confirm Selection**: The play button will update to show your selected world
+5. **Play**: Click the play button to enter the selected 3D world
 
 ### Game States
 
 #### Menu State (World Selection)
-- **World Browser**: Scrollable list of 12 unique worlds with hover effects
+- **World Browser**: Scrollable list of 6 unique worlds with hover effects
 - **Selection Highlighting**: Selected worlds show teal background with left border indicator
-- **Dynamic Launch Button**: Updates text to show selected world name
-- **Selection Validation**: Must select a world before the launch button becomes functional
+- **Dynamic Play Button**: Updates text to show selected world name
+- **Selection Validation**: Must select a world before the play button becomes functional
 
 #### Game State (3D World)
 - **Full-Screen Canvas**: The selected 3D voxel world takes up the entire view (90vw × 80vh with blue border)
@@ -115,15 +109,15 @@ The game features a world selection interface before entering the 3D environment
 ### Loading Process
 1. **World Selection Required**: You must first select a world from the list
 2. **Selection Validation**: If no world is selected, status shows "Please select a world first"
-3. **Engine Initialization**: Click "Launch [World Name]" to start loading the voxel engine for that world
+3. **Engine Initialization**: Click "Play [World Name]" to start loading the voxel engine for that world
 4. **Status Updates**: Watch the status display for loading progress:
-   - "Ready to play" (initial state)
+   - "Ready" (initial state)
    - "Please select a world first" (no world selected)
    - "Loading..." (downloading WASM files and initializing engine for selected world)
    - "Ready!" (engine loaded successfully)
    - "Failed to load engine" (if engine fails to initialize)
 5. **Automatic Transition**: Game canvas appears automatically when ready
-6. **Button State**: Launch button is disabled during loading to prevent multiple attempts
+6. **Button State**: Play button is disabled during loading to prevent multiple attempts
 
 ### 3D World Controls
 
@@ -154,9 +148,9 @@ The WebAssembly voxel engine provides full 3D navigation controls. The exact con
 - **Stable Internet**: For initial download of WASM files (voxels.wasm and voxels.js)
 
 ### Tips for Best Experience
-- **Explore All Worlds**: Browse through all 12 unique worlds to find your favorite themes
+- **Explore All Worlds**: Browse through all 6 unique worlds to find your favorite themes
 - **Read Descriptions**: Each world has unique features - read descriptions to choose the best fit
-- **Selection Required**: Always select a world before clicking launch to avoid error messages
+- **Selection Required**: Always select a world before clicking play to avoid error messages
 - **First Launch**: Initial engine load may take time depending on connection speed
 - **Loading Patience**: Wait for "Ready!" status before expecting the game to respond
 - **Quick Exit**: ESC key provides instant exit if you need to return to Reddit quickly
@@ -244,13 +238,13 @@ src/client/public/default-icon.png  # App icon
 ```
 
 #### World Database Structure
-The game includes a Redis-backed world database with 12 pre-loaded worlds:
+The game includes a Redis-backed world database with 6 pre-loaded worlds:
 ```bash
 # Redis data structure:
 voxel_entries          # Sorted set for world ordering (by creation time)
 entry:entry_1          # Hash map for each world's metadata
 entry:entry_2          # Contains: id, title, description, createdAt, author
-# ... (entry_1 through entry_12)
+# ... (entry_1 through entry_6)
 ```
 
 ### Development Workflow
@@ -263,7 +257,7 @@ entry:entry_2          # Contains: id, title, description, createdAt, author
 
 ### World Selection & Database System
 - **Redis-Backed Database**: Persistent world storage using Redis sorted sets and hash maps
-- **12 Pre-loaded Worlds**: Diverse collection including caves, sky islands, ocean mining, volcanoes, ice palaces, and more
+- **6 Pre-loaded Worlds**: Diverse collection including caves, sky islands, ocean mining, volcanoes, ice palaces, and desert oasis
 - **World Metadata**: Each world includes title, description, author, and creation timestamp
 - **Dynamic Loading**: World list loads from `/api/entries` endpoint on app initialization
 - **Selection Interface**: Interactive world browser with click-to-select and visual feedback
