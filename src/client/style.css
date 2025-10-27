@@ -511,30 +511,36 @@ body::before {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 2rem;
+  padding: 1rem;
+  box-sizing: border-box;
   z-index: 5;
-  opacity: 1;
 }
 
 #canvas {
-  width: 90vw;
-  height: 75vh;
-  max-width: 1000px;
-  max-height: 650px;
+  /* Responsive sizing with aspect ratio preservation */
+  width: min(90vw - 2rem, 1000px);
+  height: min(75vh - 2rem, 650px);
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+  aspect-ratio: 16/9;
+  object-fit: contain;
+
+  /* Minecraft styling */
   border: 2px solid #000000;
   border-top-color: #FFFFFF;
   border-left-color: #FFFFFF;
   border-right-color: #808080;
   border-bottom-color: #808080;
   background: #000;
+
+  /* Layout and rendering */
   display: block;
+  margin: auto;
   box-shadow:
     inset 1px 1px 0 rgba(255, 255, 255, 0.3),
     inset -1px -1px 0 rgba(0, 0, 0, 0.3),
     2px 2px 4px rgba(0, 0, 0, 0.3);
-  position: relative;
   z-index: 10;
-  opacity: 1;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
@@ -684,10 +690,7 @@ body::before {
     font-size: 0.85rem;
   }
 
-  #canvas {
-    width: 95vw;
-    height: 70vh;
-  }
+
 
   .exit-button {
     top: 1rem;
@@ -736,6 +739,19 @@ body::before {
   #status {
     margin-top: 1rem;
     font-size: 0.7rem;
+  }
+}
+
+/* Canvas optimization for very small screens */
+@media (max-width: 400px),
+(max-height: 400px) {
+  #canvas {
+    width: min(95vw - 1rem, 380px);
+    height: min(70vh - 1rem, 214px);
+  }
+
+  .game-frame {
+    padding: 0.5rem;
   }
 }
 

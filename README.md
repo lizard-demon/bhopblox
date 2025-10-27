@@ -125,7 +125,7 @@ The game presents itself as an authentic Minecraft-style interface with pixelate
 
 ### Game States & Navigation
 
-#### 1. Block Interface State (World Browsing)
+#### 1. World Selection State (Main Interface)
 - **Authentic Block Interface**: Complete Minecraft-style interface with dirt/grass backgrounds and stone panel styling
 - **Interactive World Cards**: Hover effects and click-to-select functionality with audio feedback and visual transitions
 - **Visual Feedback**: Selected worlds show bright cyan highlighting with clear visual indicators within the stone block interface
@@ -144,7 +144,7 @@ The game presents itself as an authentic Minecraft-style interface with pixelate
 - **Animated Loading**: CSS-based loading animation on canvas during voxel engine initialization
 
 #### 3. Engine State (Canvas Display)
-- **Voxel World Canvas**: Canvas rendered for 3D voxel world display (90vw × 75vh, max 1000x650px) with Minecraft-style block background
+- **Voxel World Canvas**: Canvas rendered for 3D voxel world display with responsive sizing and Minecraft-style block background
 - **WebAssembly Voxel Engine**: WASM module (voxels.wasm) with JavaScript bridge (voxels.js) loaded and initialized
 - **Canvas Interface**: HTML5 canvas element prepared for 3D voxel world rendering capabilities
 - **Block Canvas Styling**: Canvas features Minecraft-style block background with authentic dirt/grass textures
