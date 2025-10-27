@@ -4,56 +4,61 @@ An immersive 3D voxel world explorer that runs directly inside Reddit posts, pow
 
 ## What is This Game?
 
-Voxel World Explorer is a 3D voxel-based exploration game that brings interactive 3D gaming directly to Reddit. The game features:
+Voxel World Explorer is a revolutionary 3D voxel-based exploration game that brings interactive 3D gaming directly to Reddit. The game features:
 
-- **World Selection Interface**: Browse and select from a curated database of unique voxel worlds, each with distinct themes and environments
-- **6 Unique Worlds**: Pre-loaded with diverse worlds including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
-- **3D Voxel Engine**: Fully rendered 3D environments powered by a WebAssembly engine (voxels.wasm) with smooth performance
-- **First-Person Exploration**: Navigate through selected worlds using standard FPS controls
+- **Interactive World Selection**: Browse and select from a curated database of unique voxel worlds, each with distinct themes and environments
+- **6 Unique Pre-loaded Worlds**: Diverse collection including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
+- **High-Performance 3D Engine**: Fully rendered 3D environments powered by a WebAssembly engine (voxels.wasm) with smooth performance
+- **First-Person 3D Exploration**: Navigate through selected worlds using standard FPS controls with mouse look and keyboard movement
 - **WebAssembly Performance**: Powered by a compiled WASM engine with JavaScript bridge for optimal 3D rendering
-- **Reddit Integration**: Seamlessly integrated with Reddit's platform - no downloads or installations required
+- **Reddit Native Integration**: Seamlessly integrated with Reddit's platform - no downloads or installations required
 - **Personalized Experience**: Automatically greets you with your Reddit username and tracks your world selections
-- **Dynamic Loading**: The voxel engine loads on-demand only when launching a world for optimal performance
-- **World Database**: Persistent Redis-backed database storing world metadata, descriptions, and creation details
-- **Cross-Platform**: Works on both desktop and mobile browsers with responsive design
+- **On-Demand Engine Loading**: The voxel engine loads dynamically only when launching a world for optimal performance
+- **Persistent World Database**: Redis-backed database storing world metadata, descriptions, and creation details
+- **Cross-Platform Compatibility**: Works on both desktop and mobile browsers with responsive design
+- **Immersive Canvas Rendering**: Full-screen 3D rendering (90vw × 80vh) with WebGL acceleration
 
-The game provides an immersive world selection and 3D exploration experience, allowing players to discover and explore diverse voxel environments directly in their browser within Reddit posts.
+The game provides a complete world selection and 3D exploration experience, allowing players to discover and explore diverse voxel environments directly in their browser within Reddit posts.
 
 ## What Makes This Game Innovative?
 
-### 🎮 **World Selection Gaming in Reddit Posts**
-- **Reddit-Native 3D**: A fully 3D voxel world explorer that runs natively inside Reddit posts
-- **Curated World Database**: Browse and select from 6 unique pre-loaded worlds with distinct themes and environments
+### 🎮 **Reddit-Native 3D Voxel Gaming**
+- **First-of-its-Kind**: A fully 3D voxel world explorer that runs natively inside Reddit posts using WebAssembly
+- **Zero Installation Gaming**: Complete 3D world exploration experience with no downloads, plugins, or external software required
 - **WebAssembly Performance**: Leverages a high-performance WASM engine (voxels.wasm) with JavaScript bridge for smooth 3D graphics
-- **Zero Installation**: Full 3D world exploration experience with no downloads, plugins, or external software required
-- **Devvit Platform**: Built on Reddit's official developer platform for seamless integration
+- **Devvit Platform Pioneer**: Built on Reddit's official developer platform for seamless social media gaming integration
+- **Cross-Platform 3D**: Works seamlessly on desktop and mobile browsers within Reddit's interface
 
-### 🌍 **Dynamic World Selection System**
-- **World Database**: Redis-backed persistent storage of world metadata, descriptions, authors, and creation dates
-- **Interactive Selection**: Click-to-select interface with visual feedback and world previews
-- **Diverse Themes**: 6 unique worlds including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
-- **World Metadata**: Each world includes title, description, author, and creation timestamp for rich context
-- **Selection Validation**: Must select a world before launching the 3D engine
+### 🌍 **Curated World Selection System**
+- **Interactive World Browser**: Browse and select from 6 unique pre-loaded worlds with distinct themes and environments
+- **Rich World Metadata**: Each world includes detailed descriptions, author information, and creation timestamps
+- **Visual Selection Interface**: Click-to-select with teal highlighting (#4fc3f7) and hover effects for intuitive world browsing
+- **Dynamic Launch System**: Button text updates to show selected world (e.g., "Play 'Crystal Cave'")
+- **Persistent World Database**: Redis-backed storage ensures worlds persist across sessions and users
+- **Scrollable World List**: Elegant scrollable interface (max-height: 250px) with dark theme styling
 
-### 🚀 **WebAssembly Voxel Technology**
-- **WASM Engine**: Built with optimized WebAssembly for smooth 3D rendering of selected worlds
-- **Real-time 3D Rendering**: Hardware-accelerated voxel world with smooth performance via HTML5 Canvas
-- **Dynamic Engine Loading**: WASM engine loads only when launching a selected world, keeping initial load times fast
-- **Canvas Integration**: Direct rendering to HTML5 canvas with right-click context menu disabled for gaming
+### 🚀 **Advanced WebAssembly Integration**
+- **On-Demand Engine Loading**: WASM engine loads only when launching a selected world, keeping initial load times fast
+- **Hardware-Accelerated 3D**: Real-time voxel rendering with WebGL support via HTML5 Canvas
+- **Optimized Performance**: Compiled WebAssembly module with JavaScript bridge for optimal 3D graphics performance
+- **Canvas-First Design**: Full-screen 3D rendering (90vw × 80vh, max 1000x700px) with context menu disabled for immersive gaming
+- **Memory Management**: Efficient WASM memory handling with proper initialization and cleanup
+- **Dynamic Script Injection**: voxels.js script dynamically loaded and removed as needed for optimal performance
 
-### 🎯 **Seamless Reddit Integration**
-- **Native Experience**: Runs directly within Reddit's interface without breaking the user flow
-- **User Authentication**: Automatically recognizes and greets Reddit users by their username via `/api/init` endpoint
-- **Persistent Data**: World database persists across sessions using Reddit's Redis infrastructure
-- **Mobile Optimized**: Responsive design that works on both desktop and mobile Reddit clients
-- **Custom Splash Screen**: Engaging splash screen with "Tap to Start" button to invite players to explore worlds
+### 🎯 **Seamless Social Gaming Integration**
+- **Reddit User Recognition**: Automatically greets users by their Reddit username via server-side authentication
+- **Native Reddit Experience**: Runs directly within Reddit's interface without breaking user flow or requiring external sites
+- **Social Context Preservation**: Maintains Reddit post context while providing full 3D gaming experience
+- **Mobile-First Design**: Responsive interface optimized for Reddit's mobile user base with touch support
+- **Instant Access**: No account creation or separate login required - uses existing Reddit authentication
 
-### 🎨 **Intuitive Interface Design**
-- **World Browser**: Scrollable list of worlds with hover effects and selection highlighting
-- **Visual Feedback**: Selected worlds are highlighted with teal accent and left border indicator
-- **Dynamic Launch Button**: Button text updates to show selected world (e.g., "Launch 'Crystal Cave Explorer'")
-- **Status Feedback**: Clear loading and selection status messages
-- **Clean UI**: Dark theme with blue and teal accent colors for modern gaming aesthetic
+### 🎨 **Sophisticated User Experience Design**
+- **Two-Phase Interface**: Clean separation between world selection menu and full-screen 3D gaming modes
+- **Status-driven Feedback**: Real-time status updates ("Loading engine...", "Ready", "Select a world first")
+- **Escape-Key Navigation**: Instant exit from 3D mode back to world selection with ESC key
+- **Visual Hierarchy**: Dark theme (#222 background) with blue (#4fc3f7) accent colors and clear typography for gaming aesthetics
+- **Loading State Management**: Proper button disabling and status messaging during engine initialization
+- **Animated Loading Indicators**: CSS-based loading spinner during WebAssembly engine initialization
 
 ## How to Play the Game
 
@@ -61,134 +66,171 @@ The game provides an immersive world selection and 3D exploration experience, al
 1. **Find Voxel World Explorer**: Look for Voxel World Explorer posts in your Reddit feed or visit the development subreddit
 2. **Launch the App**: Click the "Tap to Start" button on the splash screen when you see a Voxel World Explorer post
 3. **Personal Welcome**: The app will automatically greet you with your Reddit username (e.g., "Welcome [username]!")
-4. **Browse Available Worlds**: Scroll through the "Explore Worlds" section to see all available voxel worlds
+4. **Browse Available Worlds**: You'll see the world selection interface with 6 unique voxel worlds to choose from
 
-### World Selection Process
-The game features a world selection interface before entering the 3D environment:
+### World Selection Interface
 
-#### World Browser Interface
-- **Title**: Shows "Voxel World" or personalized greeting with your Reddit username
-- **Select World Section**: Scrollable list displaying all available worlds with detailed information
-- **World Cards**: Each world shows:
-  - **Title**: Name of the world (e.g., "Crystal Cave", "Sky Islands")
-  - **Description**: Brief description of what makes the world unique
-  - **Author**: Creator of the world (e.g., "Explorer", "Architect")
-  - **Creation Date**: When the world was created
-- **Selection Feedback**: Click any world to select it - selected worlds are highlighted with teal background and left border
-- **Dynamic Play Button**: Button text updates to show selected world (e.g., "Play 'Crystal Cave'")
-- **Status Display**: Shows current status ("Ready", "Please select a world first", "Loading...", etc.)
+The game starts with an elegant world selection menu featuring a dark theme (#222 background) with blue accent colors:
+
+#### Main Interface Elements
+- **Title Header**: Shows "Voxel World" or personalized greeting with your Reddit username in bright blue (#4fc3f7)
+- **World Browser**: Scrollable list (max-height: 250px) displaying all 6 available worlds with detailed information
+- **Play Button**: Initially shows "Select a World" - updates dynamically when you make a selection
+- **Status Display**: Shows current game status and loading information at the bottom
+
+#### World Selection Process
+1. **Browse Available Worlds**: Scroll through the world list to see all 6 unique environments
+2. **Read World Details**: Each world card displays:
+   - **Title**: Name of the world (e.g., "Crystal Cave", "Sky Islands") in bold
+   - **Description**: Brief description of the world's theme and features
+   - **Author**: Creator of the world (e.g., "Explorer", "Architect", "Scientist")
+3. **Select Your World**: Click on any world card to select it
+   - Hover effects show #444 background for better interactivity
+   - Selected worlds are highlighted with a bright teal background (#4fc3f7) and dark text (#222)
+   - The play button updates to show "Play '[World Name]'"
+4. **Launch the 3D Experience**: Click the blue play button to enter your selected world
 
 #### Available Worlds (6 Unique Environments)
-1. **Crystal Cave** - Explore underground caverns filled with mysterious crystals
-2. **Sky Islands** - Build floating structures high above the clouds
-3. **Ocean Mining** - Deep sea operations and underwater exploration
-4. **Volcano Base** - Research station setup near active volcanic activity
-5. **Ice Palace** - Frozen architecture in a winter wonderland
-6. **Desert Oasis** - Survival challenge in harsh desert conditions
+1. **Crystal Cave** (by Explorer) - Explore underground caverns filled with mysterious crystals
+2. **Sky Islands** (by Architect) - Build floating structures high above the clouds  
+3. **Ocean Mining** (by Diver) - Deep sea operations and underwater exploration
+4. **Volcano Base** (by Scientist) - Research station setup near active volcanic activity
+5. **Ice Palace** (by Builder) - Frozen architecture in a winter wonderland
+6. **Desert Oasis** (by Survivor) - Survival challenge in harsh desert conditions
 
-### World Selection Steps
-1. **Browse Worlds**: Scroll through the world list to see all available options
-2. **Read Descriptions**: Each world has a unique theme and description to help you choose
-3. **Select a World**: Click on any world card to select it (it will highlight in teal)
-4. **Confirm Selection**: The play button will update to show your selected world
-5. **Play**: Click the play button to enter the selected 3D world
-
-### Game States
+### Game States & Navigation
 
 #### Menu State (World Selection)
-- **World Browser**: Scrollable list of 6 unique worlds with hover effects
-- **Selection Highlighting**: Selected worlds show teal background with left border indicator
-- **Dynamic Play Button**: Updates text to show selected world name
-- **Selection Validation**: Must select a world before the play button becomes functional
+- **Interactive World Cards**: Hover effects (#444 background) and click-to-select functionality
+- **Visual Feedback**: Selected worlds show bright teal highlighting (#4fc3f7) with dark text (#222) for clear visual indicators
+- **Dynamic Button**: Play button text updates to reflect your current selection (e.g., "Play 'Crystal Cave'")
+- **Selection Validation**: Must select a world before the 3D engine can be launched - shows "Select a world first" error message
+- **Responsive Design**: Interface adapts to different screen sizes with max-width: 400px and 90vw width
 
-#### Game State (3D World)
-- **Full-Screen Canvas**: The selected 3D voxel world takes up the entire view (90vw × 80vh with blue border)
-- **Exit Button**: Red button positioned in top-right corner to return to world selection
-- **Black Background**: Full-screen black background for immersive gaming experience
+#### Loading State (Engine Initialization)
+- **Status Updates**: Real-time feedback during WebAssembly engine loading
+  - "Loading engine..." - WASM files (voxels.js, voxels.wasm) are being downloaded and initialized
+  - "Ready" - Engine successfully loaded and ready for 3D exploration
+  - "Failed to load engine" - Error occurred during initialization with automatic fallback to menu
+- **Button Management**: Play button is disabled during loading to prevent multiple attempts
+- **Canvas Preparation**: Game canvas is prepared and sized for optimal 3D rendering (90vw × 80vh, max 1000x700px)
+- **Animated Loading**: CSS-based loading spinner animation on canvas during engine initialization
 
-### Loading Process
-1. **World Selection Required**: You must first select a world from the list
-2. **Selection Validation**: If no world is selected, status shows "Please select a world first"
-3. **Engine Initialization**: Click "Play [World Name]" to start loading the voxel engine for that world
-4. **Status Updates**: Watch the status display for loading progress:
-   - "Ready" (initial state)
-   - "Please select a world first" (no world selected)
-   - "Loading..." (downloading WASM files and initializing engine for selected world)
-   - "Ready!" (engine loaded successfully)
-   - "Failed to load engine" (if engine fails to initialize)
-5. **Automatic Transition**: Game canvas appears automatically when ready
-6. **Button State**: Play button is disabled during loading to prevent multiple attempts
+#### Game State (3D Voxel World)
+- **Full-Screen 3D Canvas**: Immersive voxel world rendered at 90vw × 80vh with subtle border (#555)
+- **WebAssembly Engine**: High-performance 3D rendering using compiled WASM module (voxels.wasm) with JavaScript bridge (voxels.js)
+- **Interactive 3D Environment**: Explore the selected voxel world with full 3D navigation and WebGL acceleration
+- **Exit Options**: Multiple ways to return to world selection menu
+- **Context Menu Disabled**: Right-click disabled on canvas for seamless gaming experience
 
-### 3D World Controls
+### 3D World Controls & Navigation
 
-The WebAssembly voxel engine provides full 3D navigation controls. The exact control scheme depends on the WASM engine implementation, but typically includes:
+The WebAssembly voxel engine provides full 3D navigation controls with hardware acceleration:
 
-#### Standard FPS Controls
-- **Mouse Movement**: Look around in the 3D world
-- **Keyboard Input**: Movement controls (likely WASD or arrow keys)
-- **Interactive Navigation**: Explore the voxel-based 3D environment
+#### Input Controls
+- **Mouse Movement**: Look around and navigate the 3D voxel environment with smooth mouse look
+- **Keyboard Controls**: Standard FPS movement controls (WASD or arrow keys for movement)
+- **Interactive Elements**: Explore and interact with voxel-based world features and environments
+- **Pointer Lock**: Engine automatically requests pointer lock for immersive first-person controls
+- **Touch Support**: Mobile-friendly touch controls for navigation on tablets and phones
+- **WebGL Acceleration**: Hardware-accelerated 3D graphics with WebGL support for smooth performance
 
 #### Exit Methods
-- **ESC Key**: Press Escape at any time to immediately exit the 3D world and return to menu
-- **Exit Button**: Click the red "Exit" button in the top-right corner to return to the menu
-- **Automatic Return**: Returns you to the main menu with the launch button ready for re-entry
+- **ESC Key**: Press Escape at any time to immediately return to world selection menu
+- **Exit Button**: Click the red "Exit" button (#f44336, hover: #d32f2f) in the top-right corner of the game canvas
+- **Automatic Return**: Seamlessly returns to the world selection interface with proper cleanup
+- **Engine Reset**: Automatically resets the engine for next world selection to prevent blank screen issues
+- **Clean Transitions**: Smooth transitions between 3D mode and world selection menu
 
-### Game Features
-- **3D Voxel Environment**: Explore a voxel-based world rendered in real-time by the WebAssembly engine
-- **High-Performance WASM Engine**: Optimized voxels.wasm engine for smooth performance
-- **Canvas Rendering**: Direct rendering to HTML5 canvas element with context menu disabled
-- **Persistent Engine**: Once loaded, engine stays in memory for instant re-entry
-- **Responsive Design**: Adapts to different screen sizes with maximum canvas dimensions (1200×800px)
+### Advanced Features & Controls
+
+#### Debug & Development Features
+- **Force Engine Reload**: Press 'R' key while in 3D mode to force reload the WebAssembly engine
+- **Engine Cleanup**: Automatic cleanup when exiting to prevent memory leaks and ensure clean state
+- **Canvas Resizing**: Automatic canvas resizing on window resize events for responsive gameplay
+- **Error Recovery**: Graceful error handling with fallback to world selection menu and clear error messages
+- **Console Logging**: Comprehensive logging for engine initialization, errors, and state changes
+
+#### Performance Optimizations
+- **On-Demand Loading**: WASM engine only loads when launching a world (not during world browsing)
+- **Dynamic Script Injection**: voxels.js script is dynamically loaded and removed as needed for optimal memory usage
+- **Memory Management**: Proper WebAssembly memory allocation and cleanup between sessions
+- **Canvas Optimization**: Canvas dimensions are optimized for performance (max 1000x700px) with responsive scaling
+- **Efficient State Management**: Clean separation between menu and game states with proper resource management
+- **Loading State Optimization**: Canvas preparation and layout calculations before engine initialization
+
+### Technical Features & Performance
+
+#### WebAssembly Engine Architecture
+- **High-Performance 3D**: Compiled WASM module (voxels.wasm) for optimal rendering performance with WebGL acceleration
+- **JavaScript Bridge**: Seamless integration between WASM engine and web interface via voxels.js loader
+- **Canvas Rendering**: Direct WebGL rendering to HTML5 canvas element with hardware acceleration and pointer lock support
+- **Module System**: Uses global Module object with postRun callbacks for initialization and proper cleanup
+- **Context Menu Prevention**: Right-click disabled on canvas (`oncontextmenu="event.preventDefault()"`) for seamless gaming experience
+- **Memory Management**: Efficient WASM memory handling with proper initialization and cleanup between sessions
+
+#### User Experience Optimizations
+- **Responsive Design**: Adapts to different screen sizes with maximum canvas dimensions (90vw × 80vh, max 1000x700px)
+- **Loading States**: Clear feedback during all loading and initialization phases with status messages
+- **Error Handling**: Graceful fallbacks for engine loading failures with automatic retry mechanisms and menu fallback
+- **Status-driven Interface**: Real-time status updates guide user through each step of the process
+- **Visual Loading Indicator**: Animated CSS loading spinner during engine initialization with SVG-based animation
+- **Dark Theme Optimization**: Carefully designed dark theme (#222 background) with blue accents (#4fc3f7) for optimal gaming experience
 
 ### Technical Requirements
 - **Modern Browser**: Chrome, Firefox, Safari, or Edge with WebAssembly support
 - **WebGL Support**: Required for hardware-accelerated 3D graphics rendering
-- **WebAssembly Support**: Required for the high-performance voxel engine
-- **JavaScript Enabled**: Required for engine loading and Reddit integration
-- **Stable Internet**: For initial download of WASM files (voxels.wasm and voxels.js)
+- **WebAssembly Support**: Required for the high-performance voxel engine (voxels.wasm)
+- **JavaScript Enabled**: Required for engine loading, Reddit integration, and dynamic script injection
+- **Stable Internet Connection**: For initial download of WASM files (voxels.wasm and voxels.js)
+- **Pointer Lock Support**: For immersive first-person 3D navigation controls
 
-### Tips for Best Experience
-- **Explore All Worlds**: Browse through all 6 unique worlds to find your favorite themes
-- **Read Descriptions**: Each world has unique features - read descriptions to choose the best fit
-- **Selection Required**: Always select a world before clicking play to avoid error messages
-- **First Launch**: Initial engine load may take time depending on connection speed
-- **Loading Patience**: Wait for "Ready!" status before expecting the game to respond
-- **Quick Exit**: ESC key provides instant exit if you need to return to Reddit quickly
-- **World Switching**: Exit and select different worlds to experience various environments
-- **Desktop Recommended**: While mobile-compatible, desktop provides the best control experience for world selection and 3D navigation
-- **Clean Interface**: Minimal UI design keeps focus on world selection and 3D experience
+### Pro Tips for Best Experience
+- **World Exploration**: Try all 6 worlds to experience different themes and environments
+- **Read Descriptions**: Each world has unique features - descriptions help you choose the best fit for your interests
+- **Selection First**: Always select a world before clicking play to avoid "Select a world first" error messages
+- **Patient Loading**: Initial engine load may take time depending on connection speed - wait for "Ready" status before proceeding
+- **Quick Navigation**: ESC key provides instant exit back to world selection menu if needed
+- **World Switching**: Exit and select different worlds to experience various voxel environments without reloading the page
+- **Desktop Recommended**: While mobile-compatible with touch support, desktop provides optimal control experience for 3D navigation
+- **Engine Refresh**: Use 'R' key if the 3D world appears blank or unresponsive to force engine reload
+- **Clean Interface**: Minimal dark theme UI design keeps focus on world selection and immersive 3D experience
+- **Visual Feedback**: Pay attention to teal highlighting (#4fc3f7) to confirm world selection before launching
+- **Status Monitoring**: Watch status messages for real-time feedback during loading and initialization phases
 
 ## Technical Architecture
 
 ### Frontend Technologies
-- **TypeScript**: Type-safe client-side development with strict typing
-- **Vite**: Lightning-fast build system and development server
-- **HTML5 Canvas**: Hardware-accelerated 3D graphics rendering via canvas element
-- **Dynamic Module Loading**: WASM engine loaded on-demand for optimal performance
+- **TypeScript**: Type-safe client-side development with strict typing and shared API types
+- **Vite**: Lightning-fast build system and development server with hot module replacement
+- **HTML5 Canvas**: Hardware-accelerated 3D graphics rendering via canvas element with WebGL support
+- **Dynamic Module Loading**: WASM engine loaded on-demand for optimal performance and memory usage
+- **CSS3**: Modern styling with dark theme, animations, and responsive design
 
 ### WebAssembly Engine
-- **WASM Architecture**: High-performance WebAssembly module for 3D rendering
-  - **voxels.wasm**: Compiled WebAssembly module for 3D voxel rendering
-  - **voxels.js**: JavaScript bridge and loader for WASM integration
-- **Dynamic Loading**: WASM module loaded only when user clicks "Launch" for faster initial page load
-- **Canvas Integration**: Direct rendering to HTML5 canvas element with id="canvas"
-- **Module System**: Uses global `Module` object for WASM configuration and callbacks
-- **Context Menu Prevention**: Right-click disabled on canvas (`oncontextmenu="event.preventDefault()"`)
+- **WASM Architecture**: High-performance WebAssembly module for 3D voxel rendering
+  - **voxels.wasm**: Compiled WebAssembly module for 3D voxel rendering with WebGL acceleration
+  - **voxels.js**: JavaScript bridge and loader for WASM integration with Module system
+- **Dynamic Loading**: WASM module loaded only when user launches a world for faster initial page load
+- **Canvas Integration**: Direct rendering to HTML5 canvas element with id="canvas" (90vw × 80vh, max 1000x700px)
+- **Module System**: Uses global `Module` object for WASM configuration, postRun callbacks, and error handling
+- **Context Menu Prevention**: Right-click disabled on canvas for seamless gaming experience
+- **Memory Management**: Proper WASM memory allocation and cleanup between sessions
 
 ### Backend & Infrastructure
 - **Express.js**: RESTful API server with `/api/init` and `/api/entries` endpoints
-- **Redis Database**: Persistent world database using Redis sorted sets and hash maps
-- **World Management**: Automatic database initialization with 12 pre-loaded worlds
+- **Redis Database**: Persistent world database using Redis sorted sets (`voxel_entries`) and hash maps (`entry:*`)
+- **World Management**: Automatic database initialization with 6 pre-loaded worlds with metadata
 - **Devvit Platform**: Reddit's official developer platform for hosting and integration
-- **Node.js**: Modern JavaScript runtime with WebAssembly support
+- **Node.js**: Modern JavaScript runtime with WebAssembly support and Reddit API integration
 
 ### Reddit Integration & Data Persistence
-- **User Authentication**: Automatic Reddit user recognition via `/api/init` endpoint
-- **World Database**: `/api/entries` endpoint serves world metadata from Redis
-- **Persistent Storage**: World data persists across sessions using Redis infrastructure
-- **Post Integration**: Runs directly within Reddit posts as webview content
+- **User Authentication**: Automatic Reddit user recognition via `/api/init` endpoint with username display
+- **World Database**: `/api/entries` endpoint serves world metadata from Redis with proper error handling
+- **Persistent Storage**: World data persists across sessions using Redis infrastructure with sorted sets for ordering
+- **Post Integration**: Runs directly within Reddit posts as webview content with full-screen capability
 - **Custom Splash Screen**: Configured splash screen with app branding and "Tap to Start" button
-- **Native Experience**: No external redirects or separate websites required
+- **Native Experience**: No external redirects or separate websites required - fully contained within Reddit
 
 ## Development Commands
 
@@ -256,45 +298,47 @@ entry:entry_2          # Contains: id, title, description, createdAt, author
 ## Advanced Features
 
 ### World Selection & Database System
-- **Redis-Backed Database**: Persistent world storage using Redis sorted sets and hash maps
-- **6 Pre-loaded Worlds**: Diverse collection including caves, sky islands, ocean mining, volcanoes, ice palaces, and desert oasis
-- **World Metadata**: Each world includes title, description, author, and creation timestamp
-- **Dynamic Loading**: World list loads from `/api/entries` endpoint on app initialization
-- **Selection Interface**: Interactive world browser with click-to-select and visual feedback
-- **Selection Validation**: Prevents launching without world selection with clear error messaging
+- **Redis-Backed Database**: Persistent world storage using Redis sorted sets (`voxel_entries`) and hash maps (`entry:*`)
+- **6 Pre-loaded Worlds**: Diverse collection including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
+- **World Metadata**: Each world includes id, title, description, author, and creation timestamp with proper data validation
+- **Dynamic Loading**: World list loads from `/api/entries` endpoint on app initialization with error handling
+- **Selection Interface**: Interactive world browser with click-to-select, hover effects (#444), and visual feedback
+- **Selection Validation**: Prevents launching without world selection with clear "Select a world first" error messaging
+- **Scrollable Interface**: Elegant scrollable world list (max-height: 250px) with dark theme styling
 
 ### 3D Voxel World Engine
-- **WebAssembly Rendering**: High-performance 3D graphics using WebAssembly engine for selected worlds
-- **Interactive Navigation**: 3D world exploration with user controls in chosen environments
-- **Dynamic Loading**: WASM engine loads on-demand only when launching a selected world
-- **Cross-Platform**: Works seamlessly on desktop and mobile browsers
+- **WebAssembly Rendering**: High-performance 3D graphics using WebAssembly engine (voxels.wasm) for selected worlds
+- **Interactive Navigation**: 3D world exploration with FPS controls, mouse look, and keyboard movement in chosen environments
+- **Dynamic Loading**: WASM engine loads on-demand only when launching a selected world with proper initialization
+- **Cross-Platform**: Works seamlessly on desktop and mobile browsers with touch support and responsive design
+- **Hardware Acceleration**: WebGL-accelerated 3D rendering with pointer lock support for immersive experience
 
 ### WebAssembly Integration
-- **WASM Engine**: Optimized WebAssembly module (voxels.wasm) for 3D rendering of selected worlds
-- **JavaScript Bridge**: WASM loading with JavaScript bridge (voxels.js) for seamless integration
-- **Canvas Rendering**: Direct rendering to HTML5 canvas element with id="canvas"
-- **Dynamic Script Loading**: WASM engine loaded via dynamic script injection when launching worlds
+- **WASM Engine**: Optimized WebAssembly module (voxels.wasm) for 3D rendering of selected worlds with memory management
+- **JavaScript Bridge**: WASM loading with JavaScript bridge (voxels.js) for seamless integration and error handling
+- **Canvas Rendering**: Direct rendering to HTML5 canvas element with id="canvas" (90vw × 80vh, max 1000x700px)
+- **Dynamic Script Loading**: WASM engine loaded via dynamic script injection when launching worlds with cleanup
 - **On-Demand Loading**: Engine files only load when user selects and launches a world for faster initial page load
 - **Context Menu Prevention**: Right-click disabled on canvas for seamless gaming experience
-- **Module Configuration**: Uses global `Module` object with `postRun` callbacks for initialization
+- **Module Configuration**: Uses global `Module` object with `postRun` callbacks for initialization and proper cleanup
 
 ### Reddit Platform Integration
-- **Devvit Platform**: Built on Reddit's official developer platform
-- **Native Experience**: Runs directly within Reddit posts with no external dependencies
-- **User Authentication**: Automatic Reddit user recognition via server API (`/api/init` endpoint)
-- **Persistent Data**: World database persists across sessions using Reddit's Redis infrastructure
-- **Custom Splash Screen**: Engaging splash screen with app branding and call-to-action
-- **Responsive Design**: Optimized for both desktop and mobile Reddit experiences
+- **Devvit Platform**: Built on Reddit's official developer platform with full integration
+- **Native Experience**: Runs directly within Reddit posts with no external dependencies or redirects
+- **User Authentication**: Automatic Reddit user recognition via server API (`/api/init` endpoint) with personalized greeting
+- **Persistent Data**: World database persists across sessions using Reddit's Redis infrastructure with proper data structure
+- **Custom Splash Screen**: Engaging splash screen with app branding and "Tap to Start" call-to-action
+- **Responsive Design**: Optimized for both desktop and mobile Reddit experiences with adaptive UI
 - **Zero Installation**: Complete world selection and 3D gaming experience with no downloads required
 
 ### Technical Implementation
-- **Express API**: RESTful `/api/init` and `/api/entries` endpoints for user authentication and world data
-- **TypeScript**: Full type safety across client, server, and shared code with defined API types
-- **Vite Build System**: Optimized builds for both client and server components
-- **Error Handling**: Graceful fallbacks for world loading and engine initialization failures
-- **Clean UI**: Dark theme interface with blue and teal accent colors for modern gaming aesthetic
-- **Canvas Management**: Responsive canvas sizing with maximum dimensions and blue border
-- **Modular Architecture**: Clean separation between client, server, and shared components
-- **Selection State Management**: Client-side state tracking for selected worlds with visual feedback
+- **Express API**: RESTful `/api/init` and `/api/entries` endpoints for user authentication and world data with error handling
+- **TypeScript**: Full type safety across client, server, and shared code with defined API types (`InitResponse`, `GetEntriesResponse`, `DatabaseEntry`)
+- **Vite Build System**: Optimized builds for both client and server components with hot module replacement
+- **Error Handling**: Graceful fallbacks for world loading and engine initialization failures with user-friendly messages
+- **Clean UI**: Dark theme interface (#222 background) with blue (#4fc3f7) and teal accent colors for modern gaming aesthetic
+- **Canvas Management**: Responsive canvas sizing with maximum dimensions and subtle border (#555) for optimal gaming experience
+- **Modular Architecture**: Clean separation between client (`src/client`), server (`src/server`), and shared (`src/shared`) components
+- **Selection State Management**: Client-side state tracking for selected worlds with visual feedback and dynamic button updates
 
-The world selection system provides a curated browsing experience before launching into 3D voxel environments, delivering both discovery and interactive graphics directly within Reddit posts using modern web technologies.
+The world selection system provides a curated browsing experience before launching into 3D voxel environments, delivering both discovery and interactive graphics directly within Reddit posts using modern web technologies and WebAssembly performance.

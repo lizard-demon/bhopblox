@@ -12,6 +12,20 @@ const worldList = document.getElementById("world-list")!;
 
 let engineLoaded = false;
 let selectedWorld: DatabaseEntry | null = null;
+let engineModule: any = null;
+
+// Force engine reload
+function resetEngine() {
+  engineLoaded = false;
+  engineModule = null;
+  delete (window as any).Module;
+
+  // Remove any existing voxels.js script
+  const existingScript = document.querySelector('script[src="voxels.js"]');
+  if (existingScript) {
+    existingScript.remove();
+  }
+}
 
 // Load worlds from server
 async function loadWorlds() {
@@ -44,6 +58,7 @@ async function loadWorlds() {
         playBtn.disabled = false;
       };
 
+      
       worldList.appendChild(worldItem);
     });
   } catch (error) {
@@ -71,20 +86,54 @@ async function loadEngine() {
   status.textContent = "Loading engine...";
   playBtn.disabled = true;
 
+  // Ensure canvas is visible and properly sized before initializing
+  menu.style.display = "none";
+  game.style.display = "flex";
+  canvas.classList.add("loading");
+
+  // Wait for next frame to ensure layout is complete
+  await new Promise(resolve => requestAnimationFrame(resolve));
+
+  // Force a layout reflow to ensure canvas dimensions are calculated
+  const rect = canvas.getBoundingClientRect();
+  console.log("Canvas dimensions:", rect.width, "x", rect.height);
+
   return new Promise<void>((resolve, reject) => {
+    // Clear any existing Module
+    delete (window as any).Module;
+
     (window as any).Module = {
       canvas,
       postRun: [() => {
         engineLoaded = true;
+        engineModule = (window as any).Module;
+        canvas.classList.remove("loading");
         status.textContent = "Ready";
+        console.log("Engine loaded successfully");
         resolve();
       }],
-      onAbort: reject
+      onAbort: (error: any) => {
+        console.error("Engine aborted:", error);
+        reject(error);
+      },
+      onRuntimeInitialized: () => {
+        console.log("Engine runtime initialized");
+      },
+      print: (text: string) => {
+        console.log("Engine:", text);
+      },
+      printErr: (text: string) => {
+        console.error("Engine error:", text);
+      }
     };
 
     const script = document.createElement("script");
     script.src = "voxels.js";
-    script.onerror = reject;
+    script.onerror = (error) => {
+      canvas.classList.remove("loading");
+      console.error("Failed to load voxels.js:", error);
+      reject(error);
+    };
     document.head.appendChild(script);
   });
 }
@@ -98,22 +147,69 @@ playBtn.onclick = async () => {
 
   try {
     await loadEngine();
-    menu.style.display = "none";
-    game.style.display = "flex";
-  } catch {
+    // Engine loading now handles the display switching
+
+    // If engine loaded but canvas is still blank, try to refresh it
+    setTimeout(() => {
+      if (engineModule && typeof engineModule._refresh === 'function') {
+        try {
+          engineModule._refresh();
+        } catch (e) {
+          console.warn("Engine refresh failed:", e);
+        }
+      }
+    }, 100);
+
+  } catch (error) {
+    console.error("Engine loading failed:", error);
     status.textContent = "Failed to load engine";
     playBtn.disabled = false;
+    // Revert display if loading failed
+    menu.style.display = "block";
+    game.style.display = "none";
   }
 };
 
 exitBtn.onclick = () => {
+  // Clean up engine if needed
+  if (engineModule && typeof engineModule._cleanup === 'function') {
+    try {
+      engineModule._cleanup();
+    } catch (e) {
+      console.warn("Engine cleanup failed:", e);
+    }
+  }
+
   menu.style.display = "block";
   game.style.display = "none";
+
+  // Reset engine for next load to avoid blank screen issue
+  resetEngine();
 };
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && game.style.display === "flex") {
     exitBtn.click();
+  }
+
+  // Debug: Press 'R' to force engine reload
+  if (e.key === "r" || e.key === "R") {
+    if (game.style.display === "flex") {
+      console.log("Force reloading engine...");
+      resetEngine();
+      loadEngine().catch(console.error);
+    }
+  }
+});
+
+// Handle window resize to ensure canvas stays properly sized
+window.addEventListener("resize", () => {
+  if (game.style.display === "flex" && engineLoaded) {
+    // Force canvas to recalculate its size
+    canvas.style.width = "";
+    canvas.style.height = "";
+    // Trigger a reflow
+    canvas.offsetWidth;
   }
 });
 
