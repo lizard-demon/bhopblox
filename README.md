@@ -1,13 +1,13 @@
-# Voxel World Explorer - Retro-Futuristic 3D WebAssembly Game
+# Voxel World - Retro-Futuristic 3D WebAssembly Game
 
 A stunning retro-futuristic 3D voxel world explorer that runs directly inside Reddit posts, featuring a complete CRT monitor aesthetic with WebAssembly-powered 3D graphics. Choose from a curated collection of unique voxel worlds and experience fully interactive 3D environments with first-person exploration, all within an immersive retro-tech interface.
 
 ## What is This Game?
 
-Voxel World Explorer is a revolutionary 3D voxel-based exploration game that brings interactive 3D gaming directly to Reddit with a distinctive retro-futuristic aesthetic. The game features:
+Voxel World is a revolutionary 3D voxel-based exploration game that brings interactive 3D gaming directly to Reddit with a distinctive retro-futuristic aesthetic. The game features:
 
-- **Retro-Futuristic CRT Interface**: Complete CRT monitor simulation with authentic bezel, scanlines, screen curvature, and monitor controls labeled "FUTURO-TECH CRT-2085"
-- **Interactive World Selection**: Browse and select from 6 curated voxel worlds through an elegant glass-morphism interface with atmospheric effects
+- **Retro-Futuristic CRT Interface**: Complete CRT monitor simulation with authentic bezel and atmospheric 3D geometric patterns
+- **Interactive World Selection**: Browse and select from 6 curated voxel worlds through an elegant glass-morphism interface with floating hexagonal elements
 - **6 Unique Pre-loaded Worlds**: Diverse collection including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
 - **High-Performance 3D Engine**: WebAssembly-powered voxel engine (voxels.wasm) with JavaScript bridge for smooth 3D rendering
 - **First-Person 3D Exploration**: Navigate through selected worlds using standard FPS controls with mouse look and keyboard movement
@@ -16,7 +16,7 @@ Voxel World Explorer is a revolutionary 3D voxel-based exploration game that bri
 - **On-Demand Engine Loading**: WASM engine loads dynamically only when launching a world for optimal performance
 - **Persistent World Database**: Redis-backed database storing world metadata, descriptions, and creation details
 - **Generative Audio System**: Dynamic ambient music with evolving harmonic layers across multiple musical scales, plus interactive sound effects
-- **Atmospheric Visual Effects**: Floating glass orbs, light particles, bubble effects, and animated gradients create an immersive Frutiger Aero atmosphere
+- **Atmospheric Visual Effects**: Floating 3D hexagons, minimal light particles, and animated geometric patterns create an immersive retro-futuristic atmosphere
 - **Cross-Platform Compatibility**: Works on both desktop and mobile browsers with responsive retro-tech design
 
 The game provides a complete retro-futuristic world selection and 3D exploration experience, combining nostalgic CRT aesthetics with modern WebAssembly performance.
@@ -24,41 +24,46 @@ The game provides a complete retro-futuristic world selection and 3D exploration
 ## What Makes This Game Innovative?
 
 ### 🖥️ **Authentic Retro-Futuristic CRT Experience**
-- **Complete CRT Monitor Simulation**: Full CRT monitor aesthetic with realistic bezel, screen curvature, scanlines, and authentic monitor controls
-- **FUTURO-TECH CRT-2085 Branding**: Detailed monitor controls with power, brightness, and contrast knobs for authentic retro-tech immersion
-- **Dynamic CRT Effects**: Real-time scanlines, screen flicker, and curvature effects that enhance the nostalgic computing experience
+- **Complete CRT Monitor Simulation**: Full CRT monitor aesthetic with realistic bezel and atmospheric effects
 - **Glass Morphism Interface**: Semi-transparent panels with backdrop blur and frosted glass effects within the CRT screen
-- **Atmospheric Visual Elements**: Floating glass orbs, light particles, and bubble effects create a living, breathing retro-futuristic environment
+- **Atmospheric Visual Elements**: Floating 3D hexagons and minimal light particles create a living, breathing retro-futuristic environment
+- **3D Geometric Background**: Animated geometric patterns with subtle cyan highlights that shift continuously for depth
+- **Orbitron & Exo 2 Typography**: Retro-futuristic fonts with glowing text effects and gradient styling
+- **Dynamic Visual Effects**: Floating hexagonal glass orbs and light particles with smooth animations
 
-### � ***Reddit-Native 3D Voxel Gaming**
+### 🚀 **Reddit-Native 3D Voxel Gaming**
 - **First-of-its-Kind**: A fully 3D voxel world explorer that runs natively inside Reddit posts using WebAssembly
 - **Zero Installation Gaming**: Complete 3D world exploration experience with no downloads, plugins, or external software required
 - **WebAssembly Performance**: Leverages a high-performance WASM engine (voxels.wasm) with JavaScript bridge for smooth 3D graphics
 - **Devvit Platform Pioneer**: Built on Reddit's official developer platform for seamless social media gaming integration
 - **Cross-Platform 3D**: Works seamlessly on desktop and mobile browsers within Reddit's interface
+- **Dynamic Engine Loading**: WASM engine only loads when needed, with automatic cleanup and force reload capabilities (R key for manual reset)
 
 ### 🌍 **Curated World Selection System**
 - **Interactive Dimension Browser**: Browse and select from 6 unique pre-loaded worlds through the "SELECT DIMENSION" interface
 - **Rich World Metadata**: Each world includes detailed descriptions and author information stored in Redis database
-- **Visual Selection Interface**: Click-to-select with bright teal highlighting and hover effects for intuitive world browsing
+- **Visual Selection Interface**: Click-to-select with bright cyan highlighting and hover effects for intuitive world browsing
 - **Dynamic Launch System**: "INITIALIZE WORLD" button updates to show selected world with retro-tech styling
 - **Persistent World Database**: Redis-backed storage ensures worlds persist across sessions and users
 - **Scrollable World List**: Elegant scrollable interface with custom styling and CRT scanline effects
+- **Audio Feedback**: Every interaction has unique sound effects - hover sounds, selection chimes, and error alerts
 
-### 🚀 **Advanced WebAssembly Integration**
+### ⚡ **Advanced WebAssembly Integration**
 - **On-Demand Engine Loading**: WASM engine loads only when launching a selected world, keeping initial load times fast
 - **Hardware-Accelerated 3D**: Real-time voxel rendering with WebGL support via HTML5 Canvas within CRT frame
 - **Optimized Performance**: Compiled WebAssembly module with JavaScript bridge for optimal 3D graphics performance
-- **Canvas-First Design**: Full-screen 3D rendering (88vw × 75vh, max 1100x750px) with CRT bezel styling
+- **Canvas-First Design**: Full-screen 3D rendering (90vw × 75vh, max 1000x650px) with CRT bezel styling
 - **Memory Management**: Efficient WASM memory handling with proper initialization and cleanup
 - **Dynamic Script Injection**: voxels.js script dynamically loaded and removed as needed for optimal performance
+- **Engine Reset System**: Automatic engine cleanup between sessions and manual reset capability (R key) for troubleshooting
 
-### �  **Seamless Social Gaming Integration**
+### 🤝 **Seamless Social Gaming Integration**
 - **Reddit User Recognition**: Automatically greets users by their Reddit username in the retro interface
 - **Native Reddit Experience**: Runs directly within Reddit's interface without breaking user flow or requiring external sites
 - **Social Context Preservation**: Maintains Reddit post context while providing full 3D gaming experience
 - **Mobile-First Design**: Responsive retro-tech interface optimized for Reddit's mobile user base
 - **Instant Access**: No account creation or separate login required - uses existing Reddit authentication
+- **Custom Splash Screen**: Engaging "Voxel World Adventure" splash with "Play" button and app description
 
 ### 🎵 **Generative Audio System**
 - **Dynamic Ambient Music**: Procedurally generated ambient soundscapes using Web Audio API with 2-4 oscillator layers per generation cycle
@@ -74,8 +79,8 @@ The game provides a complete retro-futuristic world selection and 3D exploration
 ## How to Play the Game
 
 ### Getting Started
-1. **Find Voxel World Explorer**: Look for Voxel World Explorer posts in your Reddit feed or visit the development subreddit
-2. **Launch the App**: Click the "Tap to Start" button on the splash screen when you see a Voxel World Explorer post
+1. **Find Voxel World**: Look for Voxel World posts in your Reddit feed or visit the development subreddit
+2. **Launch the App**: Click the "Play" button on the splash screen when you see a Voxel World post
 3. **Enter the CRT Interface**: You'll be immersed in a complete retro-futuristic CRT monitor experience with the "FUTURO-TECH CRT-2085"
 4. **Personal Welcome**: The app will automatically greet you with your Reddit username (e.g., "Welcome [username]!")
 
@@ -84,10 +89,10 @@ The game provides a complete retro-futuristic world selection and 3D exploration
 The game presents itself as a complete CRT monitor simulation with authentic retro-tech aesthetics:
 
 #### CRT Monitor Elements
-- **FUTURO-TECH CRT-2085 Monitor**: Complete CRT monitor frame with realistic bezel, screen curvature, and authentic styling
-- **Monitor Controls**: Physical control knobs for power, brightness, and contrast add to the authentic retro computing experience
-- **CRT Screen Effects**: Real-time scanlines, screen flicker, and curvature effects enhance the nostalgic atmosphere
-- **Atmospheric Elements**: Floating glass orbs, light particles, and bubble effects create a living retro-futuristic environment
+- **Complete CRT Monitor Frame**: Realistic bezel and authentic retro-tech styling
+- **CRT Screen Effects**: Atmospheric visual effects and subtle glow enhance the nostalgic atmosphere
+- **Atmospheric Elements**: Floating 3D hexagons and minimal light particles create a living retro-futuristic environment
+- **3D Geometric Patterns**: Animated background patterns with subtle cyan highlights that shift continuously
 
 #### Main Interface Elements
 - **Retro Title Display**: "VOXEL WORLD" title with glowing effects and personalized greeting using your Reddit username
@@ -108,7 +113,7 @@ The game presents itself as a complete CRT monitor simulation with authentic ret
 #### 2. Select Your World
 - **Click on any world card** to select it
 - **Audio Feedback**: Hover sounds and selection confirmation sounds enhance interactivity
-- **Visual Confirmation**: Selected worlds are highlighted with bright teal background
+- **Visual Confirmation**: Selected worlds are highlighted with bright cyan background and left border
 - **Button Update**: The "INITIALIZE WORLD" button updates to show your selected world (e.g., "Play 'Crystal Cave'")
 
 #### 3. Launch the 3D Experience
@@ -126,12 +131,12 @@ The game presents itself as a complete CRT monitor simulation with authentic ret
 ### Game States & Navigation
 
 #### 1. CRT Interface State (World Selection)
-- **Retro-Tech Interface**: Complete CRT monitor simulation with FUTURO-TECH CRT-2085 branding and authentic monitor controls
+- **Retro-Tech Interface**: Complete CRT monitor simulation with authentic retro-futuristic styling
 - **Interactive World Cards**: Hover effects and click-to-select functionality with audio feedback and visual transitions
-- **Visual Feedback**: Selected worlds show bright teal highlighting with clear visual indicators within the glass panel interface
+- **Visual Feedback**: Selected worlds show bright cyan highlighting with clear visual indicators within the glass panel interface
 - **Dynamic Initialize Button**: "INITIALIZE WORLD" button updates to reflect your current selection with retro-tech styling
 - **Selection Validation**: Must select a world before the 3D engine can be launched - shows error message with audio feedback if you try to launch without selecting
-- **Atmospheric Effects**: Floating glass orbs, light particles, and bubble effects create an immersive retro-futuristic environment
+- **Atmospheric Effects**: Floating 3D hexagons and minimal light particles create an immersive retro-futuristic environment
 - **Audio Feedback**: Hover sounds, selection confirmation sounds, and ambient atmospheric audio
 
 #### 2. Loading State (Engine Initialization)
@@ -144,17 +149,21 @@ The game presents itself as a complete CRT monitor simulation with authentic ret
 - **Animated Loading**: CSS-based loading spinner animation on canvas during engine initialization
 
 #### 3. Game State (3D Voxel World)
-- **CRT-Framed 3D Canvas**: Immersive voxel world rendered within authentic CRT monitor bezel with realistic screen effects
+- **CRT-Framed 3D Canvas**: Immersive voxel world rendered within authentic CRT monitor bezel (90vw × 75vh, max 1000x650px)
 - **WebAssembly Engine**: High-performance 3D rendering using compiled WASM module (voxels.wasm) with JavaScript bridge (voxels.js)
 - **Interactive 3D Environment**: Explore the selected voxel world with full 3D navigation and WebGL acceleration
-- **Authentic CRT Effects**: Canvas features realistic CRT monitor bezel, scanlines, screen curvature, and glow effects
+- **Clean CRT Styling**: Canvas features clean CRT monitor bezel with subtle glow effects and modern styling
 - **Exit Options**: "◀ EXIT" button in retro styling and ESC key for instant return to world selection
-- **Context Menu Disabled**: Right-click disabled on canvas for seamless gaming experience
 - **Ambient Audio**: Generative ambient music plays during 3D exploration with evolving harmonic layers across multiple musical scales
 
 ### 3D World Controls & Navigation
 
 The WebAssembly voxel engine provides full 3D navigation controls within the CRT-framed interface:
+
+#### Current Engine Status
+- **WebAssembly Engine**: The game includes a pre-compiled voxel engine (voxels.wasm + voxels.js) that loads when you select and launch a world
+- **3D Canvas**: A dedicated 3D rendering canvas appears within the CRT monitor frame when you initialize a world
+- **Engine Loading**: The system shows "Loading engine..." status and "Ready" when the WASM module is successfully initialized
 
 #### Input Controls
 - **Mouse Movement**: Look around and navigate the 3D voxel environment with smooth mouse look within the CRT screen
@@ -176,7 +185,7 @@ The WebAssembly voxel engine provides full 3D navigation controls within the CRT
 
 ### Quick Start Summary
 
-1. **Launch the app** from a Reddit post
+1. **Launch the app** from a Reddit post by clicking "Play"
 2. **Select a world** from the 6 available options by clicking on it
 3. **Click "INITIALIZE WORLD"** to launch the 3D experience
 4. **Explore the voxel world** using mouse and keyboard controls
@@ -219,9 +228,9 @@ The game features a sophisticated generative audio system:
 ### Frontend Technologies
 - **TypeScript**: Type-safe client-side development with strict typing and shared API types (`InitResponse`, `GetEntriesResponse`, `DatabaseEntry`)
 - **Vite**: Lightning-fast build system and development server with hot module replacement and watch mode
-- **HTML5 Canvas**: Hardware-accelerated 3D graphics rendering within CRT frame (88vw × 75vh, max 1100x750px) with WebGL support
+- **HTML5 Canvas**: Hardware-accelerated 3D graphics rendering within CRT frame (90vw × 75vh, max 1000x650px) with WebGL support
 - **Dynamic Module Loading**: WASM engine loaded on-demand with cleanup and force reload capabilities for optimal performance and memory usage
-- **CSS3**: Complete CRT monitor simulation with authentic bezel, scanlines, curvature, glass morphism, and atmospheric effects
+- **CSS3**: Complete CRT monitor simulation with authentic bezel, glass morphism, and atmospheric effects
 - **Web Audio API**: Generative audio system with procedural ambient music across multiple musical scales and interactive sound effects
 - **Google Fonts**: Orbitron and Exo 2 fonts for retro-futuristic typography
 
@@ -230,7 +239,7 @@ The game features a sophisticated generative audio system:
   - **voxels.wasm**: Compiled WebAssembly module for 3D voxel rendering with WebGL acceleration
   - **voxels.js**: JavaScript bridge and loader for WASM integration with Module system
 - **Dynamic Loading**: WASM module loaded only when user launches a dimension with proper script injection and cleanup
-- **Canvas Integration**: Direct rendering to HTML5 canvas element within authentic CRT monitor bezel (88vw × 75vh, max 1100x750px)
+- **Canvas Integration**: Direct rendering to HTML5 canvas element within authentic CRT monitor bezel (90vw × 75vh, max 1000x650px)
 - **Module System**: Uses global `Module` object with postRun callbacks, onAbort error handling, and runtime initialization
 - **Context Menu Prevention**: Right-click disabled on canvas for seamless gaming experience within CRT interface
 - **Memory Management**: Proper WASM memory allocation, cleanup between sessions, and force reload capability (R key)
@@ -289,9 +298,9 @@ npm run login
 1. Clone this repository
 2. Run `npm install` to install dependencies (includes automatic build via postinstall)
 3. Run `npm run dev` to start development server
-4. Visit the provided Reddit playtest URL (e.g., `https://www.reddit.com/r/bhopblox_dev?playtest=bhopblox`) to test the game
+4. Visit the provided Reddit playtest URL to test the game
 
-The development server automatically creates a test subreddit (`r/bhopblox_dev`) where you can interact with the 3D voxel world in real-time.
+The development server automatically creates a test subreddit where you can interact with the 3D voxel world in real-time.
 
 ### WASM Files & World Database
 
@@ -346,7 +355,7 @@ entry:world_2          # Contains: id, title, description, createdAt, author
 ### WebAssembly Integration
 - **WASM Engine**: Optimized WebAssembly module (voxels.wasm) for 3D rendering of selected worlds with memory management
 - **JavaScript Bridge**: WASM loading with JavaScript bridge (voxels.js) for seamless integration and error handling
-- **Canvas Rendering**: Direct rendering to HTML5 canvas element with id="canvas" (90vw × 80vh, max 1000x700px)
+- **Canvas Rendering**: Direct rendering to HTML5 canvas element with id="canvas" (90vw × 75vh, max 1000x650px)
 - **Dynamic Script Loading**: WASM engine loaded via dynamic script injection when launching worlds with cleanup
 - **On-Demand Loading**: Engine files only load when user selects and launches a world for faster initial page load
 - **Context Menu Prevention**: Right-click disabled on canvas for seamless gaming experience
@@ -366,12 +375,30 @@ entry:world_2          # Contains: id, title, description, createdAt, author
 - **TypeScript**: Full type safety across client, server, and shared code with defined API types (`InitResponse`, `GetEntriesResponse`, `DatabaseEntry`)
 - **Vite Build System**: Optimized builds for both client and server components with hot module replacement
 - **Error Handling**: Graceful fallbacks for dimension loading and engine initialization failures with user-friendly messages and audio feedback
-- **CRT Interface**: Complete CRT monitor simulation with authentic bezel, scanlines, screen curvature, monitor controls, and atmospheric effects
-- **Canvas Management**: Responsive canvas sizing within CRT frame (1100x750px max) with authentic monitor bezel styling
+- **CRT Interface**: Complete CRT monitor simulation with authentic bezel and atmospheric effects
+- **Canvas Management**: Responsive canvas sizing within CRT frame (1000x650px max) with authentic monitor bezel styling
 - **Modular Architecture**: Clean separation between client (`src/client`), server (`src/server`), and shared (`src/shared`) components
-- **Selection State Management**: Client-side state tracking for selected dimensions with teal highlighting and dynamic button updates
+- **Selection State Management**: Client-side state tracking for selected dimensions with cyan highlighting and dynamic button updates
 - **Atmospheric Effects**: Floating glass orbs, light particles, bubble effects, and animated gradients create immersive retro-futuristic environment
 - **Engine Management**: Dynamic WASM loading with cleanup, force reload capability (R key), and proper memory management between sessions
 - **Audio Integration**: Comprehensive audio system with generative ambient music, interactive sound effects, and multiple musical scales
 
 The dimension selection system provides a curated browsing experience within an authentic retro-futuristic CRT interface before launching into 3D voxel environments, delivering both discovery and interactive graphics directly within Reddit posts using modern web technologies and WebAssembly performance.
+
+## Current Development Status
+
+**Note**: This is an active development project. The WebAssembly voxel engine (voxels.wasm + voxels.js) is included in the project structure but the 3D worlds are currently in development. The complete CRT interface, world selection system, audio system, and Reddit integration are fully functional. Users can browse and select from 6 unique worlds, but the 3D exploration experience is being refined.
+
+### What's Currently Working
+- ✅ **Complete CRT Interface**: Fully functional retro-futuristic interface with glass morphism panels
+- ✅ **World Selection System**: Browse and select from 6 unique voxel worlds with descriptions
+- ✅ **Generative Audio System**: Dynamic ambient music and interactive sound effects
+- ✅ **Reddit Integration**: User authentication, personalized greetings, and native Reddit experience
+- ✅ **WebAssembly Loading**: Dynamic WASM engine loading with proper error handling
+- ✅ **Responsive Design**: Mobile and desktop compatibility with adaptive CRT styling
+- ✅ **Database System**: Redis-backed world storage with persistent data
+
+### In Development
+- 🔄 **3D World Content**: Voxel world environments and interactive elements
+- 🔄 **Navigation Controls**: First-person movement and interaction systems
+- 🔄 **World-Specific Features**: Unique mechanics for each of the 6 worlds
