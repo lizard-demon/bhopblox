@@ -22,11 +22,13 @@ body {
   background-position: 0 0, 0 0;
   color: #FFFFFF;
   height: 100vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
@@ -60,6 +62,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .crt-bezel {
@@ -79,6 +82,7 @@ body::before {
   align-items: center;
   justify-content: center;
   z-index: 10;
+  overflow: hidden;
 }
 
 
@@ -92,13 +96,16 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .glass-panel {
   text-align: center;
   max-width: 480px;
-  width: 100%;
+  width: calc(100% - 2rem);
+  box-sizing: border-box;
   background:
     /* Minecraft stone texture */
     repeating-linear-gradient(0deg,
@@ -204,11 +211,11 @@ body::before {
 }
 
 #worlds h2::before {
-  left: -25px;
+  left: -20px;
 }
 
 #worlds h2::after {
-  right: -25px;
+  right: -20px;
 }
 
 #world-list {

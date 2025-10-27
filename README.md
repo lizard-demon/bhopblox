@@ -135,7 +135,7 @@ The game presents itself as an authentic Minecraft-style interface with pixelate
 - **Audio Feedback**: Hover sounds, selection confirmation sounds, and ambient atmospheric audio
 
 #### 2. Loading State (Engine Initialization)
-- **Status Updates**: Real-time feedback during WebAssembly voxel engine loading within the CRT interface
+- **Status Updates**: Real-time feedback during WebAssembly voxel engine loading within the block interface
   - "Loading engine..." - WASM files (voxels.js, voxels.wasm) are being downloaded and initialized
   - "Ready" - Voxel engine successfully loaded and initialized
   - "Failed to load engine" - Error occurred during initialization with automatic fallback to block menu
@@ -161,7 +161,7 @@ The WebAssembly voxel engine system provides infrastructure for 3D block world c
 - **Engine Loading**: The system shows "Loading engine..." status and "Ready" when the WASM voxel module is successfully initialized
 
 #### Exit Methods
-- **ESC Key**: Press Escape at any time to immediately return to the retro-futuristic world selection interface
+- **ESC Key**: Press Escape at any time to immediately return to the world selection interface
 - **Exit Button**: Click the "◀ EXIT" button in the top-right corner of the canvas frame
 - **Automatic Return**: Seamlessly returns to the block interface with proper cleanup and atmospheric effects
 - **Engine Reset**: Automatically resets the voxel engine for next world selection to prevent issues
@@ -190,7 +190,7 @@ The game features a sophisticated generative audio system:
 ### Troubleshooting
 
 #### Common Issues
-- **Engine Loading Failed**: The game will automatically return to the CRT interface - try selecting a world again
+- **Engine Loading Failed**: The game will automatically return to the block interface - try selecting a world again
 - **No Audio**: Audio activates on your first interaction - click anywhere to enable sound
 - **Canvas Issues**: Press 'R' key to force reload the WebAssembly voxel engine if needed
 
@@ -203,7 +203,7 @@ The game features a sophisticated generative audio system:
 - **Browse All Worlds**: Explore all 6 worlds to see different themes and descriptions
 - **Read Descriptions**: Each world has unique features - descriptions help you choose what interests you most
 - **Select First**: Always select a world before clicking "INITIALIZE WORLD" to avoid error messages
-- **Be Patient**: Initial voxel engine load may take time - watch for status updates in the CRT interface
+- **Be Patient**: Initial voxel engine load may take time - watch for status updates in the block interface
 - **Quick Exit**: ESC key provides instant return to world selection
 - **World Switching**: Exit and select different worlds to browse various environments
 - **Desktop Recommended**: While mobile-compatible, desktop provides optimal experience
