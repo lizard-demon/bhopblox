@@ -512,7 +512,8 @@ body::before {
   justify-content: center;
   position: relative;
   padding: 2rem;
-  z-index: 2;
+  z-index: 5;
+  opacity: 1;
 }
 
 #canvas {
@@ -520,19 +521,28 @@ body::before {
   height: 75vh;
   max-width: 1000px;
   max-height: 650px;
-  border: 2px solid rgba(0, 188, 255, 0.3);
-  border-radius: 8px;
+  border: 2px solid #000000;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
   background: #000;
   display: block;
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.6),
-    0 0 40px rgba(0, 188, 255, 0.2);
+    inset 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.3),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
   position: relative;
+  z-index: 10;
+  opacity: 1;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 #canvas.loading {
-  background:
-    #000 radial-gradient(circle, rgba(0, 188, 255, 0.1) 0%, transparent 70%);
+  background: #000000;
+  opacity: 1;
 }
 
 .game-overlay {
@@ -549,42 +559,63 @@ body::before {
   position: absolute;
   top: 2rem;
   right: 2rem;
-  font-family: 'Orbitron', monospace;
+  font-family: 'Courier New', 'Monaco', monospace;
   background:
-    linear-gradient(135deg,
-      rgba(255, 64, 64, 0.15) 0%,
-      rgba(255, 32, 32, 0.1) 100%);
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 64, 64, 0.5);
-  padding: 10px 20px;
-  border-radius: 6px;
+    repeating-linear-gradient(0deg,
+      #FF6B6B 0px, #FF6B6B 2px,
+      #FF8E8E 2px, #FF8E8E 4px,
+      #FF4444 4px, #FF4444 6px,
+      #FF6B6B 6px, #FF6B6B 8px);
+  background-size: 8px 8px;
+  color: #FFFFFF;
+  border: 2px solid #000000;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  padding: 8px 16px;
   cursor: pointer;
   font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-weight: bold;
   text-transform: uppercase;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
   pointer-events: auto;
+  z-index: 25;
+  opacity: 1;
   box-shadow:
-    0 4px 15px rgba(255, 64, 64, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    inset 1px 1px 0 rgba(255, 255, 255, 0.5),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.5),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  text-shadow:
+    1px 1px 0 #000000,
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000;
 }
 
 .exit-button:hover {
   background:
-    linear-gradient(135deg,
-      rgba(255, 64, 64, 0.25) 0%,
-      rgba(255, 32, 32, 0.15) 100%);
-  border-color: rgba(255, 64, 64, 0.7);
-  transform: translateY(-2px);
-  box-shadow:
-    0 8px 25px rgba(255, 64, 64, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    repeating-linear-gradient(0deg,
+      #FF8B8B 0px, #FF8B8B 2px,
+      #FFAEAE 2px, #FFAEAE 4px,
+      #FF6464 4px, #FF6464 6px,
+      #FF8B8B 6px, #FF8B8B 8px);
+  background-size: 8px 8px;
 }
 
 .exit-button:active {
-  transform: translateY(0px);
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
+  box-shadow:
+    inset -1px -1px 0 rgba(255, 255, 255, 0.5),
+    inset 1px 1px 0 rgba(0, 0, 0, 0.5),
+    1px 1px 2px rgba(0, 0, 0, 0.3);
+  transform: translate(1px, 1px);
 }
 
 /* Custom
