@@ -5,19 +5,34 @@
 }
 
 body {
-  font-family: 'Exo 2', 'Segoe UI', sans-serif;
+  font-family: 'Courier New', 'Monaco', monospace;
   background:
-    linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 25%, #0f1419 50%, #1e2a3a 75%, #0a0e1a 100%);
-  color: #e1f5fe;
+    /* Minecraft dirt/grass texture pattern */
+    repeating-linear-gradient(0deg,
+      #8B4513 0px, #8B4513 4px,
+      #A0522D 4px, #A0522D 8px,
+      #654321 8px, #654321 12px,
+      #8B4513 12px, #8B4513 16px),
+    repeating-linear-gradient(90deg,
+      #228B22 0px, #228B22 4px,
+      #32CD32 4px, #32CD32 8px,
+      #006400 8px, #006400 12px,
+      #228B22 12px, #228B22 16px);
+  background-size: 16px 64px, 16px 16px;
+  background-position: 0 0, 0 0;
+  color: #FFFFFF;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
-/* 3D Geometric Background Pattern */
+/* Minecraft block pattern overlay */
 body::before {
   content: '';
   position: fixed;
@@ -26,21 +41,15 @@ body::before {
   width: 100%;
   height: 100%;
   background:
-    linear-gradient(45deg, transparent 40%, rgba(0, 188, 255, 0.03) 50%, transparent 60%),
-    linear-gradient(-45deg, transparent 40%, rgba(0, 229, 255, 0.02) 50%, transparent 60%);
-  background-size: 60px 60px, 80px 80px;
-  animation: geometricShift 20s linear infinite;
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 15px,
+      rgba(0, 0, 0, 0.1) 15px, rgba(0, 0, 0, 0.1) 16px),
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 15px,
+      rgba(0, 0, 0, 0.1) 15px, rgba(0, 0, 0, 0.1) 16px);
+  background-size: 16px 16px;
   z-index: 1;
-}
-
-@keyframes geometricShift {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-
-  100% {
-    transform: translateX(60px) translateY(80px);
-  }
+  pointer-events: none;
 }
 
 /* Main Container */
@@ -84,18 +93,32 @@ body::before {
   overflow: hidden;
 }
 
-/* Floating 3D Hexagons */
+/* Floating Minecraft Blocks */
 .glass-orb {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background:
-    linear-gradient(135deg,
-      rgba(0, 188, 255, 0.1) 0%,
-      rgba(0, 229, 255, 0.05) 50%,
-      transparent 100%);
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  animation: floatHex 15s linear infinite;
+    /* Minecraft grass block texture */
+    repeating-linear-gradient(0deg,
+      #228B22 0px, #228B22 4px,
+      #32CD32 4px, #32CD32 8px,
+      #006400 8px, #006400 12px,
+      #228B22 12px, #228B22 16px);
+  background-size: 16px 16px;
+  border: 2px solid #000000;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.3),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: floatBlock 10s ease-in-out infinite;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .orb1 {
@@ -133,30 +156,34 @@ body::before {
   transform: scale(1.4);
 }
 
-@keyframes floatHex {
-  0% {
-    transform: translateY(0) rotate(0deg) scale(var(--scale, 1));
-    opacity: 0.3;
+@keyframes floatBlock {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
   }
 
   50% {
-    opacity: 0.8;
-  }
-
-  100% {
-    transform: translateY(-20px) rotate(360deg) scale(var(--scale, 1));
-    opacity: 0.3;
+    transform: translateY(-15px) rotate(5deg);
+    opacity: 1;
   }
 }
 
-/* Minimal Light Particles */
+/* Minecraft Experience Orbs */
 .light-particle {
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background: rgba(0, 229, 255, 0.6);
+  width: 8px;
+  height: 8px;
+  background:
+    radial-gradient(circle, #FFFF55 30%, #FFD700 70%, #FFA500 100%);
+  border: 1px solid #000000;
   border-radius: 50%;
-  animation: particleFloat 12s linear infinite;
+  animation: xpFloat 8s ease-in-out infinite;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  box-shadow: 0 0 4px #FFFF55;
 }
 
 .particle1 {
@@ -183,12 +210,12 @@ body::before {
   animation-delay: -2s;
 }
 
-@keyframes particleFloat {
+@keyframes xpFloat {
 
   0%,
   100% {
-    transform: translateY(0) translateX(0);
-    opacity: 0;
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.8;
   }
 
   50% {
@@ -214,74 +241,69 @@ body::before {
   max-width: 480px;
   width: 100%;
   background:
-    linear-gradient(135deg,
-      rgba(10, 14, 26, 0.85) 0%,
-      rgba(26, 31, 46, 0.75) 50%,
-      rgba(15, 20, 25, 0.85) 100%);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 188, 255, 0.2);
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
+    /* Minecraft stone texture */
+    repeating-linear-gradient(0deg,
+      #7F7F7F 0px, #7F7F7F 2px,
+      #8C8C8C 2px, #8C8C8C 4px,
+      #696969 4px, #696969 6px,
+      #7F7F7F 6px, #7F7F7F 8px),
+    repeating-linear-gradient(90deg,
+      #808080 0px, #808080 2px,
+      #909090 2px, #909090 4px,
+      #6A6A6A 4px, #6A6A6A 6px,
+      #808080 6px, #808080 8px);
+  background-size: 8px 8px, 8px 8px;
+  border: 4px solid #000000;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
+  padding: 2rem;
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    0 0 60px rgba(0, 188, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    inset 2px 2px 0 rgba(255, 255, 255, 0.5),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.5),
+    4px 4px 8px rgba(0, 0, 0, 0.3);
   position: relative;
-}
-
-/* Subtle 3D depth effect */
-.glass-panel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    linear-gradient(135deg,
-      rgba(0, 188, 255, 0.05) 0%,
-      transparent 50%,
-      rgba(0, 229, 255, 0.03) 100%);
-  border-radius: 15px;
-  pointer-events: none;
-  z-index: -1;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 #title {
-  font-family: 'Orbitron', monospace;
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-size: 3rem;
+  font-weight: bold;
   margin-bottom: 2rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.1rem;
+  gap: 0.2rem;
+  text-transform: uppercase;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .title-glow {
-  background:
-    linear-gradient(135deg,
-      #00bcff 0%,
-      #00e5ff 50%,
-      #ffffff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 20px rgba(0, 188, 255, 0.5);
+  color: #FFFF55;
+  text-shadow:
+    2px 2px 0 #000000,
+    -2px -2px 0 #000000,
+    2px -2px 0 #000000,
+    -2px 2px 0 #000000,
+    0 0 10px #FFFF55;
 }
 
 .title-accent {
-  background:
-    linear-gradient(135deg,
-      #ffffff 0%,
-      #00e5ff 50%,
-      #00bcff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  color: #55FF55;
+  text-shadow:
+    2px 2px 0 #000000,
+    -2px -2px 0 #000000,
+    2px -2px 0 #000000,
+    -2px 2px 0 #000000,
+    0 0 10px #55FF55;
 }
 
 #worlds {
@@ -289,81 +311,90 @@ body::before {
 }
 
 #worlds h2 {
-  font-family: 'Orbitron', monospace;
-  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Courier New', 'Monaco', monospace;
+  color: #FFFF55;
   margin-bottom: 1rem;
-  font-weight: 400;
-  font-size: 0.9rem;
-  letter-spacing: 0.15em;
+  font-weight: bold;
+  font-size: 1rem;
   text-transform: uppercase;
   position: relative;
+  text-shadow:
+    2px 2px 0 #000000,
+    -2px -2px 0 #000000,
+    2px -2px 0 #000000,
+    -2px 2px 0 #000000,
+    0 0 5px #FFFF55;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 #worlds h2::before,
 #worlds h2::after {
-  content: '';
+  content: '◆';
   position: absolute;
   top: 50%;
-  width: 30px;
-  height: 1px;
-  background:
-    linear-gradient(90deg, transparent 0%, rgba(0, 188, 255, 0.6) 50%, transparent 100%);
+  transform: translateY(-50%);
+  color: #55FF55;
+  font-size: 0.8rem;
+  text-shadow:
+    1px 1px 0 #000000,
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000;
 }
 
 #worlds h2::before {
-  left: -45px;
+  left: -25px;
 }
 
 #worlds h2::after {
-  right: -45px;
+  right: -25px;
 }
 
 #world-list {
   max-height: 240px;
   overflow-y: auto;
-  border: 1px solid rgba(0, 188, 255, 0.3);
-  border-radius: 12px;
+  border: 2px solid #000000;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
   background:
-    linear-gradient(135deg,
-      rgba(10, 14, 26, 0.6) 0%,
-      rgba(26, 31, 46, 0.4) 100%);
-  backdrop-filter: blur(10px);
+    /* Minecraft wood texture */
+    repeating-linear-gradient(0deg,
+      #8B4513 0px, #8B4513 2px,
+      #A0522D 2px, #A0522D 4px,
+      #654321 4px, #654321 6px,
+      #8B4513 6px, #8B4513 8px);
+  background-size: 8px 8px;
   margin-bottom: 1.5rem;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 4px 20px rgba(0, 0, 0, 0.3);
+    inset 1px 1px 0 rgba(255, 255, 255, 0.5),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.5),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
   position: relative;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .world-item {
-  padding: 1rem;
-  border-bottom: 1px solid rgba(0, 188, 255, 0.1);
+  padding: 0.8rem;
+  border-bottom: 1px solid #654321;
   cursor: pointer;
   text-align: left;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   position: relative;
   background: transparent;
-}
-
-.world-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2px;
-  height: 100%;
-  background: rgba(0, 188, 255, 0.6);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  color: #FFFFFF;
+  font-family: 'Courier New', 'Monaco', monospace;
 }
 
 .world-item:hover {
-  background: rgba(0, 188, 255, 0.05);
-  transform: translateX(4px);
-}
-
-.world-item:hover::before {
-  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #FFFF55;
+  margin: -1px;
 }
 
 .world-item:last-child {
@@ -371,40 +402,58 @@ body::before {
 }
 
 .world-item.selected {
-  background: rgba(0, 188, 255, 0.1);
-  color: rgba(255, 255, 255, 0.95);
-  border-left: 2px solid rgba(0, 188, 255, 0.8);
-  transform: translateX(2px);
-}
-
-.world-item.selected::before {
-  opacity: 1;
+  background: rgba(85, 255, 85, 0.2);
+  color: #FFFFFF;
+  border: 2px solid #55FF55;
+  margin: -2px -1px;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .world-title {
-  font-family: 'Orbitron', monospace;
-  font-weight: 500;
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-weight: bold;
   margin-bottom: 0.3rem;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
-  letter-spacing: 0.02em;
+  font-size: 1rem;
+  color: #FFFFFF;
+  text-shadow:
+    1px 1px 0 #000000,
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .world-description {
-  font-size: 0.8rem;
-  opacity: 0.7;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 300;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: #CCCCCC;
+  font-family: 'Courier New', 'Monaco', monospace;
+  text-shadow:
+    1px 1px 0 #000000,
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .world-item.selected .world-title {
-  color: rgba(255, 255, 255, 1);
+  color: #55FF55;
+  text-shadow:
+    1px 1px 0 #000000,
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000,
+    0 0 5px #55FF55;
 }
 
 .world-item.selected .world-description {
-  color: rgba(255, 255, 255, 0.8);
-  opacity: 1;
+  color: #FFFFFF;
 }
 
 .loading {
@@ -418,27 +467,36 @@ body::before {
 }
 
 .crt-button {
-  font-family: 'Orbitron', monospace;
+  font-family: 'Courier New', 'Monaco', monospace;
   background:
-    linear-gradient(135deg,
-      rgba(0, 188, 255, 0.15) 0%,
-      rgba(0, 229, 255, 0.1) 100%);
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 188, 255, 0.5);
-  padding: 14px 32px;
-  border-radius: 8px;
+    /* Minecraft button texture */
+    repeating-linear-gradient(0deg,
+      #C0C0C0 0px, #C0C0C0 2px,
+      #D3D3D3 2px, #D3D3D3 4px,
+      #A9A9A9 4px, #A9A9A9 6px,
+      #C0C0C0 6px, #C0C0C0 8px);
+  background-size: 8px 8px;
+  color: #000000;
+  border: 3px solid #000000;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  padding: 12px 24px;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-size: 1rem;
+  font-weight: bold;
   text-transform: uppercase;
   margin: 10px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  transition: all 0.1s ease;
   position: relative;
   box-shadow:
-    0 4px 15px rgba(0, 188, 255, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    inset 2px 2px 0 rgba(255, 255, 255, 0.5),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.5),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .button-text {
@@ -452,30 +510,37 @@ body::before {
 
 .crt-button:hover {
   background:
-    linear-gradient(135deg,
-      rgba(0, 188, 255, 0.25) 0%,
-      rgba(0, 229, 255, 0.15) 100%);
-  border-color: rgba(0, 188, 255, 0.7);
-  transform: translateY(-2px);
-  box-shadow:
-    0 8px 25px rgba(0, 188, 255, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    repeating-linear-gradient(0deg,
+      #D0D0D0 0px, #D0D0D0 2px,
+      #E3E3E3 2px, #E3E3E3 4px,
+      #B9B9B9 4px, #B9B9B9 6px,
+      #D0D0D0 6px, #D0D0D0 8px);
+  background-size: 8px 8px;
 }
 
 .crt-button:active {
-  transform: translateY(0px);
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
   box-shadow:
-    0 2px 10px rgba(0, 188, 255, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    inset -2px -2px 0 rgba(255, 255, 255, 0.5),
+    inset 2px 2px 0 rgba(0, 0, 0, 0.5),
+    1px 1px 2px rgba(0, 0, 0, 0.3);
+  transform: translate(1px, 1px);
 }
 
 .crt-button:disabled {
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.2);
+  background:
+    repeating-linear-gradient(0deg,
+      #808080 0px, #808080 2px,
+      #909090 2px, #909090 4px,
+      #707070 4px, #707070 6px,
+      #808080 6px, #808080 8px);
+  background-size: 8px 8px;
+  color: #404040;
   cursor: not-allowed;
   transform: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 #status {
@@ -484,21 +549,34 @@ body::before {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  font-family: 'Orbitron', monospace;
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.05em;
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
   text-transform: uppercase;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .status-indicator {
-  color: rgba(0, 255, 128, 0.8);
-  font-size: 1rem;
+  color: #55FF55;
+  font-size: 1.2rem;
   animation: statusBlink 2s ease-in-out infinite;
+  text-shadow:
+    1px 1px 0 #000000,
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000,
+    0 0 5px #55FF55;
 }
 
 .status-text {
-  color: rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
+  text-shadow:
+    1px 1px 0 #000000,
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000;
 }
 
 @keyframes statusBlink {
@@ -608,23 +686,45 @@ body::before {
 }
 
 /* Custom
-/* Custom scrollbar */
+/* Minecraft scrollbar */
 #world-list::-webkit-scrollbar {
-  width: 6px;
+  width: 12px;
 }
 
 #world-list::-webkit-scrollbar-track {
-  background: rgba(0, 188, 255, 0.1);
-  border-radius: 6px;
+  background:
+    repeating-linear-gradient(0deg,
+      #654321 0px, #654321 2px,
+      #8B4513 2px, #8B4513 4px);
+  background-size: 4px 4px;
+  border: 1px solid #000000;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 #world-list::-webkit-scrollbar-thumb {
-  background: rgba(0, 188, 255, 0.4);
-  border-radius: 6px;
+  background:
+    repeating-linear-gradient(0deg,
+      #C0C0C0 0px, #C0C0C0 2px,
+      #D3D3D3 2px, #D3D3D3 4px);
+  background-size: 4px 4px;
+  border: 1px solid #000000;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 #world-list::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 188, 255, 0.6);
+  background:
+    repeating-linear-gradient(0deg,
+      #D0D0D0 0px, #D0D0D0 2px,
+      #E3E3E3 2px, #E3E3E3 4px);
+  background-size: 4px 4px;
 }
 
 /* Focus States */
