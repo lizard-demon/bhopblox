@@ -18,7 +18,7 @@ Voxel World Explorer is a revolutionary 3D voxel-based exploration game that bri
 - **Cross-Platform Compatibility**: Works on both desktop and mobile browsers with responsive design
 - **Immersive Canvas Rendering**: Full-screen 3D rendering (90vw × 80vh) with WebGL acceleration
 - **Generative Audio System**: Dynamic ambient music and interactive sound effects using Web Audio API
-- **Animated Sky Theme**: Beautiful floating cloud animations with gradient sky background for an immersive menu experience
+- **Animated Cyberpunk Theme**: Beautiful floating cloud animations with animated gradient background and CRT scanline effects for a futuristic gaming experience
 
 The game provides a complete world selection and 3D exploration experience, allowing players to discover and explore diverse voxel environments directly in their browser within Reddit posts.
 
@@ -58,11 +58,12 @@ The game provides a complete world selection and 3D exploration experience, allo
 - **Two-Phase Interface**: Clean separation between world selection menu and full-screen 3D gaming modes
 - **Status-driven Feedback**: Real-time status updates ("Loading engine...", "Ready", "Select a world first")
 - **Escape-Key Navigation**: Instant exit from 3D mode back to world selection with ESC key
-- **Animated Sky Theme**: Beautiful sky-blue gradient background with floating cloud animations that drift across the screen
+- **Animated Cyberpunk Theme**: Dynamic gradient background with animated color shifting, floating cloud animations, and CRT scanline effects
 - **Modern Glass Morphism UI**: Frosted glass effect with backdrop blur and subtle transparency for the menu interface
 - **Loading State Management**: Proper button disabling and status messaging during engine initialization
 - **Animated Loading Indicators**: CSS-based loading spinner during WebAssembly engine initialization
 - **Floating Menu Animation**: Gentle floating animation on the main menu for added visual appeal
+- **Retro-Futuristic Aesthetics**: Subtle dot matrix patterns, texture floating animations, and cyberpunk color schemes
 
 ### 🎵 **Generative Audio System**
 - **Dynamic Ambient Music**: Procedurally generated ambient soundscapes using Web Audio API with evolving harmonic layers
@@ -84,14 +85,14 @@ The game provides a complete world selection and 3D exploration experience, allo
 
 ### World Selection Interface
 
-The game starts with an elegant world selection menu featuring a modern gradient background (sky-blue to light green) with blue accent colors and dark world selection cards:
+The game starts with an elegant world selection menu featuring a dynamic animated gradient background (cyan to blue with shifting colors) with cyberpunk aesthetics, CRT scanline effects, and floating cloud animations:
 
 #### Main Interface Elements
 - **Title Header**: Shows "Voxel World" or personalized greeting with your Reddit username in bright blue (#4fc3f7)
 - **World Browser**: Scrollable list (max-height: 250px) displaying all 6 available worlds with detailed information
 - **Play Button**: Initially shows "Select a World" - updates dynamically when you make a selection
 - **Status Display**: Shows current game status and loading information at the bottom
-- **Animated Sky Background**: Beautiful sky-blue to light green gradient with 5 floating clouds that continuously drift across the screen
+- **Animated Cyberpunk Background**: Dynamic gradient shifting between cyan and blue tones with 5 floating clouds, CRT scanlines, and dot matrix texture patterns
 - **Glass Morphism Menu**: Semi-transparent menu with frosted glass effect, backdrop blur, and subtle border highlights
 
 #### World Selection Process
@@ -211,7 +212,7 @@ The WebAssembly voxel engine provides full 3D navigation controls with hardware 
 - **World Switching**: Exit and select different worlds to experience various voxel environments without reloading the page
 - **Desktop Recommended**: While mobile-compatible with touch support, desktop provides optimal control experience for 3D navigation
 - **Engine Refresh**: Use 'R' key if the 3D world appears blank or unresponsive to force engine reload
-- **Clean Interface**: Modern gradient theme UI design keeps focus on world selection and immersive 3D experience
+- **Clean Interface**: Modern cyberpunk gradient theme UI design with animated backgrounds keeps focus on world selection and immersive 3D experience
 - **Visual Feedback**: Pay attention to teal highlighting (#4fc3f7) to confirm world selection before launching
 - **Status Monitoring**: Watch status messages for real-time feedback during loading and initialization phases
 - **Audio Experience**: Enjoy the generative ambient music that starts automatically when entering worlds, with interactive sound effects for all UI interactions including hover sounds and selection confirmations
@@ -354,7 +355,7 @@ entry:entry_2          # Contains: id, title, description, createdAt, author
 - **TypeScript**: Full type safety across client, server, and shared code with defined API types (`InitResponse`, `GetEntriesResponse`, `DatabaseEntry`)
 - **Vite Build System**: Optimized builds for both client and server components with hot module replacement
 - **Error Handling**: Graceful fallbacks for world loading and engine initialization failures with user-friendly messages and audio feedback
-- **Animated UI**: Sky-blue to light green gradient background with 5 floating cloud animations and glass morphism menu design
+- **Animated UI**: Dynamic cyberpunk gradient background with color shifting animation, 5 floating cloud animations, CRT scanline effects, and glass morphism menu design
 - **Canvas Management**: Responsive canvas sizing with maximum dimensions and subtle border for optimal gaming experience
 - **Modular Architecture**: Clean separation between client (`src/client`), server (`src/server`), and shared (`src/shared`) components
 - **Selection State Management**: Client-side state tracking for selected worlds with visual feedback and dynamic button updates
