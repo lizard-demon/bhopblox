@@ -1,37 +1,35 @@
-# bhopblox - Minecraft-Style Voxel World Explorer
+# bhopblox - Voxel World Selection Interface
 
-A stunning Minecraft-inspired voxel world selection interface that runs directly inside Reddit posts, featuring authentic pixelated block aesthetics with atmospheric effects and generative audio. Browse through a curated collection of unique worlds in an immersive blocky environment with dynamic visual effects and evolving ambient soundscapes.
+A sleek voxel world selection interface that runs directly inside Reddit posts, featuring a retro-futuristic CRT monitor aesthetic with generative audio. Browse through a curated collection of unique worlds in an immersive environment with dynamic sound effects and evolving ambient music.
 
 ## What is This Game?
 
-bhopblox is a Minecraft-style voxel world browser that brings an immersive pixelated block experience directly to Reddit with distinctive atmospheric aesthetics. The game features:
+bhopblox is a voxel world browser that brings an immersive retro-futuristic experience directly to Reddit. The game features:
 
-- **Authentic Minecraft Aesthetic**: Complete pixelated block styling with Minecraft-inspired textures, borders, and visual effects
-- **Interactive World Browser**: Browse and select from 6 curated worlds through an elegant stone-textured interface with floating Minecraft blocks
+- **Retro-Futuristic CRT Aesthetic**: Complete CRT monitor simulation with authentic bezel styling and glass panel effects
+- **Interactive World Browser**: Browse and select from 6 curated worlds through an elegant interface with hover effects
 - **6 Unique Pre-loaded Worlds**: Diverse collection including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
 - **Generative Audio System**: Dynamic ambient music with evolving harmonic layers across multiple musical scales (pentatonic, Japanese, Hirajoshi), plus interactive sound effects for every interaction
-- **Atmospheric Visual Effects**: Floating Minecraft grass blocks, XP orbs, and animated block patterns create a living, breathing blocky environment
 - **Reddit Native Integration**: Seamlessly integrated with Reddit's platform - no downloads or installations required
 - **WebAssembly Engine Integration**: Includes WASM-powered voxel engine loading system for 3D world exploration
 - **Persistent World Database**: Redis-backed database storing world metadata, descriptions, and author information
-- **Minecraft-Style Interface**: Stone-textured panels with authentic Minecraft button styling and block-based visual elements
-- **Cross-Platform Compatibility**: Works on both desktop and mobile browsers with responsive pixelated design
+- **Clean Interface Design**: Stone-textured panels with retro button styling and atmospheric visual elements
+- **Cross-Platform Compatibility**: Works on both desktop and mobile browsers with responsive design
 - **Interactive Sound Design**: Every hover, click, and selection has unique audio feedback with procedural ambient music
 
-The game provides a complete Minecraft-inspired world browsing experience, combining nostalgic block aesthetics with modern web technologies and immersive audio design.
+The game provides a complete world browsing experience, combining retro aesthetics with modern web technologies and immersive audio design.
 
 ## What Makes This Game Innovative?
 
-### 🧱 **Authentic Minecraft-Style Block Experience**
-- **Complete Pixelated Block Aesthetic**: Full Minecraft-inspired visual styling with authentic block textures and pixelated rendering
-- **Stone-Textured Interface**: Minecraft stone-textured panels with authentic block-style borders and 3D button effects
-- **Atmospheric Visual Elements**: Floating Minecraft grass blocks and XP orbs create a living, breathing blocky environment
-- **Minecraft Block Patterns**: Animated background patterns with dirt/grass textures and block-style visual effects
-- **Courier New Typography**: Pixelated monospace fonts with Minecraft-style text shadows and block-inspired styling
-- **Dynamic Block Effects**: Floating grass blocks and glowing XP orbs with authentic Minecraft-style animations
+### 🖥️ **Authentic CRT Monitor Experience**
+- **Complete CRT Simulation**: Full retro monitor aesthetic with authentic bezel styling and glass panel effects
+- **Stone-Textured Interface**: Elegant stone-textured panels with 3D button effects and atmospheric styling
+- **Clean Visual Design**: Minimalist interface focused on world selection and navigation
+- **Retro Typography**: Orbitron and Exo 2 fonts for authentic retro-futuristic styling
+- **Responsive CRT Design**: Adaptive interface that maintains CRT aesthetics across all screen sizes
 
 ### 🚀 **Reddit-Native Interactive Experience**
-- **First-of-its-Kind**: A fully immersive Minecraft-style voxel world browser that runs natively inside Reddit posts
+- **First-of-its-Kind**: A fully immersive retro-futuristic voxel world browser that runs natively inside Reddit posts
 - **Zero Installation Experience**: Complete interactive world browsing with no downloads, plugins, or external software required
 - **WebAssembly Integration**: Includes WASM voxel engine infrastructure (voxels.wasm) with JavaScript bridge for 3D block world capabilities
 - **Devvit Platform Pioneer**: Built on Reddit's official developer platform for seamless social media integration
@@ -41,24 +39,24 @@ The game provides a complete Minecraft-inspired world browsing experience, combi
 ### 🌍 **Curated World Selection System**
 - **Interactive Dimension Browser**: Browse and select from 6 unique pre-loaded worlds through the "SELECT DIMENSION" interface
 - **Rich World Metadata**: Each world includes detailed descriptions and author information stored in Redis database
-- **Visual Selection Interface**: Click-to-select with bright green highlighting and hover effects for intuitive world browsing
-- **Dynamic Launch System**: "INITIALIZE WORLD" button updates to show selected world with Minecraft-style button styling
+- **Visual Selection Interface**: Click-to-select with bright cyan highlighting and hover effects for intuitive world browsing
+- **Dynamic Launch System**: "INITIALIZE WORLD" button updates to show selected world with retro button styling
 - **Persistent World Database**: Redis-backed storage ensures worlds persist across sessions and users
-- **Scrollable World List**: Elegant scrollable interface with custom Minecraft-style wood texture and block borders
+- **Scrollable World List**: Elegant scrollable interface with custom wood texture styling and clean borders
 - **Audio Feedback**: Every interaction has unique sound effects - hover sounds, selection chimes, and error alerts
 
 ### ⚡ **Advanced Audio & Visual Systems**
 - **Generative Audio Engine**: Procedurally generated ambient soundscapes using Web Audio API with 2-4 oscillator layers
 - **Interactive Sound Design**: Contextual audio feedback for all user interactions with distinct tonal signatures
 - **Multiple Musical Scales**: Evolving between major pentatonic, minor pentatonic, Japanese, and Hirajoshi scales
-- **Atmospheric Visual Effects**: Floating Minecraft grass blocks, XP orbs, and animated block patterns
+- **Clean Visual Interface**: Focused on world selection with elegant CRT monitor styling
 - **Memory Management**: Efficient audio system with proper initialization and cleanup
-- **Dynamic Visual Elements**: Continuously evolving block patterns and atmospheric Minecraft-style effects
+- **Dynamic Audio Elements**: Continuously evolving ambient music with harmonic layering
 
 ### 🤝 **Seamless Social Gaming Integration**
 - **Reddit Native Experience**: Runs directly within Reddit's interface without breaking user flow or requiring external sites
-- **Social Context Preservation**: Maintains Reddit post context while providing immersive Minecraft-style block experience
-- **Mobile-First Design**: Responsive pixelated interface optimized for Reddit's mobile user base
+- **Social Context Preservation**: Maintains Reddit post context while providing immersive retro-futuristic experience
+- **Mobile-First Design**: Responsive CRT interface optimized for Reddit's mobile user base
 - **Instant Access**: No account creation or separate login required - uses existing Reddit authentication
 - **Custom Splash Screen**: Engaging "bhopblox" splash with "Play" button and app description
 
@@ -77,25 +75,25 @@ The game provides a complete Minecraft-inspired world browsing experience, combi
 ### Getting Started
 1. **Find bhopblox**: Look for bhopblox posts in your Reddit feed or visit the development subreddit
 2. **Launch the App**: Click the "Play" button on the splash screen when you see a bhopblox post
-3. **Enter the Minecraft Interface**: You'll be immersed in a complete Minecraft-style block world experience
-4. **Experience the Atmosphere**: Enjoy the floating grass blocks, XP orbs, and generative ambient music
+3. **Enter the CRT Interface**: You'll be immersed in a complete retro-futuristic CRT monitor experience
+4. **Experience the Atmosphere**: Enjoy the clean interface design and generative ambient music
 
-### The Minecraft-Style Block Interface
+### The Retro-Futuristic CRT Interface
 
-The game presents itself as a complete Minecraft-inspired block world with authentic pixelated aesthetics:
+The game presents itself as a complete CRT monitor simulation with authentic retro aesthetics:
 
-#### Block World Elements
-- **Minecraft Background Textures**: Authentic dirt/grass block patterns with pixelated rendering
-- **Block Pattern Overlay**: Grid-based block overlay effects enhance the Minecraft atmosphere
-- **Atmospheric Elements**: Floating Minecraft grass blocks and glowing XP orbs create a living blocky environment
-- **Pixelated Block Patterns**: Animated background patterns with authentic Minecraft block textures
+#### CRT Monitor Elements
+- **Authentic CRT Styling**: Complete monitor bezel and screen simulation with glass panel effects
+- **Clean Interface Design**: Minimalist approach focused on world selection and navigation
+- **Stone Panel Interface**: Elegant stone-textured panels with 3D styling effects
+- **Retro Typography**: Orbitron and Exo 2 fonts for authentic retro-futuristic styling
 
 #### Main Interface Elements
-- **Block Title Display**: "VOXEL WORLD" title with yellow/green glowing effects in Minecraft styling
+- **Title Display**: "VOXEL WORLD" title with yellow/green glowing effects in retro styling
 - **Dimension Selection**: "◦ SELECT DIMENSION ◦" header introduces the world browser with diamond symbols
-- **Stone Panel Interface**: Minecraft stone-textured panels with authentic block-style 3D borders
-- **Initialize Button**: "INITIALIZE WORLD" button with Minecraft button texture and 3D block styling
-- **System Status**: "● SYSTEM READY" indicator with green status dot and pixelated text
+- **Stone Panel Interface**: Stone-textured panels with authentic 3D borders and clean styling
+- **Initialize Button**: "INITIALIZE WORLD" button with retro button styling and hover effects
+- **System Status**: "● SYSTEM READY" indicator with green status dot and clean text
 
 ### Step-by-Step World Browsing Process
 
@@ -127,17 +125,17 @@ The game presents itself as a complete Minecraft-inspired block world with authe
 
 ### Game States & Navigation
 
-#### 1. Minecraft Interface State (World Browsing)
-- **Block-Style Interface**: Complete Minecraft-inspired block world simulation with authentic pixelated styling
+#### 1. CRT Interface State (World Browsing)
+- **Clean CRT Interface**: Complete retro monitor simulation with authentic bezel and glass panel styling
 - **Interactive World Cards**: Hover effects and click-to-select functionality with audio feedback and visual transitions
-- **Visual Feedback**: Selected worlds show bright green highlighting with clear visual indicators within the stone panel interface
-- **Dynamic Initialize Button**: "INITIALIZE WORLD" button updates to reflect your current selection with Minecraft button styling
+- **Visual Feedback**: Selected worlds show bright cyan highlighting with clear visual indicators within the stone panel interface
+- **Dynamic Initialize Button**: "INITIALIZE WORLD" button updates to reflect your current selection with retro button styling
 - **Selection Validation**: Must select a world before the engine can be launched - shows error message with audio feedback if you try to launch without selecting
-- **Atmospheric Effects**: Floating Minecraft grass blocks and glowing XP orbs create an immersive blocky environment
+- **Clean Design**: Focused interface design that emphasizes world selection and navigation
 - **Audio Feedback**: Hover sounds, selection confirmation sounds, and ambient atmospheric audio
 
 #### 2. Loading State (Engine Initialization)
-- **Status Updates**: Real-time feedback during WebAssembly voxel engine loading within the Minecraft interface
+- **Status Updates**: Real-time feedback during WebAssembly voxel engine loading within the CRT interface
   - "Loading engine..." - WASM files (voxels.js, voxels.wasm) are being downloaded and initialized
   - "Ready" - Voxel engine successfully loaded and initialized
   - "Failed to load engine" - Error occurred during initialization with automatic fallback to block menu
@@ -163,11 +161,11 @@ The WebAssembly voxel engine system provides infrastructure for 3D block world c
 - **Engine Loading**: The system shows "Loading engine..." status and "Ready" when the WASM voxel module is successfully initialized
 
 #### Exit Methods
-- **ESC Key**: Press Escape at any time to immediately return to the Minecraft-style world selection interface
+- **ESC Key**: Press Escape at any time to immediately return to the retro-futuristic world selection interface
 - **Exit Button**: Click the "◀ EXIT" button in the top-right corner of the canvas frame
 - **Automatic Return**: Seamlessly returns to the block interface with proper cleanup and atmospheric effects
 - **Engine Reset**: Automatically resets the voxel engine for next world selection to prevent issues
-- **Clean Transitions**: Smooth transitions between engine mode and Minecraft interface with audio feedback
+- **Clean Transitions**: Smooth transitions between engine mode and CRT interface with audio feedback
 
 #### Debug Controls
 - **Force Engine Reload**: Press 'R' key while in engine mode to force reload the WebAssembly voxel engine if needed
@@ -175,10 +173,10 @@ The WebAssembly voxel engine system provides infrastructure for 3D block world c
 ### Quick Start Summary
 
 1. **Launch the app** from a Reddit post by clicking "Play"
-2. **Browse the 6 available worlds** and enjoy the Minecraft-style block atmosphere
-3. **Select a world** by clicking on it to see it highlighted in green
+2. **Browse the 6 available worlds** and enjoy the retro-futuristic CRT atmosphere
+3. **Select a world** by clicking on it to see it highlighted in cyan
 4. **Click "INITIALIZE WORLD"** to load the WebAssembly engine
-5. **Experience the Minecraft interface** with floating grass blocks and generative ambient music
+5. **Experience the CRT interface** with clean design and generative ambient music
 6. **Press ESC or click "◀ EXIT"** to return to world selection
 
 ### Audio Experience
@@ -192,7 +190,7 @@ The game features a sophisticated generative audio system:
 ### Troubleshooting
 
 #### Common Issues
-- **Engine Loading Failed**: The game will automatically return to the Minecraft interface - try selecting a world again
+- **Engine Loading Failed**: The game will automatically return to the CRT interface - try selecting a world again
 - **No Audio**: Audio activates on your first interaction - click anywhere to enable sound
 - **Canvas Issues**: Press 'R' key to force reload the WebAssembly voxel engine if needed
 
@@ -205,12 +203,12 @@ The game features a sophisticated generative audio system:
 - **Browse All Worlds**: Explore all 6 worlds to see different themes and descriptions
 - **Read Descriptions**: Each world has unique features - descriptions help you choose what interests you most
 - **Select First**: Always select a world before clicking "INITIALIZE WORLD" to avoid error messages
-- **Be Patient**: Initial voxel engine load may take time - watch for status updates in the Minecraft interface
+- **Be Patient**: Initial voxel engine load may take time - watch for status updates in the CRT interface
 - **Quick Exit**: ESC key provides instant return to world selection
 - **World Switching**: Exit and select different worlds to browse various environments
 - **Desktop Recommended**: While mobile-compatible, desktop provides optimal experience
 - **Engine Refresh**: Use 'R' key if needed to force voxel engine reload
-- **Enjoy the Atmosphere**: Notice the floating grass blocks, XP orbs, and block effects that enhance the Minecraft-style experience
+- **Enjoy the Atmosphere**: Notice the clean CRT styling and retro effects that enhance the futuristic experience
 - **Listen to the Music**: The generative ambient music evolves continuously - each session has unique soundscapes
 
 ## Technical Architecture
@@ -233,7 +231,7 @@ The game features a sophisticated generative audio system:
 - **Module System**: Uses global `Module` object with postRun callbacks, onAbort error handling, and runtime initialization
 - **Context Menu Prevention**: Right-click disabled on canvas for seamless gaming experience
 - **Memory Management**: Proper WASM memory allocation, cleanup between sessions, and force reload capability (R key)
-- **Engine State Management**: Tracks loading state, handles failures gracefully, and provides status feedback through Minecraft interface
+- **Engine State Management**: Tracks loading state, handles failures gracefully, and provides status feedback through CRT interface
 
 ### Backend & Infrastructure
 - **Express.js**: RESTful API server with `/api/init` and `/api/entries` endpoints plus internal Reddit integration endpoints
@@ -365,29 +363,29 @@ entry:world_2          # Contains: id, title, description, createdAt, author
 - **TypeScript**: Full type safety across client, server, and shared code with defined API types (`InitResponse`, `GetEntriesResponse`, `DatabaseEntry`)
 - **Vite Build System**: Optimized builds for both client and server components with hot module replacement
 - **Error Handling**: Graceful fallbacks for dimension loading and engine initialization failures with user-friendly messages and audio feedback
-- **Minecraft Interface**: Complete Minecraft-style block interface with authentic textures and atmospheric effects
+- **CRT Interface**: Complete retro-futuristic CRT interface with clean styling and atmospheric effects
 - **Canvas Management**: Responsive canvas sizing (1000x650px max) with clean styling for voxel world display
 - **Modular Architecture**: Clean separation between client (`src/client`), server (`src/server`), and shared (`src/shared`) components
 - **Selection State Management**: Client-side state tracking for selected dimensions with green highlighting and dynamic button updates
-- **Atmospheric Effects**: Floating grass blocks, XP orbs, and animated block patterns create immersive Minecraft-style environment
+- **Clean Visual Design**: Focused interface design with retro-futuristic CRT styling and atmospheric effects
 - **Engine Management**: Dynamic WASM voxel loading with cleanup, force reload capability (R key), and proper memory management between sessions
 - **Audio Integration**: Comprehensive audio system with generative ambient music, interactive sound effects, and multiple musical scales
 
-The dimension selection system provides a curated browsing experience within an authentic Minecraft-style block interface before launching into 3D voxel environments, delivering both discovery and interactive graphics directly within Reddit posts using modern web technologies and WebAssembly performance.
+The world selection system provides a curated browsing experience within an authentic retro-futuristic CRT interface before launching into 3D voxel environments, delivering both discovery and interactive graphics directly within Reddit posts using modern web technologies and WebAssembly performance.
 
 ## Current Development Status
 
-**Note**: This is an active development project. The WebAssembly voxel engine infrastructure (voxels.wasm + voxels.js) is included in the project structure and loads successfully. The complete Minecraft-style interface, world browsing system, audio system, and Reddit integration are fully functional. Users can browse and select from 6 unique worlds and experience the immersive blocky atmosphere.
+**Note**: This is an active development project. The WebAssembly voxel engine infrastructure (voxels.wasm + voxels.js) is included in the project structure and loads successfully. The complete retro-futuristic CRT interface, world browsing system, audio system, and Reddit integration are fully functional. Users can browse and select from 6 unique worlds and experience the immersive atmosphere.
 
 ### What's Currently Working
-- ✅ **Complete Minecraft Interface**: Fully functional Minecraft-style interface with stone-textured panels and block styling
+- ✅ **Complete CRT Interface**: Fully functional retro-futuristic interface with stone-textured panels and clean styling
 - ✅ **World Browsing System**: Browse and select from 6 unique worlds with descriptions and metadata
 - ✅ **Generative Audio System**: Dynamic ambient music and interactive sound effects
 - ✅ **Reddit Integration**: Native Reddit experience with seamless post integration
 - ✅ **WebAssembly Loading**: Dynamic WASM voxel engine loading with proper error handling and status feedback
 - ✅ **Responsive Design**: Mobile and desktop compatibility with adaptive pixelated styling
 - ✅ **Database System**: Redis-backed world storage with persistent data
-- ✅ **Atmospheric Effects**: Floating grass blocks, XP orbs, and animated block patterns
+- ✅ **Clean Interface Design**: Focused world selection interface with retro-futuristic styling
 - ✅ **Interactive Audio**: Contextual sound effects for all user interactions
 
 ### Future Development
