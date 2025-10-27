@@ -16,9 +16,9 @@ Voxel World Explorer is a revolutionary 3D voxel-based exploration game that bri
 - **On-Demand Engine Loading**: The voxel engine loads dynamically only when launching a world for optimal performance
 - **Persistent World Database**: Redis-backed database storing world metadata, descriptions, and creation details
 - **Cross-Platform Compatibility**: Works on both desktop and mobile browsers with responsive design
-- **Immersive Canvas Rendering**: Full-screen 3D rendering (90vw × 80vh) with WebGL acceleration
-- **Generative Audio System**: Dynamic ambient music and interactive sound effects using Web Audio API
-- **Animated Cyberpunk Theme**: Beautiful floating cloud animations with animated gradient background and CRT scanline effects for a futuristic gaming experience
+- **Immersive Canvas Rendering**: Full-screen 3D rendering (88vw × 75vh) with WebGL acceleration and CRT-style bezel effects
+- **Generative Audio System**: Dynamic ambient music and interactive sound effects using Web Audio API with evolving harmonic layers
+- **Animated Frutiger Aero Theme**: Beautiful floating cloud animations with animated radial gradient background, CRT scanline effects, and glass morphism UI for a modern retro-futuristic gaming experience
 
 The game provides a complete world selection and 3D exploration experience, allowing players to discover and explore diverse voxel environments directly in their browser within Reddit posts.
 
@@ -58,22 +58,23 @@ The game provides a complete world selection and 3D exploration experience, allo
 - **Two-Phase Interface**: Clean separation between world selection menu and full-screen 3D gaming modes
 - **Status-driven Feedback**: Real-time status updates ("Loading engine...", "Ready", "Select a world first")
 - **Escape-Key Navigation**: Instant exit from 3D mode back to world selection with ESC key
-- **Animated Cyberpunk Theme**: Dynamic gradient background with animated color shifting, floating cloud animations, and CRT scanline effects
-- **Modern Glass Morphism UI**: Frosted glass effect with backdrop blur and subtle transparency for the menu interface
+- **Animated Frutiger Aero Theme**: Dynamic radial gradient background with animated color shifting, 7 floating cloud animations with realistic physics, and CRT scanline effects
+- **Modern Glass Morphism UI**: Frosted glass effect with backdrop blur, subtle transparency, and CRT monitor bezel styling for the menu interface
 - **Loading State Management**: Proper button disabling and status messaging during engine initialization
-- **Animated Loading Indicators**: CSS-based loading spinner during WebAssembly engine initialization
-- **Floating Menu Animation**: Gentle floating animation on the main menu for added visual appeal
-- **Retro-Futuristic Aesthetics**: Subtle dot matrix patterns, texture floating animations, and cyberpunk color schemes
+- **Animated Loading Indicators**: CSS-based loading spinner during WebAssembly engine initialization with SVG animation
+- **Floating Menu Animation**: Gentle floating animation on the main menu with 3D perspective transforms for added visual appeal
+- **Retro-Futuristic Aesthetics**: Subtle dot matrix patterns, texture floating animations, glass bubble effects, and Frutiger Aero color schemes with sky blue gradients
 
 ### 🎵 **Generative Audio System**
-- **Dynamic Ambient Music**: Procedurally generated ambient soundscapes using Web Audio API with evolving harmonic layers
-- **Interactive Sound Effects**: Contextual audio feedback for all user interactions (hover, select, launch, exit, error states)
-- **Multiple Musical Scales**: Evolving between major pentatonic, minor pentatonic, Japanese, and Hirajoshi scales for varied ambient music
-- **Layered Audio Architecture**: Separate gain nodes for ambient music and sound effects with independent volume control
+- **Dynamic Ambient Music**: Procedurally generated ambient soundscapes using Web Audio API with 2-4 oscillator layers per generation cycle
+- **Interactive Sound Effects**: Contextual audio feedback for all user interactions (hover, select, launch, exit, error states) with distinct tonal signatures
+- **Multiple Musical Scales**: Evolving between major pentatonic, minor pentatonic, Japanese, and Hirajoshi scales with 30% chance of scale changes
+- **Layered Audio Architecture**: Separate gain nodes for ambient music (15% volume) and sound effects (40% volume) with master volume control (30%)
 - **Automatic Audio Initialization**: Audio system activates on first user interaction to comply with browser autoplay policies
-- **Immersive Audio Experience**: Ambient music starts when entering 3D worlds and stops when exiting for full immersion
-- **Frequency Modulation**: Subtle LFO (Low Frequency Oscillator) effects on ambient tones for organic, evolving soundscapes
-- **Harmonic Layering**: Multiple oscillators create rich, evolving harmonic textures with different waveforms (sine, triangle, sawtooth)
+- **Immersive Audio Experience**: Ambient music starts when entering 3D worlds and stops when exiting with 2-second fade transitions
+- **Frequency Modulation**: Subtle LFO (Low Frequency Oscillator) effects (0.1-0.4 Hz) on ambient tones for organic, evolving soundscapes
+- **Harmonic Layering**: Multiple oscillators (sine, triangle, sawtooth) create rich, evolving harmonic textures with lowpass filtering (800-2000 Hz)
+- **Temporal Evolution**: Ambient layers evolve every 8-12 seconds with 15-35 second layer durations for continuous musical development
 
 ## How to Play the Game
 
@@ -88,12 +89,12 @@ The game provides a complete world selection and 3D exploration experience, allo
 The game starts with an elegant world selection menu featuring a dynamic animated gradient background (cyan to blue with shifting colors) with cyberpunk aesthetics, CRT scanline effects, and floating cloud animations:
 
 #### Main Interface Elements
-- **Title Header**: Shows "Voxel World" or personalized greeting with your Reddit username in bright blue (#4fc3f7)
-- **World Browser**: Scrollable list (max-height: 250px) displaying all 6 available worlds with detailed information
-- **Play Button**: Initially shows "Select a World" - updates dynamically when you make a selection
+- **Title Header**: Shows "Voxel World" or personalized greeting with your Reddit username in deep blue (#1a365d) with animated shimmer effect
+- **World Browser**: Scrollable list (max-height: 280px) displaying all 6 available worlds with detailed information and custom scrollbar styling
+- **Play Button**: Initially shows "Select a World" - updates dynamically when you make a selection with gradient button styling and shine effects
 - **Status Display**: Shows current game status and loading information at the bottom
-- **Animated Cyberpunk Background**: Dynamic gradient shifting between cyan and blue tones with 5 floating clouds, CRT scanlines, and dot matrix texture patterns
-- **Glass Morphism Menu**: Semi-transparent menu with frosted glass effect, backdrop blur, and subtle border highlights
+- **Animated Frutiger Aero Background**: Dynamic radial gradient shifting between sky blue tones (#87ceeb to #1e3a8a) with 7 floating clouds featuring realistic physics, CRT scanlines, and dot matrix texture patterns
+- **Glass Morphism Menu**: Semi-transparent menu with frosted glass effect, backdrop blur, CRT monitor bezel styling, and subtle border highlights with screen glow animation
 
 #### World Selection Process
 1. **Browse Available Worlds**: Scroll through the world list to see all 6 unique environments
@@ -134,12 +135,13 @@ The game starts with an elegant world selection menu featuring a dynamic animate
 - **Animated Loading**: CSS-based loading spinner animation on canvas during engine initialization
 
 #### Game State (3D Voxel World)
-- **Full-Screen 3D Canvas**: Immersive voxel world rendered at 90vw × 80vh with subtle border (#555) on black background
+- **Full-Screen 3D Canvas**: Immersive voxel world rendered at 88vw × 75vh (max 1100x750px) with CRT monitor bezel styling and screen glow effects
 - **WebAssembly Engine**: High-performance 3D rendering using compiled WASM module (voxels.wasm) with JavaScript bridge (voxels.js)
 - **Interactive 3D Environment**: Explore the selected voxel world with full 3D navigation and WebGL acceleration
-- **Exit Options**: Multiple ways to return to world selection menu
+- **CRT Monitor Styling**: Canvas features realistic CRT monitor bezel with inner highlights, outer shadows, and screen curvature effects
+- **Exit Options**: Red exit button in top-right corner and ESC key for instant return to world selection menu
 - **Context Menu Disabled**: Right-click disabled on canvas for seamless gaming experience
-- **Ambient Audio**: Generative ambient music plays during 3D exploration with evolving harmonic layers
+- **Ambient Audio**: Generative ambient music plays during 3D exploration with evolving harmonic layers across multiple musical scales
 
 ### 3D World Controls & Navigation
 
@@ -220,28 +222,31 @@ The WebAssembly voxel engine provides full 3D navigation controls with hardware 
 ## Technical Architecture
 
 ### Frontend Technologies
-- **TypeScript**: Type-safe client-side development with strict typing and shared API types
-- **Vite**: Lightning-fast build system and development server with hot module replacement
-- **HTML5 Canvas**: Hardware-accelerated 3D graphics rendering via canvas element with WebGL support
-- **Dynamic Module Loading**: WASM engine loaded on-demand for optimal performance and memory usage
-- **CSS3**: Modern styling with dark theme, animations, and responsive design
+- **TypeScript**: Type-safe client-side development with strict typing and shared API types (`InitResponse`, `GetEntriesResponse`, `DatabaseEntry`)
+- **Vite**: Lightning-fast build system and development server with hot module replacement and watch mode
+- **HTML5 Canvas**: Hardware-accelerated 3D graphics rendering via canvas element (88vw × 75vh, max 1100x750px) with WebGL support
+- **Dynamic Module Loading**: WASM engine loaded on-demand with cleanup and force reload capabilities for optimal performance and memory usage
+- **CSS3**: Modern Frutiger Aero styling with radial gradients, 7 floating cloud animations, CRT effects, glass morphism, and responsive design
+- **Web Audio API**: Generative audio system with procedural ambient music and interactive sound effects
 
 ### WebAssembly Engine
 - **WASM Architecture**: High-performance WebAssembly module for 3D voxel rendering
   - **voxels.wasm**: Compiled WebAssembly module for 3D voxel rendering with WebGL acceleration
   - **voxels.js**: JavaScript bridge and loader for WASM integration with Module system
-- **Dynamic Loading**: WASM module loaded only when user launches a world for faster initial page load
-- **Canvas Integration**: Direct rendering to HTML5 canvas element with id="canvas" (90vw × 80vh, max 1000x700px)
-- **Module System**: Uses global `Module` object for WASM configuration, postRun callbacks, and error handling
-- **Context Menu Prevention**: Right-click disabled on canvas for seamless gaming experience
-- **Memory Management**: Proper WASM memory allocation and cleanup between sessions
+- **Dynamic Loading**: WASM module loaded only when user launches a world with proper script injection and cleanup
+- **Canvas Integration**: Direct rendering to HTML5 canvas element with id="canvas" (88vw × 75vh, max 1100x750px) with CRT styling
+- **Module System**: Uses global `Module` object with postRun callbacks, onAbort error handling, and runtime initialization
+- **Context Menu Prevention**: Right-click disabled on canvas (`oncontextmenu="event.preventDefault()"`) for seamless gaming experience
+- **Memory Management**: Proper WASM memory allocation, cleanup between sessions, and force reload capability (R key)
+- **Engine State Management**: Tracks loading state, handles failures gracefully, and provides status feedback to users
 
 ### Backend & Infrastructure
-- **Express.js**: RESTful API server with `/api/init` and `/api/entries` endpoints
-- **Redis Database**: Persistent world database using Redis sorted sets (`voxel_entries`) and hash maps (`entry:*`)
-- **World Management**: Automatic database initialization with 6 pre-loaded worlds with metadata
-- **Devvit Platform**: Reddit's official developer platform for hosting and integration
-- **Node.js**: Modern JavaScript runtime with WebAssembly support and Reddit API integration
+- **Express.js**: RESTful API server with `/api/init` and `/api/entries` endpoints plus internal Reddit integration endpoints
+- **Redis Database**: Persistent world database using Redis sorted sets (`voxel_entries`) and hash maps (`entry:world_*`) with automatic initialization
+- **World Management**: 6 pre-loaded worlds (Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, Desert Oasis) with metadata
+- **Devvit Platform**: Reddit's official developer platform (@devvit/web) for hosting, authentication, and Reddit API integration
+- **Node.js**: Modern JavaScript runtime with automatic post creation, user authentication, and Redis operations
+- **Auto-Installation**: Automatic post creation on app install with manual creation option for moderators
 
 ### Reddit Integration & Data Persistence
 - **User Authentication**: Automatic Reddit user recognition via `/api/init` endpoint with username display
@@ -254,7 +259,7 @@ The WebAssembly voxel engine provides full 3D navigation controls with hardware 
 ## Development Commands
 
 ```bash
-# Start development with live Reddit integration
+# Start development with live Reddit integration (runs client, server, and devvit in parallel)
 npm run dev
 
 # Build optimized production bundles
@@ -269,6 +274,12 @@ npm run launch
 # Individual component builds
 npm run build:client
 npm run build:server
+
+# Type checking across all projects
+npm run type-check
+
+# Login to Devvit platform
+npm run login
 ```
 
 ## Getting Started for Developers
@@ -280,11 +291,11 @@ npm run build:server
 
 ### Setup Instructions
 1. Clone this repository
-2. Run `npm install` to install dependencies
+2. Run `npm install` to install dependencies (includes automatic build via postinstall)
 3. Run `npm run dev` to start development server
-4. Visit the provided Reddit playtest URL to test the game
+4. Visit the provided Reddit playtest URL (e.g., `https://www.reddit.com/r/bhopblox_dev?playtest=bhopblox`) to test the game
 
-The development server automatically creates a test subreddit where you can interact with the 3D voxel world in real-time.
+The development server automatically creates a test subreddit (`r/bhopblox_dev`) where you can interact with the 3D voxel world in real-time.
 
 ### WASM Files & World Database
 
@@ -302,10 +313,14 @@ src/client/public/default-icon.png  # App icon
 The game includes a Redis-backed world database with 6 pre-loaded worlds:
 ```bash
 # Redis data structure:
-voxel_entries          # Sorted set for world ordering (by creation time)
-entry:entry_1          # Hash map for each world's metadata
-entry:entry_2          # Contains: id, title, description, createdAt, author
-# ... (entry_1 through entry_6)
+voxel_entries          # Sorted set for world ordering (by creation time, negative scores)
+entry:world_1          # Hash map for each world's metadata
+entry:world_2          # Contains: id, title, description, createdAt, author
+# ... (world_1 through world_6)
+
+# Sample worlds automatically initialized:
+# Crystal Cave (Explorer), Sky Islands (Architect), Ocean Mining (Diver)
+# Volcano Base (Scientist), Ice Palace (Builder), Desert Oasis (Survivor)
 ```
 
 ### Development Workflow
@@ -355,10 +370,11 @@ entry:entry_2          # Contains: id, title, description, createdAt, author
 - **TypeScript**: Full type safety across client, server, and shared code with defined API types (`InitResponse`, `GetEntriesResponse`, `DatabaseEntry`)
 - **Vite Build System**: Optimized builds for both client and server components with hot module replacement
 - **Error Handling**: Graceful fallbacks for world loading and engine initialization failures with user-friendly messages and audio feedback
-- **Animated UI**: Dynamic cyberpunk gradient background with color shifting animation, 5 floating cloud animations, CRT scanline effects, and glass morphism menu design
-- **Canvas Management**: Responsive canvas sizing with maximum dimensions and subtle border for optimal gaming experience
+- **Animated UI**: Dynamic Frutiger Aero radial gradient background with color shifting animation, 7 floating cloud animations with realistic physics, CRT scanline effects, and glass morphism menu design
+- **Canvas Management**: Responsive canvas sizing with maximum dimensions (1100x750px) and CRT monitor bezel styling for optimal gaming experience
 - **Modular Architecture**: Clean separation between client (`src/client`), server (`src/server`), and shared (`src/shared`) components
-- **Selection State Management**: Client-side state tracking for selected worlds with visual feedback and dynamic button updates
-- **CSS Animations**: Smooth cloud floating animations with different speeds and delays for natural movement patterns
+- **Selection State Management**: Client-side state tracking for selected worlds with teal highlighting (#4fc3f7) and dynamic button updates
+- **CSS Animations**: 7 floating clouds with realistic physics, different speeds (28-40s cycles), and scale transformations for natural movement patterns
+- **Engine Management**: Dynamic WASM loading with cleanup, force reload capability (R key), and proper memory management between sessions
 
 The world selection system provides a curated browsing experience before launching into 3D voxel environments, delivering both discovery and interactive graphics directly within Reddit posts using modern web technologies and WebAssembly performance.
