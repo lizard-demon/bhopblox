@@ -18,6 +18,7 @@ Voxel World Explorer is a revolutionary 3D voxel-based exploration game that bri
 - **Cross-Platform Compatibility**: Works on both desktop and mobile browsers with responsive design
 - **Immersive Canvas Rendering**: Full-screen 3D rendering (90vw × 80vh) with WebGL acceleration
 - **Generative Audio System**: Dynamic ambient music and interactive sound effects using Web Audio API
+- **Animated Sky Theme**: Beautiful floating cloud animations with gradient sky background for an immersive menu experience
 
 The game provides a complete world selection and 3D exploration experience, allowing players to discover and explore diverse voxel environments directly in their browser within Reddit posts.
 
@@ -57,9 +58,11 @@ The game provides a complete world selection and 3D exploration experience, allo
 - **Two-Phase Interface**: Clean separation between world selection menu and full-screen 3D gaming modes
 - **Status-driven Feedback**: Real-time status updates ("Loading engine...", "Ready", "Select a world first")
 - **Escape-Key Navigation**: Instant exit from 3D mode back to world selection with ESC key
-- **Modern Gradient Theme**: Beautiful sky-blue gradient background with subtle light effects for an immersive aesthetic
+- **Animated Sky Theme**: Beautiful sky-blue gradient background with floating cloud animations that drift across the screen
+- **Modern Glass Morphism UI**: Frosted glass effect with backdrop blur and subtle transparency for the menu interface
 - **Loading State Management**: Proper button disabling and status messaging during engine initialization
 - **Animated Loading Indicators**: CSS-based loading spinner during WebAssembly engine initialization
+- **Floating Menu Animation**: Gentle floating animation on the main menu for added visual appeal
 
 ### 🎵 **Generative Audio System**
 - **Dynamic Ambient Music**: Procedurally generated ambient soundscapes using Web Audio API with evolving harmonic layers
@@ -88,7 +91,8 @@ The game starts with an elegant world selection menu featuring a modern gradient
 - **World Browser**: Scrollable list (max-height: 250px) displaying all 6 available worlds with detailed information
 - **Play Button**: Initially shows "Select a World" - updates dynamically when you make a selection
 - **Status Display**: Shows current game status and loading information at the bottom
-- **Modern Gradient Background**: Beautiful sky-blue to light green gradient with subtle radial light effects
+- **Animated Sky Background**: Beautiful sky-blue to light green gradient with 5 floating clouds that continuously drift across the screen
+- **Glass Morphism Menu**: Semi-transparent menu with frosted glass effect, backdrop blur, and subtle border highlights
 
 #### World Selection Process
 1. **Browse Available Worlds**: Scroll through the world list to see all 6 unique environments
@@ -350,9 +354,10 @@ entry:entry_2          # Contains: id, title, description, createdAt, author
 - **TypeScript**: Full type safety across client, server, and shared code with defined API types (`InitResponse`, `GetEntriesResponse`, `DatabaseEntry`)
 - **Vite Build System**: Optimized builds for both client and server components with hot module replacement
 - **Error Handling**: Graceful fallbacks for world loading and engine initialization failures with user-friendly messages and audio feedback
-- **Modern UI**: Gradient background interface (sky-blue to light green) with blue (#4fc3f7) accent colors and dark world selection cards for modern aesthetic
-- **Canvas Management**: Responsive canvas sizing with maximum dimensions and subtle border (#555) for optimal gaming experience
+- **Animated UI**: Sky-blue to light green gradient background with 5 floating cloud animations and glass morphism menu design
+- **Canvas Management**: Responsive canvas sizing with maximum dimensions and subtle border for optimal gaming experience
 - **Modular Architecture**: Clean separation between client (`src/client`), server (`src/server`), and shared (`src/shared`) components
 - **Selection State Management**: Client-side state tracking for selected worlds with visual feedback and dynamic button updates
+- **CSS Animations**: Smooth cloud floating animations with different speeds and delays for natural movement patterns
 
 The world selection system provides a curated browsing experience before launching into 3D voxel environments, delivering both discovery and interactive graphics directly within Reddit posts using modern web technologies and WebAssembly performance.
