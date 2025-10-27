@@ -17,6 +17,7 @@ Voxel World Explorer is a revolutionary 3D voxel-based exploration game that bri
 - **Persistent World Database**: Redis-backed database storing world metadata, descriptions, and creation details
 - **Cross-Platform Compatibility**: Works on both desktop and mobile browsers with responsive design
 - **Immersive Canvas Rendering**: Full-screen 3D rendering (90vw × 80vh) with WebGL acceleration
+- **Generative Audio System**: Dynamic ambient music and interactive sound effects using Web Audio API
 
 The game provides a complete world selection and 3D exploration experience, allowing players to discover and explore diverse voxel environments directly in their browser within Reddit posts.
 
@@ -32,10 +33,10 @@ The game provides a complete world selection and 3D exploration experience, allo
 ### 🌍 **Curated World Selection System**
 - **Interactive World Browser**: Browse and select from 6 unique pre-loaded worlds with distinct themes and environments
 - **Rich World Metadata**: Each world includes detailed descriptions, author information, and creation timestamps
-- **Visual Selection Interface**: Click-to-select with teal highlighting (#4fc3f7) and hover effects for intuitive world browsing
+- **Visual Selection Interface**: Click-to-select with bright teal highlighting (#4fc3f7) and hover effects for intuitive world browsing
 - **Dynamic Launch System**: Button text updates to show selected world (e.g., "Play 'Crystal Cave'")
 - **Persistent World Database**: Redis-backed storage ensures worlds persist across sessions and users
-- **Scrollable World List**: Elegant scrollable interface (max-height: 250px) with dark theme styling
+- **Scrollable World List**: Elegant scrollable interface (max-height: 250px) with modern gradient styling
 
 ### 🚀 **Advanced WebAssembly Integration**
 - **On-Demand Engine Loading**: WASM engine loads only when launching a selected world, keeping initial load times fast
@@ -56,9 +57,19 @@ The game provides a complete world selection and 3D exploration experience, allo
 - **Two-Phase Interface**: Clean separation between world selection menu and full-screen 3D gaming modes
 - **Status-driven Feedback**: Real-time status updates ("Loading engine...", "Ready", "Select a world first")
 - **Escape-Key Navigation**: Instant exit from 3D mode back to world selection with ESC key
-- **Visual Hierarchy**: Dark theme (#222 background) with blue (#4fc3f7) accent colors and clear typography for gaming aesthetics
+- **Modern Gradient Theme**: Beautiful sky-blue gradient background with subtle light effects for an immersive aesthetic
 - **Loading State Management**: Proper button disabling and status messaging during engine initialization
 - **Animated Loading Indicators**: CSS-based loading spinner during WebAssembly engine initialization
+
+### 🎵 **Generative Audio System**
+- **Dynamic Ambient Music**: Procedurally generated ambient soundscapes using Web Audio API with evolving harmonic layers
+- **Interactive Sound Effects**: Contextual audio feedback for all user interactions (hover, select, launch, exit, error states)
+- **Multiple Musical Scales**: Evolving between major pentatonic, minor pentatonic, Japanese, and Hirajoshi scales for varied ambient music
+- **Layered Audio Architecture**: Separate gain nodes for ambient music and sound effects with independent volume control
+- **Automatic Audio Initialization**: Audio system activates on first user interaction to comply with browser autoplay policies
+- **Immersive Audio Experience**: Ambient music starts when entering 3D worlds and stops when exiting for full immersion
+- **Frequency Modulation**: Subtle LFO (Low Frequency Oscillator) effects on ambient tones for organic, evolving soundscapes
+- **Harmonic Layering**: Multiple oscillators create rich, evolving harmonic textures with different waveforms (sine, triangle, sawtooth)
 
 ## How to Play the Game
 
@@ -70,20 +81,20 @@ The game provides a complete world selection and 3D exploration experience, allo
 
 ### World Selection Interface
 
-The game starts with an elegant world selection menu featuring a dark theme (#222 background) with blue accent colors:
+The game starts with an elegant world selection menu featuring a modern gradient background (sky-blue to light green) with blue accent colors and dark world selection cards:
 
 #### Main Interface Elements
 - **Title Header**: Shows "Voxel World" or personalized greeting with your Reddit username in bright blue (#4fc3f7)
 - **World Browser**: Scrollable list (max-height: 250px) displaying all 6 available worlds with detailed information
 - **Play Button**: Initially shows "Select a World" - updates dynamically when you make a selection
 - **Status Display**: Shows current game status and loading information at the bottom
+- **Modern Gradient Background**: Beautiful sky-blue to light green gradient with subtle radial light effects
 
 #### World Selection Process
 1. **Browse Available Worlds**: Scroll through the world list to see all 6 unique environments
 2. **Read World Details**: Each world card displays:
    - **Title**: Name of the world (e.g., "Crystal Cave", "Sky Islands") in bold
-   - **Description**: Brief description of the world's theme and features
-   - **Author**: Creator of the world (e.g., "Explorer", "Architect", "Scientist")
+   - **Description**: Brief description of the world's theme and features (author information is stored but not displayed in the current UI)
 3. **Select Your World**: Click on any world card to select it
    - Hover effects show #444 background for better interactivity
    - Selected worlds are highlighted with a bright teal background (#4fc3f7) and dark text (#222)
@@ -101,11 +112,12 @@ The game starts with an elegant world selection menu featuring a dark theme (#22
 ### Game States & Navigation
 
 #### Menu State (World Selection)
-- **Interactive World Cards**: Hover effects (#444 background) and click-to-select functionality
-- **Visual Feedback**: Selected worlds show bright teal highlighting (#4fc3f7) with dark text (#222) for clear visual indicators
+- **Interactive World Cards**: Hover effects (#444 background) and click-to-select functionality with audio feedback
+- **Visual Feedback**: Selected worlds show bright teal highlighting (#4fc3f7) with dark text (#2c3e50) for clear visual indicators
 - **Dynamic Button**: Play button text updates to reflect your current selection (e.g., "Play 'Crystal Cave'")
-- **Selection Validation**: Must select a world before the 3D engine can be launched - shows "Select a world first" error message
+- **Selection Validation**: Must select a world before the 3D engine can be launched - shows "Select a world first" error message with error sound
 - **Responsive Design**: Interface adapts to different screen sizes with max-width: 400px and 90vw width
+- **Audio Feedback**: Hover sounds on buttons and world cards, plus selection confirmation sounds
 
 #### Loading State (Engine Initialization)
 - **Status Updates**: Real-time feedback during WebAssembly engine loading
@@ -117,11 +129,12 @@ The game starts with an elegant world selection menu featuring a dark theme (#22
 - **Animated Loading**: CSS-based loading spinner animation on canvas during engine initialization
 
 #### Game State (3D Voxel World)
-- **Full-Screen 3D Canvas**: Immersive voxel world rendered at 90vw × 80vh with subtle border (#555)
+- **Full-Screen 3D Canvas**: Immersive voxel world rendered at 90vw × 80vh with subtle border (#555) on black background
 - **WebAssembly Engine**: High-performance 3D rendering using compiled WASM module (voxels.wasm) with JavaScript bridge (voxels.js)
 - **Interactive 3D Environment**: Explore the selected voxel world with full 3D navigation and WebGL acceleration
 - **Exit Options**: Multiple ways to return to world selection menu
 - **Context Menu Disabled**: Right-click disabled on canvas for seamless gaming experience
+- **Ambient Audio**: Generative ambient music plays during 3D exploration with evolving harmonic layers
 
 ### 3D World Controls & Navigation
 
@@ -194,10 +207,10 @@ The WebAssembly voxel engine provides full 3D navigation controls with hardware 
 - **World Switching**: Exit and select different worlds to experience various voxel environments without reloading the page
 - **Desktop Recommended**: While mobile-compatible with touch support, desktop provides optimal control experience for 3D navigation
 - **Engine Refresh**: Use 'R' key if the 3D world appears blank or unresponsive to force engine reload
-- **Clean Interface**: Minimal dark theme UI design keeps focus on world selection and immersive 3D experience
+- **Clean Interface**: Modern gradient theme UI design keeps focus on world selection and immersive 3D experience
 - **Visual Feedback**: Pay attention to teal highlighting (#4fc3f7) to confirm world selection before launching
 - **Status Monitoring**: Watch status messages for real-time feedback during loading and initialization phases
-- **Audio Experience**: Enjoy the generative ambient music that starts automatically when entering worlds, with interactive sound effects for all UI interactions
+- **Audio Experience**: Enjoy the generative ambient music that starts automatically when entering worlds, with interactive sound effects for all UI interactions including hover sounds and selection confirmations
 
 ## Technical Architecture
 
@@ -336,8 +349,8 @@ entry:entry_2          # Contains: id, title, description, createdAt, author
 - **Express API**: RESTful `/api/init` and `/api/entries` endpoints for user authentication and world data with error handling
 - **TypeScript**: Full type safety across client, server, and shared code with defined API types (`InitResponse`, `GetEntriesResponse`, `DatabaseEntry`)
 - **Vite Build System**: Optimized builds for both client and server components with hot module replacement
-- **Error Handling**: Graceful fallbacks for world loading and engine initialization failures with user-friendly messages
-- **Clean UI**: Dark theme interface (#222 background) with blue (#4fc3f7) and teal accent colors for modern gaming aesthetic
+- **Error Handling**: Graceful fallbacks for world loading and engine initialization failures with user-friendly messages and audio feedback
+- **Modern UI**: Gradient background interface (sky-blue to light green) with blue (#4fc3f7) accent colors and dark world selection cards for modern aesthetic
 - **Canvas Management**: Responsive canvas sizing with maximum dimensions and subtle border (#555) for optimal gaming experience
 - **Modular Architecture**: Clean separation between client (`src/client`), server (`src/server`), and shared (`src/shared`) components
 - **Selection State Management**: Client-side state tracking for selected worlds with visual feedback and dynamic button updates
