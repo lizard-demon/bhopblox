@@ -5,35 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voxel World</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Floating clouds -->
-  <div class="cloud cloud1"></div>
-  <div class="cloud cloud2"></div>
-  <div class="cloud cloud3"></div>
-  <div class="cloud cloud4"></div>
-  <div class="cloud cloud5"></div>
-  <div class="cloud cloud6"></div>
-  <div class="cloud cloud7"></div>
-  
-  <!-- Floating particles -->
-  <div class="particle particle1"></div>
-  <div class="particle particle2"></div>
-  <div class="particle particle3"></div>
-  
-  <div id="menu">
-    <h1 id="title">Voxel World</h1>
-    <div id="worlds">
-      <h2>Select World</h2>
-      <div id="world-list"></div>
-    </div>
-    <button id="play">Select a World</button>
-    <div id="status">Ready</div>
-  </div>
+  <!-- CRT Monitor Frame -->
+  <div class="crt-monitor">
+    <div class="crt-bezel">
+      <div class="crt-screen">
+        <!-- Atmospheric Elements -->
+        <div class="atmosphere">
+          <!-- Floating glass orbs -->
+          <div class="glass-orb orb1"></div>
+          <div class="glass-orb orb2"></div>
+          <div class="glass-orb orb3"></div>
+          <div class="glass-orb orb4"></div>
+          <div class="glass-orb orb5"></div>
+          
+          <!-- Light particles -->
+          <div class="light-particle particle1"></div>
+          <div class="light-particle particle2"></div>
+          <div class="light-particle particle3"></div>
+          <div class="light-particle particle4"></div>
+          
+          <!-- Bubble effects -->
+          <div class="bubble bubble1"></div>
+          <div class="bubble bubble2"></div>
+          <div class="bubble bubble3"></div>
+        </div>
 
-  <div id="game" style="display: none;">
-    <canvas id="canvas"></canvas>
-    <button id="exit">Exit</button>
+        <!-- Main Interface -->
+        <div id="menu">
+          <div class="glass-panel">
+            <h1 id="title">
+              <span class="title-glow">VOXEL</span>
+              <span class="title-accent">WORLD</span>
+            </h1>
+            
+            <div id="worlds">
+              <h2>◦ SELECT DIMENSION ◦</h2>
+              <div id="world-list"></div>
+            </div>
+            
+            <button id="play" class="crt-button">
+              <span class="button-text">INITIALIZE WORLD</span>
+              <div class="button-glow"></div>
+            </button>
+            
+            <div id="status">
+              <span class="status-indicator">●</span>
+              <span class="status-text">SYSTEM READY</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="game" style="display: none;">
+          <div class="game-frame">
+            <canvas id="canvas"></canvas>
+            <div class="game-overlay">
+              <button id="exit" class="exit-button">
+                <span>◀ EXIT</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRT Effects -->
+        <div class="crt-scanlines"></div>
+        <div class="crt-flicker"></div>
+        <div class="crt-curvature"></div>
+      </div>
+      
+      <!-- Monitor Controls -->
+      <div class="monitor-controls">
+        <div class="control-knob power"></div>
+        <div class="control-knob brightness"></div>
+        <div class="control-knob contrast"></div>
+        <div class="brand-label">FUTURO-TECH CRT-2085</div>
+      </div>
+    </div>
   </div>
 
   <script type="module" src="main.ts"></script>
