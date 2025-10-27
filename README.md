@@ -1,25 +1,24 @@
-# Voxel World - Retro-Futuristic 3D WebAssembly Game
+# bhopblox - Retro-Futuristic World Explorer
 
-A stunning retro-futuristic 3D voxel world explorer that runs directly inside Reddit posts, featuring a complete CRT monitor aesthetic with WebAssembly-powered 3D graphics. Choose from a curated collection of unique voxel worlds and experience fully interactive 3D environments with first-person exploration, all within an immersive retro-tech interface.
+A stunning retro-futuristic world selection interface that runs directly inside Reddit posts, featuring a complete CRT monitor aesthetic with atmospheric effects and generative audio. Browse through a curated collection of unique worlds in an immersive retro-tech environment with dynamic visual effects and evolving ambient soundscapes.
 
 ## What is This Game?
 
-Voxel World is a revolutionary 3D voxel-based exploration game that brings interactive 3D gaming directly to Reddit with a distinctive retro-futuristic aesthetic. The game features:
+bhopblox is a retro-futuristic world browser that brings an immersive CRT monitor experience directly to Reddit with distinctive atmospheric aesthetics. The game features:
 
-- **Retro-Futuristic CRT Interface**: Complete CRT monitor simulation with authentic bezel and atmospheric 3D geometric patterns
-- **Interactive World Selection**: Browse and select from 6 curated voxel worlds through an elegant glass-morphism interface with floating hexagonal elements
+- **Authentic CRT Monitor Experience**: Complete CRT monitor simulation with realistic bezel, atmospheric effects, and retro-tech styling
+- **Interactive World Browser**: Browse and select from 6 curated worlds through an elegant glass-morphism interface with floating hexagonal elements
 - **6 Unique Pre-loaded Worlds**: Diverse collection including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
-- **High-Performance 3D Engine**: WebAssembly-powered voxel engine (voxels.wasm) with JavaScript bridge for smooth 3D rendering
-- **First-Person 3D Exploration**: Navigate through selected worlds using standard FPS controls with mouse look and keyboard movement
+- **Generative Audio System**: Dynamic ambient music with evolving harmonic layers across multiple musical scales (pentatonic, Japanese, Hirajoshi), plus interactive sound effects for every interaction
+- **Atmospheric Visual Effects**: Floating 3D hexagons, minimal light particles, and animated geometric patterns create a living, breathing retro-futuristic environment
 - **Reddit Native Integration**: Seamlessly integrated with Reddit's platform - no downloads or installations required
-- **Personalized Experience**: Automatically greets you with your Reddit username in the retro interface
-- **On-Demand Engine Loading**: WASM engine loads dynamically only when launching a world for optimal performance
-- **Persistent World Database**: Redis-backed database storing world metadata, descriptions, and creation details
-- **Generative Audio System**: Dynamic ambient music with evolving harmonic layers across multiple musical scales, plus interactive sound effects
-- **Atmospheric Visual Effects**: Floating 3D hexagons, minimal light particles, and animated geometric patterns create an immersive retro-futuristic atmosphere
+- **WebAssembly Engine Integration**: Includes WASM-powered engine loading system for future 3D world exploration
+- **Persistent World Database**: Redis-backed database storing world metadata, descriptions, and author information
+- **Glass Morphism Interface**: Semi-transparent panels with backdrop blur and frosted glass effects within the CRT screen
 - **Cross-Platform Compatibility**: Works on both desktop and mobile browsers with responsive retro-tech design
+- **Interactive Sound Design**: Every hover, click, and selection has unique audio feedback with procedural ambient music
 
-The game provides a complete retro-futuristic world selection and 3D exploration experience, combining nostalgic CRT aesthetics with modern WebAssembly performance.
+The game provides a complete retro-futuristic world browsing experience, combining nostalgic CRT aesthetics with modern web technologies and immersive audio design.
 
 ## What Makes This Game Innovative?
 

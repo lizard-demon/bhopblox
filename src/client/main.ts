@@ -82,13 +82,7 @@ function setupAudioEvents() {
 
 // Initialize app
 async function init() {
-  try {
-    const response = await fetch("/api/init");
-    const data: InitResponse = await response.json();
-    title.textContent = `Welcome ${data.username}!`;
-  } catch {
-    title.textContent = "Voxel World";
-  }
+  title.textContent = "bhopblox";
   await loadWorlds();
   setupAudioEvents();
 }
