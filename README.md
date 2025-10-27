@@ -197,6 +197,7 @@ The WebAssembly voxel engine provides full 3D navigation controls with hardware 
 - **Clean Interface**: Minimal dark theme UI design keeps focus on world selection and immersive 3D experience
 - **Visual Feedback**: Pay attention to teal highlighting (#4fc3f7) to confirm world selection before launching
 - **Status Monitoring**: Watch status messages for real-time feedback during loading and initialization phases
+- **Audio Experience**: Enjoy the generative ambient music that starts automatically when entering worlds, with interactive sound effects for all UI interactions
 
 ## Technical Architecture
 

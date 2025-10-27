@@ -1,4 +1,5 @@
 import { InitResponse, GetEntriesResponse, DatabaseEntry } from "../shared/types/api";
+import { audioSystem } from "./audio";
 
 // DOM elements
 const menu = document.getElementById("menu")!;
@@ -51,6 +52,7 @@ async function loadWorlds() {
       `;
 
       worldItem.onclick = () => {
+        audioSystem.playWorldSelect();
         document.querySelectorAll('.world-item').forEach(el => el.classList.remove('selected'));
         worldItem.classList.add('selected');
         selectedWorld = entry;
@@ -58,13 +60,24 @@ async function loadWorlds() {
         playBtn.disabled = false;
       };
 
-      
+      // Add hover sound
+      worldItem.onmouseenter = () => {
+        audioSystem.playButtonHover();
+      };
+
       worldList.appendChild(worldItem);
     });
   } catch (error) {
     console.error('Failed to load worlds:', error);
     worldList.innerHTML = '<div class="loading">Failed to load worlds</div>';
   }
+}
+
+// Audio event handlers
+function setupAudioEvents() {
+  // Button hover effects
+  playBtn.addEventListener('mouseenter', () => audioSystem.playButtonHover());
+  exitBtn.addEventListener('mouseenter', () => audioSystem.playButtonHover());
 }
 
 // Initialize app
@@ -77,6 +90,7 @@ async function init() {
     title.textContent = "Voxel World";
   }
   await loadWorlds();
+  setupAudioEvents();
 }
 
 // Load voxel engine
@@ -141,11 +155,14 @@ async function loadEngine() {
 // Event handlers
 playBtn.onclick = async () => {
   if (!selectedWorld) {
+    audioSystem.playError();
     status.textContent = "Select a world first";
     return;
   }
 
   try {
+    audioSystem.playGameStart();
+    audioSystem.startAmbient();
     await loadEngine();
     // Engine loading now handles the display switching
 
@@ -162,6 +179,8 @@ playBtn.onclick = async () => {
 
   } catch (error) {
     console.error("Engine loading failed:", error);
+    audioSystem.playError();
+    audioSystem.stopAmbient();
     status.textContent = "Failed to load engine";
     playBtn.disabled = false;
     // Revert display if loading failed
@@ -171,6 +190,9 @@ playBtn.onclick = async () => {
 };
 
 exitBtn.onclick = () => {
+  audioSystem.playGameExit();
+  audioSystem.stopAmbient();
+  
   // Clean up engine if needed
   if (engineModule && typeof engineModule._cleanup === 'function') {
     try {
