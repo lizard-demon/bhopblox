@@ -119,24 +119,26 @@ async function loadEngine() {
         status.textContent = "Ready";
         console.log("Engine loaded successfully");
 
-        // Load world.dat into WASM memory
+        // Load world.dat into WASM memory for blocks[64][64][64]u8 structure
         try {
-          // Get map memory
-          const m = (window as any).Module._map();
-          const map = (window as any).Module.HEAPU8.subarray(m, m + 64 * 64 * 64);
+          // Get blocks memory pointer
+          const blocksPtr = (window as any).Module._map();
+          // Create view for 64x64x64 u8 array (262,144 bytes)
+          const blocksArray = new Uint8Array((window as any).Module.HEAPU8.buffer, blocksPtr, 64 * 64 * 64);
 
           // Load world.dat file
           fetch('/world.dat')
             .then(r => r.arrayBuffer())
             .then(b => {
-              map.set(new Uint8Array(b));
-              console.log("World.dat loaded into WASM memory successfully");
+              const worldData = new Uint8Array(b);
+              blocksArray.set(worldData);
+              console.log(`World.dat loaded: ${worldData.length} bytes into blocks[64][64][64]u8`);
             })
             .catch(error => {
               console.error("Failed to load world.dat:", error);
             });
         } catch (error) {
-          console.error("Failed to initialize map memory:", error);
+          console.error("Failed to initialize blocks memory:", error);
         }
 
         resolve();
