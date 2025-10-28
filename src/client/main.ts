@@ -1,4 +1,4 @@
-import { InitResponse, GetEntriesResponse, DatabaseEntry } from "../shared/types/api";
+import { GetEntriesResponse, DatabaseEntry } from "../shared/types/api";
 import { audioSystem } from "./audio";
 
 // DOM elements
@@ -118,6 +118,27 @@ async function loadEngine() {
         canvas.classList.remove("loading");
         status.textContent = "Ready";
         console.log("Engine loaded successfully");
+
+        // Load world.dat into WASM memory
+        try {
+          // Get map memory
+          const m = (window as any).Module._map();
+          const map = (window as any).Module.HEAPU8.subarray(m, m + 64 * 64 * 64);
+
+          // Load world.dat file
+          fetch('/world.dat')
+            .then(r => r.arrayBuffer())
+            .then(b => {
+              map.set(new Uint8Array(b));
+              console.log("World.dat loaded into WASM memory successfully");
+            })
+            .catch(error => {
+              console.error("Failed to load world.dat:", error);
+            });
+        } catch (error) {
+          console.error("Failed to initialize map memory:", error);
+        }
+
         resolve();
       }],
       onAbort: (error: any) => {
@@ -186,7 +207,7 @@ playBtn.onclick = async () => {
 exitBtn.onclick = () => {
   audioSystem.playGameExit();
   audioSystem.stopAmbient();
-  
+
   // Clean up engine if needed
   if (engineModule && typeof engineModule._cleanup === 'function') {
     try {
