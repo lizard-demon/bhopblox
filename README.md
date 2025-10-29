@@ -4,7 +4,7 @@ A Reddit-native 3D voxel world platform that combines competitive speedrunning w
 
 **Current Status**: Complete dual-mode 3D voxel world platform with WebAssembly engine supporting both competitive speedrun gameplay and creative build mode, featuring community leaderboards, world publishing system, auto-save functionality, and immersive audio experience.
 
-## What is This Platform?
+## What is This Game?
 
 BhopBlox is a comprehensive dual-mode 3D voxel world platform that runs natively within Reddit posts. Players can experience two distinct modes:
 
@@ -12,7 +12,7 @@ BhopBlox is a comprehensive dual-mode 3D voxel world platform that runs natively
 
 2. **Build Mode**: Create and edit custom 3D voxel worlds with full creative control, auto-save functionality, and the ability to publish them as new Reddit posts for the community to play and compete on
 
-**Core Experience**: Navigate through 3D voxel worlds, compete for speedrun records, create and modify custom worlds with integrated editing tools, auto-save your progress, publish worlds with custom titles and descriptions, and share your creations with the Reddit community through automatic post generation.
+**Core Experience**: Navigate through 3D voxel worlds using a WebAssembly-powered 3D engine, compete for speedrun records on community leaderboards, create and modify custom worlds with integrated editing tools, auto-save your progress, publish worlds with custom titles and descriptions, and share your creations with the Reddit community through automatic post generation.
 
 The platform currently features:
 
@@ -32,7 +32,7 @@ The platform currently features:
 ### Current Platform State
 BhopBlox is a **complete dual-mode 3D voxel world platform** with full functionality powered by a WebAssembly 3D engine. Players can either compete in speedrun mode through "Voxel World Adventure" or create custom worlds in build mode with integrated editing tools and auto-save functionality. The platform features automatic time tracking, live leaderboard updates, world creation tools with real-time saving, publishing system, world remixing capabilities, creator-only access controls, and immersive generative windchime audio. The WebAssembly 3D engine (voxels.wasm + voxels.js) loads successfully with dynamic world data integration and supports both competitive gameplay and creative world building modes.
 
-## What Makes This Platform Innovative?
+## What Makes This Game Innovative?
 
 BhopBlox represents an innovative approach to social gaming and user-generated content, combining WebAssembly 3D technology with Reddit's social platform to create the first comprehensive 3D voxel world creation and speedrun platform that runs directly within Reddit posts.
 
@@ -84,18 +84,40 @@ BhopBlox represents an innovative approach to social gaming and user-generated c
 - **Instant Play & Create**: No downloads, installations, or external accounts required - just click to play voxel adventures or create new worlds
 - **Mobile-First Design**: Optimized for Reddit's mobile-heavy user base with responsive controls for both gameplay and world building
 
-## How to Use the Platform
+## How to Play the Game
 
 ### Getting Started
 1. **Find BhopBlox**: Look for BhopBlox posts in your Reddit feed or visit the development subreddit
-2. **Launch the Platform**: Click the "Play" button on the splash screen when you see a BhopBlox post
+2. **Launch the Game**: Click the "Play" button on the splash screen when you see a BhopBlox post
 3. **Choose Your Mode**: 
    - **Speedrun Mode**: Click "PLAY" to compete in existing worlds
    - **Build Mode**: Click "BUILD" to create and edit worlds (creator-only until published)
 4. **Compete, Create & Share**: Set speedrun records, build custom worlds, publish creations, and remix existing worlds
 
-### Current Implementation
-The platform currently features:
+### Current Gameplay Mechanics
+
+**🎮 Core Game Modes:**
+- **Speedrun Mode**: Navigate through 3D voxel worlds to achieve the fastest completion times and compete on community leaderboards
+- **Build Mode**: Create and edit custom 3D voxel worlds with full creative control and integrated editing tools (creator-only access)
+
+**🏆 Competition System:**
+- Live community leaderboards with current world records (lizrd_demon: 42.5s, TestPlayer123: 50.17s, borg23: 58.2s, okpineapple12: 61.7s)
+- Automatic time tracking and submission when completing speedrun challenges
+- Personal record highlighting and rank tracking within the community
+
+**🔨 World Creation System:**
+- Full 3D voxel world editor with real-time editing capabilities
+- Auto-save functionality that preserves your work and saves automatically when exiting
+- World publishing system to transform private creations into public speedrun challenges
+- World remixing to create custom variations with personalized titles and descriptions
+
+**🎨 Social Features:**
+- Published worlds automatically become new Reddit posts for community discovery
+- Remixed worlds create new experiences with custom branding and descriptions
+- Creator recognition and access control for build mode worlds
+
+### Current Game Features
+The game currently features:
 - **Main Interface**: Minecraft-style interface showing world information, leaderboards, and mode-specific controls with authentic block textures
 - **Dual-Mode 3D Engine**: WebAssembly voxel engine (voxels.wasm + voxels.js) that loads for both speedrun gameplay and world building
 - **Audio System**: Generative windchime music with interactive sound effects using Web Audio API
@@ -104,11 +126,11 @@ The platform currently features:
 - **Mode Controls**: Different button layouts and functionality based on speedrun vs build mode
 - **Navigation**: ESC key or "◀ EXIT" button to return to main menu, plus mode-specific controls like "🚀 Publish World" in build mode
 
-### What Makes This Platform Unique
+### What Makes This Game Unique
 
-**🚀 First Reddit-Native 3D Creation Platform**: The first complete 3D voxel world creation and gaming platform to run natively within Reddit posts, bringing both competitive gaming and creative tools to social media.
+**🚀 First Reddit-Native 3D Creation Game**: The first complete 3D voxel world creation and gaming platform to run natively within Reddit posts, bringing both competitive gaming and creative tools to social media.
 
-**🔨 Integrated Build & Play System**: Seamlessly switch between creating custom 3D voxel worlds and competing in speedrun challenges, all within the same platform.
+**🔨 Integrated Build & Play System**: Seamlessly switch between creating custom 3D voxel worlds and competing in speedrun challenges, all within the same game.
 
 **🏆 Community-Driven Competition**: Real-time leaderboards with precision timing across user-generated worlds - compete to beat records like the current 42.5 seconds.
 
@@ -116,11 +138,11 @@ The platform currently features:
 
 **⚡ WebAssembly 3D Performance**: High-performance 3D voxel engine powered by WebAssembly technology supporting both smooth gameplay and responsive world editing on any device.
 
-**📱 Social Gaming & Creation Revolution**: The first comprehensive 3D platform that runs entirely within Reddit posts, enabling instant community engagement, social competition, and collaborative world building.
+**📱 Social Gaming & Creation Revolution**: The first comprehensive 3D game that runs entirely within Reddit posts, enabling instant community engagement, social competition, and collaborative world building.
 
-### Step-by-Step Platform Instructions
+### Step-by-Step Game Instructions
 
-#### 1. Access the Platform
+#### 1. Access the Game
 - Open a BhopBlox post on Reddit and click the "Play" button on the splash screen
 - View the main interface with authentic Minecraft-style design showing world information
 - The interface adapts based on the world mode:
@@ -170,8 +192,8 @@ The platform currently features:
   - Your remixed world automatically becomes a new Reddit post with its own leaderboard
   - Create personalized versions of popular worlds for the community to discover and compete on
 
-### Current Platform Experience
-BhopBlox provides a **complete dual-mode 3D voxel world creation and speedrun platform** with full WebAssembly-powered functionality:
+### Current Game Experience
+BhopBlox provides a **complete dual-mode 3D voxel world creation and speedrun game** with full WebAssembly-powered functionality:
 
 1. **🚀 Dual-Mode 3D Engine** - Experience both competitive speedrun gameplay and creative world building with WebAssembly-powered voxel engine and real-time rendering
 2. **🏆 Live Competition** - Compete for fastest completion times on real-time community leaderboards across user-created worlds with automatic time tracking and ranking
@@ -181,7 +203,7 @@ BhopBlox provides a **complete dual-mode 3D voxel world creation and speedrun pl
 6. **🎵 Immersive Audio** - Focus with generative windchime music featuring procedural bell-like tones, harmonic progressions, and interactive sound effects
 7. **🎮 Seamless Controls** - Navigate and edit 3D worlds with standard controls, mode-specific interfaces, exit with ESC key, and enjoy automatic engine cleanup and memory management
 
-### The Minecraft-Style Block Interface
+### The Minecraft-Style Game Interface
 
 BhopBlox presents itself as an authentic Minecraft-style interface with complete block world aesthetics:
 
@@ -296,14 +318,14 @@ The WebAssembly voxel engine system provides the infrastructure for world intera
 
 ### Quick Start Summary
 
-1. **Access the platform** from a Reddit post by clicking "Play" on the splash screen
+1. **Access the game** from a Reddit post by clicking "Play" on the splash screen
 2. **Choose your mode** through the authentic Minecraft-style interface:
    - **Speedrun Mode**: View leaderboards and compete for records
    - **Build Mode**: Create and edit custom 3D voxel worlds (creator-only until published)
 3. **Enter the 3D world**:
    - **Click "PLAY"** for speedrun challenges with real-time loading status
    - **Click "BUILD"** for world creation and editing (if you're the creator)
-4. **Engage with the platform**:
+4. **Engage with the game**:
    - **Speedrun**: Master the 3D voxel environment to achieve fastest completion times and climb leaderboards
    - **Build**: Design custom worlds with integrated editing tools and automatic saving
 5. **Share your creations**:
@@ -311,7 +333,7 @@ The WebAssembly voxel engine system provides the infrastructure for world intera
    - **Create remixes** by clicking "🎨 Remix World" to share custom variations with the Reddit community
 6. **Navigate easily** with ESC key or "◀ EXIT" button to return to the main menu and view updated content
 
-**Note**: BhopBlox is a complete 3D voxel world creation and speedrun platform - the WebAssembly 3D engine (voxels.wasm + voxels.js) loads successfully and provides full 3D navigation, world editing, precision timing mechanics, automatic leaderboard submission, map data persistence, and community-driven world sharing for both competitive gameplay and creative world building.
+**Note**: BhopBlox is a complete 3D voxel world creation and speedrun game - the WebAssembly 3D engine (voxels.wasm + voxels.js) loads successfully and provides full 3D navigation, world editing, precision timing mechanics, automatic leaderboard submission, map data persistence, and community-driven world sharing for both competitive gameplay and creative world building.
 
 ### Audio Experience
 
@@ -335,13 +357,13 @@ The game features a sophisticated generative windchime audio system powered by W
 - **JavaScript Enabled**: Required for engine loading and Reddit integration
 - **Audio Support**: Web Audio API support for generative music system
 
-### Pro Tips for Platform Success
+### Pro Tips for Game Success
 
 #### Speedrun Mode Tips
 - **Study the Competition**: Current world record is 42.5 seconds by lizrd_demon - analyze the leaderboard to understand what times you need to beat
 - **Master 3D Navigation**: Learn the 3D voxel world thoroughly to find the optimal speedrun path and eliminate wasted movement in 3D space
 - **Track Your Progress**: Watch your rank change in the leaderboard as you improve - your personal records are highlighted for easy tracking
-- **Focus with Audio**: The generative windchime music system enhances concentration and creates an atmospheric 3D speedrun experience
+- **Focus with Audio**: The generative windchime music system helps maintain focus during speedrun attemptsnhances concentration and creates an atmospheric 3D speedrun experience
 
 #### Build Mode Tips
 - **Plan Your Design**: Think about both aesthetics and gameplay flow when creating worlds - consider how speedrunners will navigate your creation
@@ -538,7 +560,7 @@ The world selection system provides a curated browsing experience within an auth
 
 ## Current Development Status
 
-**Status**: Functional 3D voxel adventure game. The WebAssembly voxel engine infrastructure (voxels.wasm + voxels.js) is included in the project structure and loads successfully. The Minecraft-style interface, world information system, audio system, and Reddit integration are fully functional.
+**Status**: Complete 3D voxel adventure game with dual-mode functionality. The WebAssembly voxel engine infrastructure (voxels.wasm + voxels.js) is included in the project structure and loads successfully with full 3D navigation, world editing capabilities, and auto-save functionality. The Minecraft-style interface, world information system, audio system, and Reddit integration are fully functional.
 
 ### What's Currently Working
 - ✅ **Dual-Mode WebAssembly 3D Engine**: WASM engine (voxels.wasm + voxels.js) with dynamic loading, initialization, and mode-specific functionality
@@ -607,18 +629,18 @@ The platform delivers a complete dual-mode WebAssembly 3D engine with full voxel
 - WebAssembly voxel engine initialization with real-time status updates ("Loading engine..." → "Ready")
 - Canvas display with Minecraft-style block frame and responsive sizing (up to 1000x650px)
 - Automatic world data loading into the engine's virtual filesystem with state.json integration
-- Complete technical foundation for voxel world rendering with proper memory management
+- Complete 3D voxel world rendering with proper memory management and cleanup
 
-**Recent Update - Enhanced Build Mode with Auto-Save:**
-The platform now features enhanced build mode functionality:
-- Auto-save system that automatically saves build progress when exiting build mode
-- Integrated map data persistence with callback system for real-time saving
-- Creator-only access control for build mode worlds until published
-- Enhanced world publishing system with custom titles and descriptions
-- Streamlined engine integration with mode-specific functionality
-- Dynamic state.json generation with current world data, player info, and leaderboard
-- Direct loading into Emscripten virtual filesystem for immediate engine access
-- Simplified cleanup and memory management with proper resource disposal
+**Current Build Mode with Auto-Save:**
+The game now features complete build mode functionality:
+- **Advanced Auto-Save System**: Automatically saves build progress when exiting build mode by reading from WASM filesystem and persisting map data changes
+- **Real-Time World Editing**: Full 3D voxel world editing capabilities with integrated tools and real-time modifications
+- **Exit Auto-Save**: Enhanced exit handler that reads saved state from WASM filesystem and persists map data changes automatically
+- **Creator-Only Access Control**: Build mode worlds restricted to creators until they choose to publish publicly
+- **World Publishing System**: Transform build mode creations into public speedrun challenges with custom titles and descriptions
+- **Mode-Specific Engine Integration**: Proper WASM callback integration with score submission for speedrun mode and map saving for build mode
+- **Dynamic State Loading**: Real-time state.json generation with current world data, player info, and leaderboard data
+- **Direct WASM Filesystem Access**: Immediate loading into Emscripten virtual filesystem with proper memory management and cleanup
 
 ### Future Development
 - 🔄 **Voxel World Content**: Implementation of interactive voxel world experiences using the established engine infrastructure
@@ -630,7 +652,7 @@ The platform now features enhanced build mode functionality:
 
 ## Summary
 
-**BhopBlox** is a comprehensive dual-mode 3D voxel world platform that runs natively within Reddit posts. The platform currently provides:
+**BhopBlox** is a comprehensive dual-mode 3D voxel world game that runs natively within Reddit posts. The game currently provides:
 
 - ✅ **Dual-mode WebAssembly 3D engine** with WASM integration supporting both competitive speedrun gameplay and creative build mode
 - ✅ **Complete build mode system** with world creation tools, auto-save functionality, and creator-only access control
@@ -644,4 +666,4 @@ The platform now features enhanced build mode functionality:
 - ✅ **Social platform integration** with Reddit post creation for published and remixed worlds
 - ✅ **Cross-platform optimization** for both desktop and mobile browsers with precision controls and responsive design
 
-BhopBlox delivers a complete dual-mode 3D voxel world platform with WebAssembly performance, creative tools, community features, and social integration within Reddit posts.
+BhopBlox delivers a complete dual-mode 3D voxel world game with WebAssembly performance, creative tools, community features, and social integration within Reddit posts.

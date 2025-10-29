@@ -17,8 +17,20 @@ let username: string = "anonymous";
 let gameMode: "speedrun" | "build" = "speedrun";
 let isCreator: boolean = false;
 
+
 // Clean up engine resources
 function cleanupEngine() {
+  if (engineModule) {
+    // Try to properly terminate the WASM module
+    try {
+      if (engineModule._cleanup) {
+        engineModule._cleanup();
+      }
+    } catch (error) {
+      console.warn("Error during engine cleanup:", error);
+    }
+  }
+
   engineModule = null;
   delete (window as any).Module;
   document.querySelector('script[src="voxels.js"]')?.remove();
@@ -275,9 +287,9 @@ async function loadEngine() {
           engineModule._setScoreCallback(submitScore);
         }
 
-        // Always setup save callback for build mode
-        if (gameMode === "build" && engineModule._setSaveCallback) {
-          engineModule._setSaveCallback(saveMapData);
+        // Setup callbacks based on mode
+        if (gameMode === "speedrun" && engineModule._setScoreCallback) {
+          engineModule._setScoreCallback(submitScore);
         }
         resolve();
       }],
@@ -313,6 +325,11 @@ async function submitScore(time: number) {
 
 // Save map data in build mode
 async function saveMapData(mapData: string) {
+  if (!mapData || typeof mapData !== 'string') {
+    console.error("Invalid map data provided to saveMapData");
+    return;
+  }
+
   try {
     const response = await fetch("/api/save-map", {
       method: "POST",
@@ -320,13 +337,20 @@ async function saveMapData(mapData: string) {
       body: JSON.stringify({ mapData })
     });
 
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
     const result = await response.json();
     if (result.success && worldData) {
       worldData.mapData = mapData;
       console.log("Map saved successfully");
+    } else {
+      throw new Error(result.error || "Save failed");
     }
   } catch (error) {
     console.error("Map save failed:", error);
+    // Could show user notification here if needed
   }
 }
 
@@ -464,21 +488,44 @@ playBtn.onclick = async () => {
 };
 
 exitBtn.onclick = async () => {
+  audioSystem.playGameExit();
+  audioSystem.stopAmbient();
+
   // Auto-save in build mode before exiting
-  if (gameMode === "build" && isCreator && engineModule && engineModule._getMapData) {
+  if (gameMode === "build" && isCreator && engineModule) {
     try {
-      const currentMapData = engineModule._getMapData();
-      if (currentMapData && currentMapData !== worldData?.mapData) {
-        await saveMapData(currentMapData);
-        console.log("Auto-saved map data on exit");
+      // First, tell the WASM module to close/terminate properly
+      // This will flush any pending writes to the virtual filesystem
+      if (engineModule.exit) {
+        engineModule.exit(0);
+      } else if (engineModule._exit) {
+        engineModule._exit(0);
+      }
+
+      // Wait for the WASM to finish closing and syncing to disk
+      await new Promise(resolve => setTimeout(resolve, 200));
+
+      // Read the saved state.json from the WASM filesystem
+      if (engineModule.FS && engineModule.FS.readFile) {
+        try {
+          const stateBuffer = engineModule.FS.readFile('/state.json');
+          const stateString = new TextDecoder().decode(stateBuffer);
+          const stateData = JSON.parse(stateString);
+
+          // Extract the map data from the saved state
+          if (stateData.data && stateData.data !== worldData?.mapData) {
+            await saveMapData(stateData.data);
+            console.log("Auto-saved map data on exit");
+          }
+        } catch (fsError) {
+          console.error("Failed to read from WASM filesystem:", fsError);
+        }
       }
     } catch (error) {
       console.error("Auto-save failed:", error);
     }
   }
 
-  audioSystem.playGameExit();
-  audioSystem.stopAmbient();
   menu.style.display = "block";
   game.style.display = "none";
   cleanupEngine();
