@@ -106,7 +106,7 @@ body::before {
 
 .glass-panel {
   text-align: center;
-  max-width: 480px;
+  max-width: 420px;
   width: calc(100% - 2rem);
   box-sizing: border-box;
   margin: 0 auto;
@@ -117,7 +117,7 @@ body::before {
   border-left-color: #FFFFFF;
   border-right-color: #404040;
   border-bottom-color: #404040;
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow:
     inset 2px 2px 0 rgba(255, 255, 255, 0.5),
     inset -2px -2px 0 rgba(0, 0, 0, 0.5),
@@ -130,9 +130,9 @@ body::before {
 
 .title {
   font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -160,64 +160,60 @@ body::before {
 
 
 #world-list {
-  max-height: 400px;
-  overflow-y: auto;
-  border: 2px solid #000000;
-  border-top-color: #FFFFFF;
-  border-left-color: #FFFFFF;
-  border-right-color: #404040;
-  border-bottom-color: #404040;
-  background: #C6C6C6;
   margin-bottom: 1.5rem;
-  box-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.5),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.5),
-    2px 2px 4px rgba(0, 0, 0, 0.3);
-  position: relative;
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-  padding: 1rem;
   text-align: left;
 }
 
-.world-header {
+.world-info {
+  padding: 1rem;
+  text-align: center;
   margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #999999;
 }
 
-.world-header h2 {
+.world-title {
   font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
   color: #000000;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
   text-shadow: none;
 }
 
 .world-description {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   line-height: 1.4;
   color: #333333;
   margin-bottom: 0.5rem;
 }
 
 .world-author {
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   color: #666666;
-  font-style: italic;
 }
 
 .leaderboard {
-  margin-bottom: 1.5rem;
+  background: rgba(0, 0, 0, 0.1);
+  border: 2px solid #999999;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
+  padding: 1rem;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.3);
 }
 
-.leaderboard h3 {
+.leaderboard-title {
   font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
   color: #000000;
   margin-bottom: 1rem;
   font-size: 0.8rem;
+  text-align: center;
   text-shadow: none;
+}
+
+.leaderboard-list {
+  text-align: left;
 }
 
 .leaderboard-entry {
@@ -235,6 +231,10 @@ body::before {
   background: rgba(85, 255, 85, 0.3);
   border-color: #55FF55;
   font-weight: bold;
+}
+
+.leaderboard-entry:last-child {
+  margin-bottom: 0;
 }
 
 .rank {
@@ -263,20 +263,22 @@ body::before {
   font-style: italic;
 }
 
-.actions {
-  text-align: center;
-}
-
 .remix-button {
   font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
-  background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
-  color: #FFFFFF;
+  background:
+    repeating-linear-gradient(0deg,
+      #55FF55 0px, #55FF55 2px,
+      #77FF77 2px, #77FF77 4px,
+      #33DD33 4px, #33DD33 6px,
+      #55FF55 6px, #55FF55 8px);
+  background-size: 8px 8px;
+  color: #000000;
   border: 2px solid #000000;
   border-top-color: #FFFFFF;
   border-left-color: #FFFFFF;
   border-right-color: #808080;
   border-bottom-color: #808080;
-  padding: 8px 16px;
+  padding: 10px 20px;
   cursor: pointer;
   font-size: 0.6rem;
   font-weight: bold;
@@ -286,15 +288,31 @@ body::before {
     inset 1px 1px 0 rgba(255, 255, 255, 0.5),
     inset -1px -1px 0 rgba(0, 0, 0, 0.5),
     2px 2px 4px rgba(0, 0, 0, 0.3);
-  text-shadow:
-    1px 1px 0 #000000,
-    -1px -1px 0 #000000,
-    1px -1px 0 #000000,
-    -1px 1px 0 #000000;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .remix-button:hover {
-  background: linear-gradient(135deg, #FF8B8B, #FFAEAE);
+  background:
+    repeating-linear-gradient(0deg,
+      #77FF77 0px, #77FF77 2px,
+      #99FF99 2px, #99FF99 4px,
+      #55DD55 4px, #55DD55 6px,
+      #77FF77 6px, #77FF77 8px);
+  background-size: 8px 8px;
+}
+
+.remix-button:active {
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
+  box-shadow:
+    inset -1px -1px 0 rgba(255, 255, 255, 0.5),
+    inset 1px 1px 0 rgba(0, 0, 0, 0.5),
+    1px 1px 2px rgba(0, 0, 0, 0.3);
+  transform: translate(1px, 1px);
 }
 
 .remix-dialog {
@@ -308,6 +326,7 @@ body::before {
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  user-select: text;
 }
 
 .remix-content {
@@ -324,6 +343,8 @@ body::before {
     inset 2px 2px 0 rgba(255, 255, 255, 0.5),
     inset -2px -2px 0 rgba(0, 0, 0, 0.5),
     4px 4px 8px rgba(0, 0, 0, 0.3);
+  user-select: text;
+  pointer-events: auto;
 }
 
 .remix-content h3 {
@@ -364,11 +385,24 @@ body::before {
   border-right-color: #FFFFFF;
   border-bottom-color: #FFFFFF;
   background: #FFFFFF;
+  color: #000000;
   font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
   font-size: 0.5rem;
   box-shadow:
     inset 1px 1px 0 rgba(0, 0, 0, 0.3),
     inset -1px -1px 0 rgba(255, 255, 255, 0.3);
+  outline: none;
+  user-select: text;
+  pointer-events: auto;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #55FF55;
+  box-shadow:
+    inset 1px 1px 0 rgba(0, 0, 0, 0.3),
+    inset -1px -1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 2px rgba(85, 255, 85, 0.3);
 }
 
 .form-group textarea {
@@ -534,13 +568,16 @@ body::before {
   transform: none;
 }
 
-#status {
-  margin-top: 1.5rem;
-  font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
-  font-size: 0.8rem;
-  color: #FFFFFF;
+.game-controls {
   text-align: center;
-  text-shadow: 1px 1px 0 #000000;
+}
+
+#status {
+  margin-top: 1rem;
+  font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
+  font-size: 0.6rem;
+  color: #000000;
+  text-align: center;
 }
 
 
@@ -713,43 +750,9 @@ body::before {
   transform: translate(1px, 1px);
 }
 
-/* Custom
-/* Minecraft scrollbar */
-#world-list::-webkit-scrollbar {
-  width: 12px;
-}
 
-#world-list::-webkit-scrollbar-track {
-  background: #999999;
-  border: 1px solid #000000;
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
 
-#world-list::-webkit-scrollbar-thumb {
-  background:
-    repeating-linear-gradient(0deg,
-      #C0C0C0 0px, #C0C0C0 2px,
-      #D3D3D3 2px, #D3D3D3 4px);
-  background-size: 4px 4px;
-  border: 1px solid #000000;
-  border-top-color: #FFFFFF;
-  border-left-color: #FFFFFF;
-  border-right-color: #808080;
-  border-bottom-color: #808080;
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-
-#world-list::-webkit-scrollbar-thumb:hover {
-  background:
-    repeating-linear-gradient(0deg,
-      #D0D0D0 0px, #D0D0D0 2px,
-      #E3E3E3 2px, #E3E3E3 4px);
-  background-size: 4px 4px;
-}
+/* Removed scrollbar styles - no longer needed */
 
 /* Focus States */
 .crt-button:focus,
@@ -783,6 +786,8 @@ body::before {
     padding: 8px 16px;
     font-size: 0.75rem;
   }
+
+
 }
 
 @media (max-width: 480px) {
@@ -800,9 +805,7 @@ body::before {
     margin-bottom: 1rem;
   }
 
-  #world-list {
-    max-height: 180px;
-  }
+  /* Removed max-height - no longer scrollable */
 
   .world-item {
     padding: 0.8rem;

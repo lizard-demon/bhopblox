@@ -22,10 +22,10 @@ function cleanupEngine() {
   document.querySelector('script[src="voxels.js"]')?.remove();
 }
 
-// Display world info and leaderboard
+// Display world info in clean format
 function displayWorldInfo(data: FullWorldData) {
   const leaderboardHTML = data.leaderboard.length > 0
-    ? data.leaderboard.map((entry, index) => `
+    ? data.leaderboard.slice(0, 5).map((entry, index) => `
         <div class="leaderboard-entry ${entry.username === username ? 'current-user' : ''}">
           <span class="rank">#${index + 1}</span>
           <span class="username">${entry.username}</span>
@@ -35,26 +35,26 @@ function displayWorldInfo(data: FullWorldData) {
     : '<div class="no-scores">No scores yet - be the first!</div>';
 
   worldInfo.innerHTML = `
-    <div class="world-header">
-      <h2>${data.title}</h2>
+    <div class="world-info">
+      <h2 class="world-title">${data.title}</h2>
       <p class="world-description">${data.description}</p>
-      <p class="world-author">Created by ${data.author}</p>
+      <p class="world-author">by ${data.author}</p>
     </div>
     
     <div class="leaderboard">
-      <h3>🏆 Leaderboard</h3>
-      ${leaderboardHTML}
+      <h3 class="leaderboard-title">🏆 Leaderboard 🏆</h3>
+      <div class="leaderboard-list">
+        ${leaderboardHTML}
+      </div>
     </div>
-
-    <div class="actions">
-      <button id="remix-btn" class="remix-button">🎨 Remix This World</button>
-    </div>
+    
+    <button id="main-remix-btn" class="remix-button">🎨 Remix World</button>
   `;
 
-  // Setup remix button
-  const remixBtn = document.getElementById("remix-btn")!;
-  remixBtn.onclick = showRemixDialog;
-  remixBtn.onmouseenter = () => audioSystem.playButtonHover();
+  // Setup main remix button
+  const mainRemixBtn = document.getElementById("main-remix-btn")!;
+  mainRemixBtn.onclick = showRemixDialog;
+  mainRemixBtn.onmouseenter = () => audioSystem.playButtonHover();
 }
 
 // Show remix dialog
@@ -133,7 +133,15 @@ function showRemixDialog() {
   };
 
   cancelBtn.onclick = () => document.body.removeChild(dialog);
-  dialog.onclick = (e) => e.target === dialog && document.body.removeChild(dialog);
+  dialog.onclick = (e) => {
+    if (e.target === dialog) {
+      document.body.removeChild(dialog);
+    }
+  };
+
+  // Prevent dialog from closing when clicking on form elements
+  const remixContent = dialog.querySelector('.remix-content')! as HTMLElement;
+  remixContent.onclick = (e: Event) => e.stopPropagation();
 }
 
 // Show remix success with clickable link
@@ -174,7 +182,7 @@ async function init() {
     username = data.username;
 
     displayWorldInfo(worldData);
-    playBtn.textContent = `Play "${worldData.title}"`;
+    playBtn.querySelector('.button-text')!.textContent = "PLAY";
     playBtn.disabled = false;
 
     // Setup audio events
