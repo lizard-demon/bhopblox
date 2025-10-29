@@ -119,27 +119,31 @@ async function loadEngine() {
         status.textContent = "Ready";
         console.log("Engine loaded successfully");
 
-        // Load world.dat into WASM memory for blocks[64][64][64]u8 structure
-        try {
-          // Get blocks memory pointer
-          const blocksPtr = (window as any).Module._map();
-          // Create view for 64x64x64 u8 array (262,144 bytes)
-          const blocksArray = new Uint8Array((window as any).Module.HEAPU8.buffer, blocksPtr, 64 * 64 * 64);
+        // Debug what's available at different points
+        console.log("PostRun - Module properties:", Object.keys((window as any).Module));
+        console.log("PostRun - Module.FS:", typeof (window as any).Module.FS);
 
-          // Load world.dat file
-          fetch('/world.dat')
-            .then(r => r.arrayBuffer())
-            .then(b => {
-              const worldData = new Uint8Array(b);
-              blocksArray.set(worldData);
-              console.log(`World.dat loaded: ${worldData.length} bytes into blocks[64][64][64]u8`);
-            })
-            .catch(error => {
-              console.error("Failed to load world.dat:", error);
-            });
-        } catch (error) {
-          console.error("Failed to initialize blocks memory:", error);
-        }
+        // Load world.dat into Emscripten filesystem after 1 second delay
+        setTimeout(() => {
+          console.log("After 1s - Module properties:", Object.keys((window as any).Module));
+          console.log("After 1s - Module.FS:", typeof (window as any).Module.FS);
+          console.log("After 1s - Module.FS.writeFile:", typeof (window as any).Module.FS?.writeFile);
+
+          try {
+            // Fetch and write world.dat to the virtual filesystem
+            fetch('/world.dat')
+              .then(r => r.arrayBuffer())
+              .then(data => {
+                (window as any).Module.FS.writeFile('/world.dat', new Uint8Array(data));
+                console.log(`World.dat loaded into filesystem: ${data.byteLength} bytes`);
+              })
+              .catch(error => {
+                console.error("Failed to load world.dat:", error);
+              });
+          } catch (error) {
+            console.error("Failed to write to filesystem:", error);
+          }
+        }, 1000);
 
         resolve();
       }],
