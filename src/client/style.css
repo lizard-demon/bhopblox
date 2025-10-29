@@ -413,6 +413,38 @@ body::before {
   border-bottom-color: #808080;
 }
 
+.success-link {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.remix-link {
+  display: inline-block;
+  font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
+  background: linear-gradient(135deg, #55FF55, #77FF77);
+  color: #000000;
+  text-decoration: none;
+  padding: 12px 24px;
+  border: 2px solid #000000;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.5),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.5),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.remix-link:hover {
+  background: linear-gradient(135deg, #77FF77, #99FF99);
+  transform: translateY(-1px);
+}
+
 
 
 .loading {

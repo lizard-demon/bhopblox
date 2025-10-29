@@ -119,8 +119,7 @@ function showRemixDialog() {
       const result = await response.json();
       if (result.success) {
         audioSystem.playGameStart();
-        alert("Remix created! Opening your new world...");
-        window.open(result.navigateTo, '_blank');
+        showRemixSuccess(result.navigateTo);
       } else {
         throw new Error(result.error);
       }
@@ -134,6 +133,34 @@ function showRemixDialog() {
   };
 
   cancelBtn.onclick = () => document.body.removeChild(dialog);
+  dialog.onclick = (e) => e.target === dialog && document.body.removeChild(dialog);
+}
+
+// Show remix success with clickable link
+function showRemixSuccess(url: string) {
+  const dialog = document.createElement('div');
+  dialog.className = 'remix-dialog';
+  dialog.innerHTML = `
+    <div class="remix-content">
+      <h3>🎉 Remix Created!</h3>
+      <p>Your world has been created successfully!</p>
+      
+      <div class="success-link">
+        <a href="${url}" target="_top" class="remix-link">
+          🚀 Open Your New World
+        </a>
+      </div>
+      
+      <div class="form-actions">
+        <button id="close-success" class="create-button">Close</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(dialog);
+
+  const closeBtn = document.getElementById("close-success")!;
+  closeBtn.onclick = () => document.body.removeChild(dialog);
   dialog.onclick = (e) => e.target === dialog && document.body.removeChild(dialog);
 }
 
