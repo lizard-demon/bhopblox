@@ -91,8 +91,22 @@ async function init() {
 async function loadEngine() {
   if (engineLoaded) return;
 
-  status.textContent = "Loading engine...";
+  status.textContent = "Loading world data...";
   playBtn.disabled = true;
+
+  // Preload world.dat before starting engine
+  let worldData: Uint8Array;
+  try {
+    const response = await fetch('/world.dat');
+    const arrayBuffer = await response.arrayBuffer();
+    worldData = new Uint8Array(arrayBuffer);
+    console.log(`World.dat preloaded: ${worldData.length} bytes`);
+  } catch (error) {
+    console.error("Failed to preload world.dat:", error);
+    throw error;
+  }
+
+  status.textContent = "Loading engine...";
 
   // Ensure canvas is visible and properly sized before initializing
   menu.style.display = "none";
@@ -113,16 +127,9 @@ async function loadEngine() {
     (window as any).Module = {
       canvas,
       preRun: [() => {
-        // Load world.dat into Emscripten filesystem before any initialization
-        fetch('/world.dat')
-          .then(r => r.arrayBuffer())
-          .then(data => {
-            (window as any).Module.FS.writeFile('/world.dat', new Uint8Array(data));
-            console.log(`World.dat loaded into filesystem: ${data.byteLength} bytes`);
-          })
-          .catch(error => {
-            console.error("Failed to load world.dat:", error);
-          });
+        // Write preloaded world.dat into Emscripten filesystem
+        (window as any).Module.FS.writeFile('/world.dat', worldData);
+        console.log(`World.dat written to filesystem: ${worldData.length} bytes`);
       }],
       postRun: [() => {
         engineLoaded = true;

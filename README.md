@@ -1,4 +1,4 @@
-# bhopblox - Voxel World Browser
+# bhopblox - Minecraft-Style Voxel World Browser
 
 A Minecraft-inspired voxel world browser that runs directly inside Reddit posts, featuring authentic block aesthetics, WebAssembly-powered engine infrastructure, and generative ambient audio. Browse and select from 6 unique voxel worlds through an immersive block-style interface with complete Minecraft visual theming.
 
@@ -6,9 +6,9 @@ A Minecraft-inspired voxel world browser that runs directly inside Reddit posts,
 
 ## What is This Game?
 
-bhopblox is a Minecraft-style voxel world browser that brings authentic block world aesthetics directly to Reddit. The game is a sophisticated world selection and engine infrastructure experience that lets you browse and launch different voxel environments through an immersive Minecraft-themed interface.
+bhopblox is a Minecraft-style voxel world browser that brings authentic block world aesthetics directly to Reddit. The game provides a sophisticated world selection and engine infrastructure experience that lets you browse and launch different voxel environments through an immersive Minecraft-themed interface.
 
-**Core Gameplay**: Select from 6 unique voxel worlds (Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, Desert Oasis), each with detailed descriptions and author information. When you choose a world and click "INITIALIZE WORLD", the WebAssembly voxel engine loads, displaying a canvas with the foundation ready for future voxel content development.
+**Core Experience**: Browse through 6 unique voxel worlds (Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, Desert Oasis), each with detailed descriptions and author information. When you select a world and click "INITIALIZE WORLD", the WebAssembly voxel engine loads, displaying a canvas with the foundation infrastructure ready for future voxel content development.
 
 The game currently features:
 
@@ -103,18 +103,18 @@ The game presents itself as an authentic Minecraft-style interface with complete
 #### 1. Browse Available Voxel Worlds
 - **Scroll through the world list** to see all 6 unique voxel environments in the wood-textured panel
 - **Each world card displays**: Title, description, and author information (Explorer, Architect, Diver, Scientist, Builder, Survivor)
-- **Hover Effects**: World cards have subtle white overlay and yellow border effects with audio feedback (440Hz tone)
+- **Hover Effects**: World cards have subtle white overlay and yellow border effects with audio feedback
 
 #### 2. Select Your Voxel World
 - **Click on any world card** to select it for exploration
-- **Audio Feedback**: Hover sounds (440Hz) and selection confirmation chords (ascending E4, G#4, C5 progression)
+- **Audio Feedback**: Hover sounds and selection confirmation chords with ascending musical progression
 - **Visual Confirmation**: Selected worlds are highlighted with bright green background and border within the wood-textured panel
 - **Button Update**: The "INITIALIZE WORLD" button updates to show your selected world (e.g., "Play 'Crystal Cave'")
 - **Selection Required**: Must select a world before proceeding - shows error message with dissonant audio if attempting to launch without selection
 
 #### 3. Launch the WebAssembly Engine
 - **Click "INITIALIZE WORLD"** to load the WebAssembly voxel engine infrastructure
-- **Engine Loading Process**: Watch the status change from "Loading engine..." to "Ready" with real-time feedback
+- **Engine Loading Process**: Watch the status change from "Loading world data..." to "Loading engine..." to "Ready" with real-time feedback
 - **Canvas Display**: Game canvas appears with Minecraft-style block frame and responsive sizing (up to 1000x650px)
 - **World Data Loading**: Engine automatically loads world.dat file into the Emscripten virtual filesystem
 - **Audio Enhancement**: Generative ambient music begins playing with evolving harmonic layers across multiple musical scales
@@ -182,7 +182,7 @@ The WebAssembly voxel engine system provides the infrastructure for world intera
 ### Quick Start Summary
 
 1. **Launch the app** from a Reddit post by clicking "Play" on the splash screen
-2. **Browse the 6 available voxel worlds** and enjoy the authentic Minecraft-style block interface with stone panels and pixelated styling
+2. **Browse the 6 available voxel worlds** through the authentic Minecraft-style block interface
 3. **Select a voxel world** by clicking on it to see it highlighted in bright green with audio confirmation
 4. **Click "INITIALIZE WORLD"** to load the WebAssembly voxel engine infrastructure
 5. **Experience the engine canvas** with block-themed background, world data loading, and generative ambient music
@@ -192,11 +192,12 @@ The WebAssembly voxel engine system provides the infrastructure for world intera
 
 ### Audio Experience
 
-The game features a sophisticated generative audio system:
-- **Interactive Sound Effects**: Every button hover, click, and selection has unique audio feedback
-- **Generative Ambient Music**: Procedural ambient soundscapes that evolve during engine state
-- **Multiple Musical Scales**: Music evolves between different scales (pentatonic, Japanese, Hirajoshi) for variety
-- **Automatic Initialization**: Audio activates on your first interaction to comply with browser policies
+The game features a sophisticated generative audio system powered by Web Audio API:
+- **Interactive Sound Effects**: Button hovers, clicks, world selections, and game transitions all have unique audio feedback
+- **Generative Ambient Music**: Procedural ambient soundscapes with 2-4 harmonic layers that evolve continuously during gameplay
+- **Multiple Musical Scales**: Music dynamically evolves between major pentatonic, minor pentatonic, Japanese, and Hirajoshi scales
+- **Layered Audio Architecture**: Separate gain nodes for ambient music and sound effects with master volume control
+- **Automatic Initialization**: Audio system activates on your first interaction to comply with browser autoplay policies
 
 ### Troubleshooting
 
