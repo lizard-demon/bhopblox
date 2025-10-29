@@ -94,15 +94,14 @@ async function loadEngine() {
   status.textContent = "Loading world data...";
   playBtn.disabled = true;
 
-  // Preload world.dat before starting engine
-  let worldData: Uint8Array;
+  // Preload state.json before starting engine
+  let stateData: string;
   try {
-    const response = await fetch('/world.dat');
-    const arrayBuffer = await response.arrayBuffer();
-    worldData = new Uint8Array(arrayBuffer);
-    console.log(`World.dat preloaded: ${worldData.length} bytes`);
+    const response = await fetch('/state.json');
+    stateData = await response.text();
+    console.log(`State.json preloaded: ${stateData.length} characters`);
   } catch (error) {
-    console.error("Failed to preload world.dat:", error);
+    console.error("Failed to preload state.json:", error);
     throw error;
   }
 
@@ -127,9 +126,9 @@ async function loadEngine() {
     (window as any).Module = {
       canvas,
       preRun: [() => {
-        // Write preloaded world.dat into Emscripten filesystem
-        (window as any).Module.FS.writeFile('/world.dat', worldData);
-        console.log(`World.dat written to filesystem: ${worldData.length} bytes`);
+        // Write preloaded state.json into Emscripten filesystem
+        (window as any).Module.FS.writeFile('/state.json', stateData);
+        console.log(`State.json written to filesystem: ${stateData.length} characters`);
       }],
       postRun: [() => {
         engineLoaded = true;
