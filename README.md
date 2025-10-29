@@ -1,36 +1,35 @@
-# BhopBlox - 3D Voxel Speedrun Adventure
+# BhopBlox - 3D Voxel World Platform
 
-A high-speed 3D voxel speedrunning game that runs directly inside Reddit posts, featuring bunny hopping mechanics, competitive leaderboards, and world remixing capabilities. Master the art of bunny hopping through challenging voxel worlds, compete for the fastest completion times, and create your own custom worlds for the community to speedrun.
+A 3D voxel world platform that runs directly inside Reddit posts, featuring WebAssembly-powered 3D engine infrastructure, competitive leaderboards, world remixing capabilities, and an authentic Minecraft-style interface with generative windchime audio.
 
-**Current Status**: Fully functional speedrun game with WebAssembly 3D engine infrastructure, competitive leaderboards, world remixing system, and authentic Minecraft-style interface with generative windchime audio.
+**Current Status**: Complete WebAssembly 3D engine platform with world data loading, leaderboard system, world remixing functionality, and immersive audio experience.
 
-## What is This Game?
+## What is This Platform?
 
-BhopBlox is a 3D voxel speedrunning game that brings the excitement of bunny hopping (bhop) movement mechanics to Reddit. The game features a complete WebAssembly-powered 3D engine that loads voxel world data and provides the technical foundation for speedrunning gameplay within Reddit posts.
+BhopBlox is a 3D voxel world platform that provides complete WebAssembly engine infrastructure for voxel-based experiences within Reddit posts. The platform features a fully functional WebAssembly-powered 3D engine that loads voxel world data, manages competitive leaderboards, and enables community-driven content creation through world remixing.
 
-**Core Experience**: Launch the game to experience a single challenging voxel world called "Voxel World Adventure", compete on leaderboards with current top times (lizrd_demon: 42.5s, TestPlayer123: 50.17s, borg23: 58.2s, okpineapple12: 61.7s), and create remix versions with custom titles and descriptions for other players to speedrun.
+**Core Experience**: Launch the platform to experience the WebAssembly 3D engine with loaded world data including "Voxel World Adventure", view competitive leaderboards with current top times (lizrd_demon: 42.5s, TestPlayer123: 50.17s, borg23: 58.2s, okpineapple12: 61.7s), and create remix versions with custom titles and descriptions for the community.
 
-The game currently features:
+The platform currently features:
 
 ### Core Features
-- **🏃‍♂️ Bunny Hopping Mechanics**: Master advanced movement techniques including strafe jumping, air acceleration, and momentum conservation to achieve the fastest possible completion times
-- **⏱️ Competitive Speedrunning**: Race against the clock and compete on leaderboards with current top times including lizrd_demon (42.5s), TestPlayer123 (50.17s), borg23 (58.2s), and okpineapple12 (61.7s)
-- **🎨 World Remixing System**: Create custom versions of existing worlds with your own titles and descriptions, then share them as new speedrun challenges for the community
+- **⚡ WebAssembly 3D Engine**: Complete WASM voxel engine (voxels.wasm + voxels.js) that loads world data, player state, and leaderboard information, providing the technical foundation for 3D voxel experiences
+- **🏆 Community Leaderboards**: View and compete on leaderboards with current top times including lizrd_demon (42.5s), TestPlayer123 (50.17s), borg23 (58.2s), and okpineapple12 (61.7s), with automatic updates when new records are achieved
+- **🎨 World Remixing System**: Create custom versions of existing worlds with your own titles and descriptions, then share them as new posts for the community to experience
 - **🧱 Authentic Minecraft Interface**: Complete pixelated block interface with dirt/grass backgrounds, stone panels, and authentic "Press Start 2P" pixel font that perfectly recreates the classic Minecraft aesthetic
-- **⚡ WebAssembly 3D Engine**: High-performance WASM voxel engine (voxels.wasm + voxels.js) that loads world data, player state, and leaderboard information for smooth 3D speedrunning gameplay
-- **🏆 Community Leaderboards**: Track your best times and compete with other players, with automatic leaderboard updates when you achieve new personal records
-- **🎵 Generative Windchime Audio**: Sophisticated Web Audio API system with procedural windchime music and contextual sound effects that enhance the speedrunning atmosphere
+- **🎵 Generative Windchime Audio**: Sophisticated Web Audio API system with procedural windchime music using extended pentatonic scales and contextual sound effects that create an immersive atmosphere
 - **📱 Reddit Native Integration**: Seamlessly integrated with Reddit's platform - no downloads required, runs directly in posts with automatic user authentication
 - **🔄 Cross-Platform Design**: Responsive design optimized for both desktop and mobile browsers with touch-friendly controls and adaptive canvas sizing
+- **🗂️ World Data Management**: Dynamic loading of world metadata, player information, and encoded voxel terrain data into the WebAssembly engine's virtual filesystem
 
-### Current Game State
-The game is a **fully functional speedrunning platform** with complete WebAssembly 3D engine infrastructure. Players can launch the voxel world, experience the 3D engine with loaded world data and player state, compete on leaderboards, and create remix versions of worlds for other players to speedrun. The WebAssembly engine (voxels.wasm + voxels.js) successfully loads and initializes with world data integration.
+### Current Platform State
+The platform is a **complete WebAssembly 3D engine infrastructure** ready for voxel world experiences. Users can launch the voxel world to experience the 3D engine with loaded world data and player state, view competitive leaderboards, and create remix versions of worlds for the community. The WebAssembly engine (voxels.wasm + voxels.js) successfully loads and initializes with comprehensive world data integration.
 
-## What Makes This Game Innovative?
+## What Makes This Platform Innovative?
 
-BhopBlox represents a breakthrough in browser-based speedrunning, combining bunny hopping movement mechanics with 3D voxel environments and social gaming features to create a unique competitive speedrunning experience that runs natively within Reddit posts.
+BhopBlox represents a breakthrough in browser-based 3D voxel platforms, combining WebAssembly engine technology with social gaming features to create a unique voxel world experience that runs natively within Reddit posts.
 
-**Key Innovation**: This is the first speedrunning platform to integrate a complete WebAssembly 3D voxel engine within Reddit posts, featuring competitive leaderboards, world remixing capabilities, and authentic Minecraft-style aesthetics, all powered by a high-performance WASM engine infrastructure with real-time leaderboard integration and community-driven content creation.
+**Key Innovation**: This is the first platform to integrate a complete WebAssembly 3D voxel engine within Reddit posts, featuring competitive leaderboards, world remixing capabilities, and authentic Minecraft-style aesthetics, all powered by a high-performance WASM engine infrastructure with real-time data integration and community-driven content creation.
 
 ### Key Innovations
 
@@ -40,17 +39,17 @@ BhopBlox represents a breakthrough in browser-based speedrunning, combining bunn
 - **Technical Foundation**: Provides complete infrastructure for 3D voxel rendering with proper memory management and cleanup
 - **First-of-its-Kind**: The first game to integrate a complete WebAssembly 3D voxel engine within Reddit's social media platform
 
-#### 🏆 **Competitive Speedrunning & Leaderboards**
-- **Real-Time Competition**: Compete against other players with live leaderboard updates showing current best times (42.5s, 50.17s, 58.2s, 61.7s)
-- **Personal Best Tracking**: Automatic tracking of your fastest completion times with leaderboard integration when you achieve new records
-- **Community Competition**: Challenge other Reddit users to beat your times and climb the community leaderboards
-- **Time-Based Scoring**: Precision timing system that rewards skillful movement and optimal route execution
+#### 🏆 **Community Leaderboards & Competition**
+- **Real-Time Leaderboards**: View community leaderboards with current best times (42.5s, 50.17s, 58.2s, 61.7s) and compete for top positions
+- **Personal Best Tracking**: Automatic tracking of completion times with leaderboard integration when new records are achieved
+- **Community Competition**: Challenge other Reddit users and climb the community leaderboards
+- **Precision Timing**: Time-based scoring system ready for future gameplay implementations
 
 #### 🎨 **World Remixing & Content Creation**
-- **Custom World Creation**: Create remix versions of existing worlds with your own titles and descriptions for the community to speedrun
-- **Community Content**: Share your remixed worlds as new speedrun challenges, expanding the available content for all players
-- **Creative Tools**: Remix dialog system allows customization of world metadata while preserving the core speedrun challenge
-- **Social Sharing**: Remixed worlds automatically create new Reddit posts for community discovery and competition
+- **Custom World Creation**: Create remix versions of existing worlds with your own titles and descriptions for the community to experience
+- **Community Content**: Share your remixed worlds as new posts, expanding the available content for all users
+- **Creative Tools**: Remix dialog system allows customization of world metadata while preserving the core voxel data
+- **Social Sharing**: Remixed worlds automatically create new Reddit posts for community discovery and engagement
 
 #### ⚡ **High-Performance WebAssembly 3D Engine**
 - **WASM 3D Engine**: Complete WebAssembly voxel engine infrastructure with dynamic loading and initialization capabilities
@@ -64,69 +63,72 @@ BhopBlox represents a breakthrough in browser-based speedrunning, combining bunn
 - **Professional Audio Architecture**: Separate gain nodes for ambient music and sound effects with master volume control
 - **Atmospheric Enhancement**: Generative music system that creates unique windchime soundscapes with natural decay and harmonic progressions
 
-#### 🤝 **Social Speedrunning Platform**
-- **Reddit Integration**: First speedrunning platform to run a complete WebAssembly 3D engine natively within Reddit posts
-- **Leaderboard Integration**: Real-time leaderboard updates with community competition and personal best tracking
-- **Community Content Creation**: Players can create and share remix worlds as new speedrunning challenges through Reddit posts
+#### 🤝 **Social Voxel Platform**
+- **Reddit Integration**: First platform to run a complete WebAssembly 3D voxel engine natively within Reddit posts
+- **Leaderboard Integration**: Real-time leaderboard updates with community competition and achievement tracking
+- **Community Content Creation**: Users can create and share remix worlds as new experiences through Reddit posts
 - **Mobile Optimization**: Responsive design optimized for both desktop and mobile devices with touch-friendly controls
 
-## How to Play the Game
+## How to Use the Platform
 
 ### Getting Started
 1. **Find BhopBlox**: Look for BhopBlox posts in your Reddit feed or visit the development subreddit
 2. **Launch the App**: Click the "Play" button on the splash screen when you see a BhopBlox post
-3. **Select a World**: Choose from available voxel worlds to speedrun through
-4. **Master the Movement**: Learn bunny hopping mechanics to achieve the fastest completion times
+3. **Experience the Engine**: Launch the WebAssembly 3D voxel engine to see the technical infrastructure in action
+4. **Explore Features**: View leaderboards, create remixes, and experience the immersive audio system
 
 ### What Makes This Unique
 
-**🚀 WebAssembly 3D Engine in Reddit**: The first game to integrate a complete WebAssembly 3D voxel engine within Reddit posts, providing the technical foundation for immersive speedrunning experiences.
+**🚀 WebAssembly 3D Engine in Reddit**: The first platform to integrate a complete WebAssembly 3D voxel engine within Reddit posts, providing the technical foundation for immersive voxel experiences.
 
-**🏆 Competitive Leaderboard System**: Real-time competition with community leaderboards showing current fastest times, encouraging players to compete for world records.
+**🏆 Community Leaderboard System**: Real-time competition with community leaderboards showing current best times, ready for future gameplay implementations.
 
-**🎨 World Remixing System**: Create custom versions of worlds with your own titles and descriptions, then share them as new speedrun challenges through Reddit posts.
+**🎨 World Remixing System**: Create custom versions of worlds with your own titles and descriptions, then share them as new experiences through Reddit posts.
 
 **⚡ High-Performance WASM Infrastructure**: Complete WebAssembly voxel engine with dynamic loading, world data integration, and proper memory management.
 
-**📱 Reddit-Native Gaming Platform**: The first speedrunning platform that runs entirely within Reddit posts, enabling instant community engagement and social features.
+**📱 Reddit-Native Voxel Platform**: The first voxel platform that runs entirely within Reddit posts, enabling instant community engagement and social features.
 
 ### Step-by-Step Instructions
 
-#### 1. View the Speedrun World
-- Launch the game from a Reddit post to see the main interface with authentic Minecraft-style design
+#### 1. View the Voxel World Information
+- Launch the platform from a Reddit post to see the main interface with authentic Minecraft-style design
 - View "Voxel World Adventure" information including description and author details
 - Check the current leaderboard with top times: lizrd_demon (42.5s), TestPlayer123 (50.17s), borg23 (58.2s), okpineapple12 (61.7s)
+- Experience the generative windchime audio system that activates on your first interaction
 
 #### 2. Launch the WebAssembly 3D Engine
 - Click "Play 'Voxel World Adventure'" to start the engine loading process
-- Watch the real-time status updates: "Loading world data..." → "Loading engine..." → "Ready"
+- Watch the real-time status updates: "Loading engine..." → "Ready"
 - The WebAssembly voxel engine (voxels.wasm + voxels.js) loads with world data integration
+- Ambient windchime music begins playing with procedural bell-like tones
 
 #### 3. Experience the 3D Voxel Engine
-- The 3D engine canvas appears with authentic Minecraft-style pixelated frame
+- The 3D engine canvas appears with authentic Minecraft-style pixelated frame (up to 1000x650px)
 - World data, player information, and leaderboard are loaded into the engine's virtual filesystem
-- Generative windchime music begins playing with bell-like tones and harmonic progressions
-- The engine provides the complete technical foundation for voxel world rendering
+- The engine provides complete technical foundation for voxel world rendering and interaction
+- Use ESC key or click "◀ EXIT" button to return to the main interface
 
-#### 4. Compete on the Leaderboard
-- The game tracks completion times and integrates with the community leaderboard system
-- Current world record is 42.5 seconds by lizrd_demon - use this as your target
-- Personal bests automatically update the community leaderboard when achieved
-- Compete with other Reddit users for the fastest completion times
+#### 4. View Community Leaderboards
+- The platform displays community leaderboards with current best times
+- Current world record is 42.5 seconds by lizrd_demon
+- Leaderboard system tracks completion times and updates when new records are achieved
+- Community competition features are built into the infrastructure
 
 #### 5. Create and Share Remix Worlds
 - Click the "🎨 Remix This World" button to create your own version
-- Customize the title and description to create a unique speedrunning challenge
+- Customize the title and description to create a unique world experience
 - Your remixed world becomes a new Reddit post for the community to discover
-- Other players can compete on your custom world and set their own records
+- Other users can experience your custom world and engage with the content
 
-### Current Gameplay Experience
-The game provides a **competitive speedrunning platform** with WebAssembly 3D engine infrastructure:
+### Current Platform Experience
+The platform provides a **complete WebAssembly 3D engine infrastructure** with voxel world capabilities:
 
 1. **🚀 Launch the Engine** - Experience the WebAssembly voxel engine with loaded world data and player state
-2. **🏆 View Leaderboards** - See current top speedrun times and compete for the fastest completion
+2. **🏆 View Leaderboards** - See current community times and competitive leaderboard system with real-time updates
 3. **🎨 Create Remixes** - Use the remix system to create custom versions with your own titles and descriptions
-4. **🎵 Immersive Audio** - Enjoy generative windchime music and interactive sound effects throughout the experience
+4. **🎵 Immersive Audio** - Enjoy generative windchime music with procedural bell-like tones and interactive sound effects
+5. **🎮 Engine Controls** - Navigate with ESC key or exit button, with automatic cleanup and memory management
 
 ### The Minecraft-Style Block Interface
 
@@ -165,23 +167,23 @@ BhopBlox presents itself as an authentic Minecraft-style interface with complete
 - **World Data Integration**: Engine successfully loads world data containing player information, leaderboard scores, and encoded voxel terrain data into the WebAssembly virtual filesystem
 - **Audio Enhancement**: Sophisticated generative windchime music begins with bell-like tones, creating an immersive speedrunning atmosphere
 
-#### Available Speedrun World
-The game features one challenging voxel world designed for competitive speedrunning:
+#### Available Voxel World
+The platform features one voxel world with complete engine infrastructure:
 
-- **"Voxel World Adventure"** - The main speedrunning challenge featuring encoded 3D voxel terrain data
-- **"Explore and master this 3D voxel world"** - Navigate through the voxel environment as quickly as possible
-- **Community Leaderboard** with current fastest times:
-  - 🥇 lizrd_demon: 42.5 seconds (world record)
+- **"Voxel World Adventure"** - The main voxel world featuring encoded 3D voxel terrain data
+- **"Explore and master this 3D voxel world"** - Experience the WebAssembly engine with loaded world data
+- **Community Leaderboard** with current times:
+  - 🥇 lizrd_demon: 42.5 seconds
   - 🥈 TestPlayer123: 50.17 seconds 
   - 🥉 borg23: 58.2 seconds
   - 4th okpineapple12: 61.7 seconds
 
-#### Speedrunning Features
-- **Precision Timing**: Completion times tracked to hundredths of a second for competitive accuracy
-- **Leaderboard Integration**: Automatic updates when you achieve new personal bests
-- **Movement Physics**: Authentic bunny hopping mechanics with momentum conservation and air acceleration
-- **3D Voxel Navigation**: Complex voxel terrain that rewards skillful movement and optimal routing
-- **Community Competition**: Challenge other Reddit users to beat your times and climb the rankings
+#### Platform Features
+- **WebAssembly Engine**: Complete WASM voxel engine with world data loading capabilities
+- **Leaderboard System**: Community leaderboard infrastructure ready for future implementations
+- **3D Voxel Infrastructure**: Complete technical foundation for voxel world rendering and interaction
+- **World Data Integration**: Dynamic loading of world metadata, player information, and voxel terrain data
+- **Community Platform**: Challenge other Reddit users and engage with the voxel world community
 
 ### Game States & Navigation
 
@@ -218,7 +220,7 @@ The WebAssembly voxel engine system provides the infrastructure for world intera
 #### Current Engine Capabilities
 - **WebAssembly Voxel Engine**: Complete pre-compiled voxel engine (voxels.wasm + voxels.js) that successfully loads and initializes with world data
 - **Canvas Display System**: Functional 3D rendering canvas with pixelated styling and authentic Minecraft-style block frame
-- **Engine Status Tracking**: Real-time status updates ("Loading world data...", "Loading engine...", "Ready") with comprehensive error handling
+- **Engine Status Tracking**: Real-time status updates ("Loading engine...", "Ready") with comprehensive error handling
 - **Memory Management**: Proper WASM memory allocation, Emscripten filesystem integration, and cleanup management for reliable operations
 - **World Data Integration**: Successfully loads dynamic world data containing player information, leaderboard, and encoded voxel terrain into the virtual filesystem
 - **3D Voxel Infrastructure**: Engine successfully initializes with working WebAssembly module, providing complete technical foundation for voxel world rendering
@@ -237,14 +239,14 @@ The WebAssembly voxel engine system provides the infrastructure for world intera
 
 ### Quick Start Summary
 
-1. **Launch the app** from a Reddit post by clicking "Play" on the splash screen
+1. **Launch the platform** from a Reddit post by clicking "Play" on the splash screen
 2. **View the world information** including leaderboard and description through the authentic Minecraft-style interface
-3. **Click "Play 'Voxel World Adventure'"** to launch the WebAssembly voxel engine
+3. **Click "Play 'Voxel World Adventure'"** to launch the WebAssembly voxel engine with real-time status updates
 4. **Experience the 3D engine** with loaded world data, player state, and generative windchime music
 5. **Use the remix feature** to create custom versions of the world with your own titles and descriptions
-6. **Press ESC or click "◀ EXIT"** to return to the main interface
+6. **Press ESC or click "◀ EXIT"** to return to the main interface with automatic cleanup
 
-**Note**: The game features a complete WebAssembly 3D engine infrastructure - the WASM voxel engine (voxels.wasm + voxels.js) loads successfully, displays a functional 3D canvas with world data and player state loaded into memory, and provides the technical foundation for voxel speedrunning with community leaderboard integration.
+**Note**: The platform features complete WebAssembly 3D engine infrastructure - the WASM voxel engine (voxels.wasm + voxels.js) loads successfully, displays a functional 3D canvas with world data and player state loaded into memory, and provides the technical foundation for voxel world experiences with community leaderboard integration.
 
 ### Audio Experience
 
@@ -267,8 +269,8 @@ The game features a sophisticated generative windchime audio system powered by W
 - **JavaScript Enabled**: Required for engine loading and Reddit integration
 - **Audio Support**: Web Audio API support for generative music system
 
-### Pro Tips for Success
-- **Study the Leaderboard**: Current world record is 42.5 seconds by lizrd_demon - use this as your target time
+### Pro Tips for Platform Use
+- **Explore the Leaderboard**: Current community record is 42.5 seconds by lizrd_demon - see the competitive infrastructure
 - **Experience the Engine**: Launch the WebAssembly 3D engine to see the voxel world data loaded into memory
 - **Create Custom Worlds**: Use the remix feature to create your own versions with custom titles and descriptions
 - **Share Your Creations**: Remixed worlds automatically create new Reddit posts for community discovery
@@ -276,8 +278,8 @@ The game features a sophisticated generative windchime audio system powered by W
 - **Use Desktop for Best Performance**: While mobile-compatible, desktop provides optimal experience for the 3D engine
 - **Quick Navigation**: Use ESC key to quickly return to the main interface from the engine view
 - **Engine Debugging**: Press 'R' key while in engine mode to force reload the WebAssembly engine if needed
-- **Community Competition**: Your completion times automatically update the community leaderboard when achieved
-- **Technical Foundation**: The game provides complete WebAssembly infrastructure ready for future speedrunning gameplay
+- **Community Engagement**: The leaderboard system is ready for future gameplay implementations
+- **Technical Foundation**: The platform provides complete WebAssembly infrastructure ready for voxel world experiences
 
 ## Technical Architecture
 
@@ -448,21 +450,21 @@ The world selection system provides a curated browsing experience within an auth
 
 ## Current Development Status
 
-**Note**: This is an active development project. The WebAssembly voxel engine infrastructure (voxels.wasm + voxels.js) is included in the project structure and loads successfully. The complete Minecraft-style block interface, world browsing system, audio system, and Reddit integration are fully functional. Users can browse and select from 6 unique voxel worlds and experience the immersive block-themed atmosphere.
+**Note**: This is an active development project. The WebAssembly voxel engine infrastructure (voxels.wasm + voxels.js) is included in the project structure and loads successfully. The complete Minecraft-style interface, world information system, audio system, and Reddit integration are fully functional.
 
 ### What's Currently Working
-- ✅ **3D Voxel Speedrunning**: Fully functional speedrunning gameplay with bunny hopping mechanics and competitive timing
+- ✅ **WebAssembly 3D Engine Infrastructure**: Complete WASM engine (voxels.wasm + voxels.js) with dynamic loading and initialization
 - ✅ **Community Leaderboards**: Real-time leaderboard system with current top times (42.5s, 50.17s, 58.2s, 61.7s) and automatic updates
-- ✅ **World Remixing System**: Create custom versions of worlds with personalized titles and descriptions for community speedrunning
-- ✅ **WebAssembly 3D Engine**: High-performance WASM engine (voxels.wasm + voxels.js) optimized for smooth speedrunning gameplay
-- ✅ **Movement Physics**: Authentic bunny hopping mechanics with momentum conservation and air acceleration
-- ✅ **Precision Timing**: Completion times tracked to hundredths of a second for competitive accuracy
+- ✅ **World Remixing System**: Create custom versions of worlds with personalized titles and descriptions for community sharing
+- ✅ **World Data Integration**: Dynamic state.json generation with player info, leaderboard data, and encoded voxel terrain
+- ✅ **Engine Memory Management**: Proper WASM memory allocation, cleanup, and resource management between sessions
+- ✅ **Canvas Display System**: 3D rendering canvas with Minecraft-style pixelated frame and responsive sizing
 - ✅ **Minecraft-Style Interface**: Complete pixelated block interface with authentic styling and responsive design
-- ✅ **Generative Audio System**: Procedural ambient music and contextual sound effects that enhance the speedrunning experience
+- ✅ **Generative Windchime Audio**: Procedural ambient music with bell-like tones and interactive sound effects
 - ✅ **Reddit Integration**: Native Reddit platform integration with automatic post creation and user authentication
-- ✅ **Cross-Platform Support**: Optimized for both desktop and mobile browsers with consistent speedrunning experience
-- ✅ **Social Features**: Share remixed worlds as new Reddit posts for community discovery and competition
-- ✅ **Real-Time Competition**: Compete against other players with live leaderboard updates and personal best tracking
+- ✅ **Cross-Platform Support**: Optimized for both desktop and mobile browsers with consistent experience
+- ✅ **Social Features**: Share remixed worlds as new Reddit posts for community discovery and engagement
+- ✅ **Engine Controls**: ESC key and exit button navigation with proper cleanup and state management
 
 ### Technical Implementation Status
 - ✅ **Frontend**: Complete TypeScript client with Minecraft-style UI, audio system, and WASM integration
@@ -472,21 +474,21 @@ The world selection system provides a curated browsing experience within an auth
 - ✅ **Audio**: Web Audio API implementation with generative ambient music and contextual sound effects
 - ✅ **WASM Integration**: WebAssembly voxel engine with JavaScript bridge and memory management
 
-The game provides a complete Minecraft-style world browsing experience with WebAssembly engine infrastructure, running natively within Reddit posts.
+The platform provides a complete WebAssembly 3D engine infrastructure with voxel world capabilities, running natively within Reddit posts.
 
-### Current Gameplay Experience
+### Current Platform Experience
 
 **What You Can Do Right Now:**
-- **Speedrun 3D Voxel Worlds**: Navigate through challenging 3D voxel environments using bunny hopping mechanics to achieve the fastest completion times
-- **Compete on Leaderboards**: Challenge current record holders including lizrd_demon (42.5s), TestPlayer123 (50.17s), borg23 (58.2s), and okpineapple12 (61.7s)
-- **Master Movement Techniques**: Learn bunny hopping, strafe jumping, and air acceleration to optimize your speedrunning performance
-- **Create Remix Worlds**: Use the remix system to create custom versions of worlds with your own titles and descriptions for community speedrunning
-- **Track Personal Bests**: Automatic timing system tracks your fastest completion times and updates leaderboards when you achieve new records
-- **Experience Authentic Interface**: Enjoy complete Minecraft-style aesthetics with pixelated rendering and authentic block textures
-- **Share Community Challenges**: Remixed worlds automatically create new Reddit posts for other players to discover and speedrun
+- **Launch the 3D Engine**: Experience the WebAssembly voxel engine with loaded world data and player state integration
+- **View Community Leaderboards**: See current record holders including lizrd_demon (42.5s), TestPlayer123 (50.17s), borg23 (58.2s), and okpineapple12 (61.7s)
+- **Experience Engine Infrastructure**: Watch the WASM engine initialize with real-time status updates and world data loading
+- **Create Remix Worlds**: Use the remix system to create custom versions of worlds with your own titles and descriptions
+- **Enjoy Immersive Audio**: Experience generative windchime music with procedural bell-like tones and interactive sound effects
+- **Navigate with Controls**: Use ESC key or exit button to seamlessly transition between interface and engine views
+- **Share Community Content**: Remixed worlds automatically create new Reddit posts for community discovery and engagement
 
 **The Experience:**
-The game delivers a complete 3D voxel speedrunning experience with competitive bunny hopping mechanics. When you launch a world, the WebAssembly 3D engine initializes with real-time status updates, loading world data and leaderboard information for immediate speedrunning gameplay. Players use advanced movement techniques including strafe jumping and air acceleration to navigate through 3D voxel environments as quickly as possible, competing for the fastest completion times on community leaderboards. The remix system allows players to create custom versions of worlds with personalized titles and descriptions, sharing them as new speedrunning challenges for the Reddit community.
+The platform delivers a complete WebAssembly 3D engine infrastructure with voxel world capabilities. When you launch a world, the WASM engine initializes with real-time status updates ("Loading engine..." → "Ready"), dynamically generating state.json with current world data, player information, and leaderboard scores, then loading everything into the engine's virtual filesystem. The 3D canvas displays with authentic Minecraft-style pixelated frame and responsive sizing, providing the technical foundation for voxel world rendering and interaction. The remix system allows users to create custom versions of worlds with personalized metadata, sharing them as new experiences for the Reddit community.
 
 ### What You Experience Right Now
 
@@ -494,53 +496,54 @@ The game delivers a complete 3D voxel speedrunning experience with competitive b
 - Complete Minecraft-style interface with authentic block textures and pixelated rendering
 - Stone-textured panels with block borders and authentic color schemes
 - Dirt/grass background patterns with block grid overlays
-- Responsive design that maintains block aesthetics across all devices
+- Responsive design that maintains block aesthetics across all devices (desktop and mobile)
 
 **🎵 Audio Experience:**
-- Generative ambient music that evolves across multiple musical scales
-- Interactive sound effects for every hover, click, and selection
-- Procedural soundscapes with harmonic layering and frequency modulation
-- Contextual audio feedback that enhances the block-world atmosphere
+- Generative windchime ambient music with procedural bell-like tones in extended pentatonic scales
+- Interactive sound effects for button hovers, clicks, world selections, and game transitions
+- Professional Web Audio API implementation with separate gain nodes for ambient and SFX
+- Contextual audio feedback that enhances the voxel world atmosphere
 
-**🌍 World Selection Experience:**
-- Browse 6 unique voxel worlds with detailed descriptions and author information
-- Interactive selection with visual feedback (bright green highlighting)
-- Dynamic button updates that reflect your current world choice
-- Validation system that prevents launching without proper selection
+**🌍 World Information Experience:**
+- View "Voxel World Adventure" with detailed description and author information
+- Interactive leaderboard display showing current top times and community competition
+- Visual highlighting for current user's scores when present
+- Clean, organized presentation of world metadata and community achievements
 
 **⚡ Engine Experience:**
-- WebAssembly voxel engine initialization with real-time status updates
-- Canvas display with Minecraft-style block frame and responsive sizing
-- Automatic world data loading into the engine's virtual filesystem
-- Foundation infrastructure ready for future voxel content and interactions
+- WebAssembly voxel engine initialization with real-time status updates ("Loading engine..." → "Ready")
+- Canvas display with Minecraft-style block frame and responsive sizing (up to 1000x650px)
+- Automatic world data loading into the engine's virtual filesystem with state.json integration
+- Complete technical foundation for voxel world rendering with proper memory management
 
-**Recent Update - Streamlined Data Loading:**
-The engine now features simplified world data loading that:
-- Directly fetches state.json from the server when needed
-- Loads world data straight into the Emscripten virtual filesystem
-- Eliminates complex persistence layers for faster, more reliable loading
-- Provides immediate access to world data after engine initialization
-- Simplifies the data flow for better performance and maintainability
+**Recent Update - Streamlined Engine Integration:**
+The platform now features optimized WebAssembly engine integration:
+- Dynamic state.json generation with current world data, player info, and leaderboard
+- Direct loading into Emscripten virtual filesystem for immediate engine access
+- Simplified cleanup and memory management with proper resource disposal
+- Streamlined audio event handling with direct function assignments
+- Enhanced error handling and graceful fallbacks for engine loading failures
 
 ### Future Development
-- 🔄 **Advanced Movement Mechanics**: Enhanced bunny hopping physics with additional speedrunning techniques like wall-riding and momentum tricks
-- 🔄 **Multiple Speedrun Worlds**: Expanded collection of unique voxel worlds each with different speedrunning challenges and optimal routes
-- 🔄 **Tournament System**: Organized speedrunning competitions with brackets, prizes, and community events
-- 🔄 **Replay System**: Record and share speedrun attempts with ghost data for comparing routes and techniques
+- 🔄 **Voxel World Content**: Implementation of interactive voxel world experiences using the established engine infrastructure
+- 🔄 **Gameplay Mechanics**: Addition of specific gameplay features leveraging the WebAssembly engine capabilities
+- 🔄 **Enhanced Interactions**: Expanded user interactions within the 3D voxel environment
+- 🔄 **Community Features**: Additional social features building on the existing remix and leaderboard systems
 
 ---
 
 ## Summary
 
-**BhopBlox** is a fully functional 3D voxel speedrunning game that runs natively within Reddit posts. The game currently provides:
+**BhopBlox** is a complete 3D voxel world platform that runs natively within Reddit posts. The platform currently provides:
 
-- ✅ **Competitive speedrunning gameplay** with bunny hopping mechanics and precision timing system
-- ✅ **Community leaderboards** with real-time competition and personal best tracking
-- ✅ **World remixing system** for creating custom speedrunning challenges with personalized titles and descriptions
-- ✅ **High-performance WebAssembly 3D engine** optimized for smooth speedrunning gameplay
-- ✅ **Advanced movement physics** including momentum conservation and air acceleration techniques
+- ✅ **WebAssembly 3D engine infrastructure** with complete WASM integration and dynamic world data loading
+- ✅ **Community leaderboards** with real-time competition tracking and automatic updates
+- ✅ **World remixing system** for creating custom versions with personalized titles and descriptions
+- ✅ **High-performance engine architecture** with proper memory management and resource cleanup
+- ✅ **Canvas display system** with 3D rendering capabilities and Minecraft-style pixelated frame
 - ✅ **Authentic Minecraft-style interface** with pixelated styling and responsive design
+- ✅ **Generative windchime audio** with procedural ambient music and interactive sound effects
 - ✅ **Social integration** with automatic Reddit post creation for remixed worlds and community sharing
-- ✅ **Cross-platform support** optimized for both desktop precision and mobile accessibility
+- ✅ **Cross-platform support** optimized for both desktop and mobile browsers
 
-The game is currently in its **competitive speedrunning phase**, providing a complete bunny hopping experience with 3D voxel navigation, leaderboard competition, and community-driven content creation through the world remixing system.
+The platform is currently in its **engine infrastructure phase**, providing a complete WebAssembly 3D foundation with voxel world capabilities, community features, and the technical groundwork for future voxel-based experiences within Reddit posts.

@@ -128,21 +128,13 @@ body::before {
   image-rendering: crisp-edges;
 }
 
-#title {
+.title {
   font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 2rem;
   letter-spacing: 0.1em;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.2rem;
   text-transform: uppercase;
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
 }
 
 .title-glow {
@@ -165,51 +157,7 @@ body::before {
     0 0 10px #55FF55;
 }
 
-#worlds {
-  margin: 2rem 0;
-}
 
-#worlds h2 {
-  font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
-  color: #FFFF55;
-  margin-bottom: 1rem;
-  font-weight: bold;
-  font-size: 1rem;
-  text-transform: uppercase;
-  position: relative;
-  text-shadow:
-    2px 2px 0 #000000,
-    -2px -2px 0 #000000,
-    2px -2px 0 #000000,
-    -2px 2px 0 #000000,
-    0 0 5px #FFFF55;
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-
-#worlds h2::before,
-#worlds h2::after {
-  content: '◆';
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #55FF55;
-  font-size: 0.8rem;
-  text-shadow:
-    1px 1px 0 #000000,
-    -1px -1px 0 #000000,
-    1px -1px 0 #000000,
-    -1px 1px 0 #000000;
-}
-
-#worlds h2::before {
-  left: -20px;
-}
-
-#worlds h2::after {
-  right: -20px;
-}
 
 #world-list {
   max-height: 400px;
@@ -556,50 +504,11 @@ body::before {
 
 #status {
   margin-top: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
   font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
-  font-size: 0.9rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-
-.status-indicator {
-  color: #55FF55;
-  font-size: 1.2rem;
-  animation: statusBlink 2s ease-in-out infinite;
-  text-shadow:
-    1px 1px 0 #000000,
-    -1px -1px 0 #000000,
-    1px -1px 0 #000000,
-    -1px 1px 0 #000000,
-    0 0 5px #55FF55;
-}
-
-.status-text {
+  font-size: 0.8rem;
   color: #FFFFFF;
-  text-shadow:
-    1px 1px 0 #000000,
-    -1px -1px 0 #000000,
-    1px -1px 0 #000000,
-    -1px 1px 0 #000000;
-}
-
-@keyframes statusBlink {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.4;
-  }
+  text-align: center;
+  text-shadow: 1px 1px 0 #000000;
 }
 
 
