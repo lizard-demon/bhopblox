@@ -8,7 +8,7 @@ export const createPost = async () => {
 
   return await reddit.submitCustomPost({
     splash: {
-      appDisplayName: 'Voxel World', 
+      appDisplayName: 'bhopblox', 
       backgroundUri: 'default-splash.png',
       buttonLabel: 'Play',
       description: 'Explore 3D voxel worlds',

@@ -11,15 +11,15 @@ export class AudioSystem {
     private isInitialized = false;
     private isPlaying = false;
 
-    // Ambient music state
-    private ambientOscillators: OscillatorNode[] = [];
-    private ambientInterval: number | null = null;
-    private currentScale = [0, 2, 4, 7, 9]; // Pentatonic scale (C major)
-    private baseFreq = 220; // A3
+    // Windchime state
+    private windchimeOscillators: OscillatorNode[] = [];
+    private windchimeInterval: number | null = null;
+    private windchimeScale = [0, 2, 4, 7, 9, 12, 14, 16]; // Extended pentatonic with octaves
+    private baseFreq = 523.25; // C5 - higher register for bell-like quality
 
     // Volume settings
     private masterVolume = 0.3;
-    private ambientVolume = 0.15;
+    private ambientVolume = 0.25; // Slightly higher for windchimes to be audible
     private sfxVolume = 0.4;
 
     constructor() {
@@ -67,206 +67,163 @@ export class AudioSystem {
         }
     }
 
-    // Start ambient background music
+    // Start windchime ambient music
     startAmbient() {
         if (!this.isInitialized || this.isPlaying) return;
 
         this.isPlaying = true;
-        this.generateAmbientLayer();
-
-        // Create evolving ambient soundscape
-        this.ambientInterval = window.setInterval(() => {
-            this.evolveAmbient();
-        }, 8000 + Math.random() * 4000); // 8-12 seconds between changes
+        this.startWindchimes();
     }
 
-    // Stop ambient music
+    // Stop windchime music
     stopAmbient() {
         if (!this.isPlaying) return;
 
         this.isPlaying = false;
 
-        if (this.ambientInterval) {
-            clearInterval(this.ambientInterval);
-            this.ambientInterval = null;
+        if (this.windchimeInterval) {
+            clearInterval(this.windchimeInterval);
+            this.windchimeInterval = null;
         }
 
-        // Fade out existing oscillators
-        this.ambientOscillators.forEach(osc => {
-            const gain = osc.context.createGain();
-            gain.gain.setValueAtTime(0.1, osc.context.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.001, osc.context.currentTime + 2);
-
-            osc.disconnect();
-            osc.connect(gain);
-            gain.connect(this.ambientGain!);
-
-            setTimeout(() => {
-                try {
-                    osc.stop();
-                } catch (e) {
-                    // Oscillator might already be stopped
-                }
-            }, 2000);
-        });
-
-        this.ambientOscillators = [];
+        // Let existing chimes naturally decay
+        this.windchimeOscillators = [];
     }
 
-    private generateAmbientLayer() {
+    private startWindchimes() {
         if (!this.audioContext || !this.ambientGain) return;
 
-        // Create 2-4 oscillators for harmonic layers
-        const numOscillators = 2 + Math.floor(Math.random() * 3);
+        // Schedule random windchime strikes
+        const scheduleNextChime = () => {
+            if (!this.isPlaying) return;
 
-        for (let i = 0; i < numOscillators; i++) {
-            const osc = this.audioContext.createOscillator();
-            const gain = this.audioContext.createGain();
-            const filter = this.audioContext.createBiquadFilter();
+            // Random delay between chimes (2-8 seconds)
+            const delay = 2000 + Math.random() * 6000;
 
-            // Choose frequency from pentatonic scale
-            const scaleIndex = Math.floor(Math.random() * this.currentScale.length);
-            const octave = 3 + Math.floor(Math.random() * 3); // Octaves 3-5
-            const scaleNote = this.currentScale[scaleIndex];
-            if (scaleNote === undefined) return; // Safety check
-            const frequency = this.baseFreq * Math.pow(2, (scaleNote + (octave - 3) * 12) / 12);
+            this.windchimeInterval = window.setTimeout(() => {
+                this.playWindchime();
+                scheduleNextChime();
+            }, delay);
+        };
 
-            // Oscillator settings
-            const waveTypes: OscillatorType[] = ['sine', 'triangle', 'sawtooth'];
-            const selectedType = waveTypes[Math.floor(Math.random() * 3)];
-            osc.type = selectedType || 'sine';
-            osc.frequency.setValueAtTime(frequency, this.audioContext.currentTime);
+        scheduleNextChime();
+    }
 
-            // Add subtle frequency modulation
-            const lfo = this.audioContext.createOscillator();
-            const lfoGain = this.audioContext.createGain();
-            lfo.frequency.value = 0.1 + Math.random() * 0.3; // Very slow LFO
-            lfoGain.gain.value = frequency * 0.002; // Subtle modulation
-            lfo.connect(lfoGain);
-            lfoGain.connect(osc.frequency);
-            lfo.start();
+    private playWindchime() {
+        if (!this.audioContext || !this.ambientGain) return;
 
-            // Filter for warmth
-            filter.type = 'lowpass';
-            filter.frequency.value = 800 + Math.random() * 1200;
-            filter.Q.value = 0.5 + Math.random() * 1;
+        // Choose a random note from the windchime scale
+        const scaleIndex = Math.floor(Math.random() * this.windchimeScale.length);
+        const scaleNote = this.windchimeScale[scaleIndex];
+        if (scaleNote === undefined) return;
 
-            // Gain envelope
-            gain.gain.setValueAtTime(0, this.audioContext.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.02 + Math.random() * 0.03, this.audioContext.currentTime + 2 + Math.random() * 3);
+        // Calculate frequency (C5 base with scale notes)
+        const frequency = this.baseFreq * Math.pow(2, scaleNote / 12);
 
-            // Connect the chain
-            osc.connect(filter);
-            filter.connect(gain);
-            gain.connect(this.ambientGain);
+        // Create bell-like sound with multiple harmonics
+        this.createBellTone(frequency);
 
-            osc.start();
-            this.ambientOscillators.push(osc);
-
-            // Schedule stop for this layer
-            const duration = 15000 + Math.random() * 20000; // 15-35 seconds
+        // Sometimes play a gentle chord (20% chance)
+        if (Math.random() < 0.2) {
             setTimeout(() => {
-                if (this.ambientOscillators.includes(osc) && this.audioContext) {
-                    gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 3);
-                    setTimeout(() => {
-                        try {
-                            osc.stop();
-                            lfo.stop();
-                        } catch (e) {
-                            // Already stopped
-                        }
-                        const index = this.ambientOscillators.indexOf(osc);
-                        if (index > -1) {
-                            this.ambientOscillators.splice(index, 1);
-                        }
-                    }, 3000);
+                const harmonicNote = this.windchimeScale[Math.floor(Math.random() * this.windchimeScale.length)];
+                if (harmonicNote !== undefined) {
+                    const harmonicFreq = this.baseFreq * Math.pow(2, harmonicNote / 12);
+                    this.createBellTone(harmonicFreq, 0.6); // Softer volume for harmony
                 }
-            }, duration);
+            }, 100 + Math.random() * 300);
         }
     }
 
-    private evolveAmbient() {
-        if (!this.isPlaying) return;
+    private createBellTone(frequency: number, volumeMultiplier: number = 1) {
+        if (!this.audioContext || !this.ambientGain) return;
 
-        // Occasionally change the scale for variety
-        if (Math.random() < 0.3) {
-            const scales: number[][] = [
-                [0, 2, 4, 7, 9],     // Major pentatonic
-                [0, 3, 5, 7, 10],    // Minor pentatonic
-                [0, 2, 3, 7, 8],     // Japanese scale
-                [0, 1, 5, 7, 8]      // Hirajoshi scale
-            ];
-            const selectedScale = scales[Math.floor(Math.random() * scales.length)];
-            if (selectedScale) {
-                this.currentScale = selectedScale;
-            }
-        }
+        // Create multiple oscillators for bell-like harmonics
+        const harmonics = [1, 2.76, 5.4, 8.93]; // Bell-like harmonic ratios
+        const volumes = [0.8, 0.3, 0.15, 0.08]; // Decreasing volumes for harmonics
 
-        // Add new ambient layer
-        this.generateAmbientLayer();
+        harmonics.forEach((harmonic, index) => {
+            const osc = this.audioContext!.createOscillator();
+            const gain = this.audioContext!.createGain();
+            const filter = this.audioContext!.createBiquadFilter();
+
+            // Set frequency with harmonic
+            osc.frequency.value = frequency * harmonic;
+            osc.type = 'sine'; // Pure sine waves for clean bell tones
+
+            // High-pass filter to add brightness
+            filter.type = 'highpass';
+            filter.frequency.value = 200;
+            filter.Q.value = 0.5;
+
+            // Bell-like envelope: quick attack, long decay
+            const volume = (volumes[index] || 0.05) * 0.04 * volumeMultiplier;
+            gain.gain.setValueAtTime(0, this.audioContext!.currentTime);
+            gain.gain.linearRampToValueAtTime(volume, this.audioContext!.currentTime + 0.01); // Very quick attack
+            gain.gain.exponentialRampToValueAtTime(volume * 0.3, this.audioContext!.currentTime + 0.5); // Initial decay
+            gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext!.currentTime + 4 + Math.random() * 3); // Long natural decay
+
+            // Connect the audio chain
+            osc.connect(filter);
+            filter.connect(gain);
+            gain.connect(this.ambientGain!);
+
+            // Start and schedule stop
+            osc.start();
+            const stopTime = this.audioContext!.currentTime + 7;
+            osc.stop(stopTime);
+
+            this.windchimeOscillators.push(osc);
+
+            // Clean up reference after it stops
+            setTimeout(() => {
+                const index = this.windchimeOscillators.indexOf(osc);
+                if (index > -1) {
+                    this.windchimeOscillators.splice(index, 1);
+                }
+            }, 7000);
+        });
     }
 
     // Sound effects
     playButtonHover() {
-        this.playTone(440, 0.1, 0.05, 'sine');
+        // Soft windchime-like tone
+        this.playBellTone(523.25, 0.8, 0.03); // C5
     }
 
     playButtonClick() {
-        this.playTone(660, 0.15, 0.1, 'triangle');
+        // Gentle chime
+        this.playBellTone(659.25, 1.2, 0.05); // E5
     }
 
     playWorldSelect() {
-        // Ascending chord
-        const frequencies = [330, 415, 523]; // E4, G#4, C5
+        // Gentle ascending windchime sequence
+        const frequencies = [523.25, 659.25, 783.99]; // C5, E5, G5 - major triad
         frequencies.forEach((freq, i) => {
             setTimeout(() => {
-                this.playTone(freq, 0.2, 0.08, 'sine');
-            }, i * 50);
+                this.playBellTone(freq, 1.5, 0.06);
+            }, i * 150);
         });
     }
 
     playGameStart() {
-        // Rising sweep
-        if (!this.audioContext || !this.sfxGain) return;
-
-        const osc = this.audioContext.createOscillator();
-        const gain = this.audioContext.createGain();
-
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(220, this.audioContext.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(880, this.audioContext.currentTime + 0.8);
-
-        gain.gain.setValueAtTime(0, this.audioContext.currentTime);
-        gain.gain.linearRampToValueAtTime(0.1, this.audioContext.currentTime + 0.1);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.8);
-
-        osc.connect(gain);
-        gain.connect(this.sfxGain);
-
-        osc.start();
-        osc.stop(this.audioContext.currentTime + 0.8);
+        // Gentle ascending windchime cascade
+        const frequencies = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+        frequencies.forEach((freq, i) => {
+            setTimeout(() => {
+                this.playBellTone(freq, 2.0, 0.08);
+            }, i * 200);
+        });
     }
 
     playGameExit() {
-        // Descending sweep
-        if (!this.audioContext || !this.sfxGain) return;
-
-        const osc = this.audioContext.createOscillator();
-        const gain = this.audioContext.createGain();
-
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(660, this.audioContext.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(220, this.audioContext.currentTime + 0.6);
-
-        gain.gain.setValueAtTime(0, this.audioContext.currentTime);
-        gain.gain.linearRampToValueAtTime(0.08, this.audioContext.currentTime + 0.05);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.6);
-
-        osc.connect(gain);
-        gain.connect(this.sfxGain);
-
-        osc.start();
-        osc.stop(this.audioContext.currentTime + 0.6);
+        // Gentle descending windchime cascade
+        const frequencies = [1046.5, 783.99, 659.25, 523.25]; // C6, G5, E5, C5
+        frequencies.forEach((freq, i) => {
+            setTimeout(() => {
+                this.playBellTone(freq, 1.8, 0.06);
+            }, i * 150);
+        });
     }
 
     playError() {
@@ -293,6 +250,36 @@ export class AudioSystem {
         gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + duration);
 
         osc.connect(gain);
+        gain.connect(this.sfxGain);
+
+        osc.start();
+        osc.stop(this.audioContext.currentTime + duration);
+    }
+
+    private playBellTone(frequency: number, duration: number, volume: number) {
+        if (!this.audioContext || !this.sfxGain) return;
+
+        // Create a simple bell-like tone for UI sounds
+        const osc = this.audioContext.createOscillator();
+        const gain = this.audioContext.createGain();
+        const filter = this.audioContext.createBiquadFilter();
+
+        osc.type = 'sine';
+        osc.frequency.value = frequency;
+
+        // Light high-pass filtering for brightness
+        filter.type = 'highpass';
+        filter.frequency.value = 300;
+        filter.Q.value = 0.3;
+
+        // Bell-like envelope: quick attack, natural decay
+        gain.gain.setValueAtTime(0, this.audioContext.currentTime);
+        gain.gain.linearRampToValueAtTime(volume, this.audioContext.currentTime + 0.005);
+        gain.gain.exponentialRampToValueAtTime(volume * 0.3, this.audioContext.currentTime + 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + duration);
+
+        osc.connect(filter);
+        filter.connect(gain);
         gain.connect(this.sfxGain);
 
         osc.start();

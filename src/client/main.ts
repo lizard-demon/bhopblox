@@ -82,7 +82,7 @@ function setupAudioEvents() {
 
 // Initialize app
 async function init() {
-  title.textContent = "bhopblox";
+  title.textContent = "VOXEL WORLD";
   await loadWorlds();
   setupAudioEvents();
 }
