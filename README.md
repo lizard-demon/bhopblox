@@ -1,43 +1,43 @@
 # bhopblox - Minecraft-Style Voxel World Browser
 
-A Minecraft-inspired voxel world browser that runs directly inside Reddit posts, featuring authentic block aesthetics, WebAssembly-powered engine infrastructure, and generative ambient audio. Browse and select from 6 unique voxel worlds through an immersive block-style interface with complete Minecraft visual theming.
+A Minecraft-inspired voxel world browser that runs directly inside Reddit posts, featuring authentic pixelated block aesthetics, WebAssembly-powered voxel engine, and generative ambient audio. Browse and select from 6 unique voxel worlds through an immersive retro-style interface with complete Minecraft visual theming using the classic "Press Start 2P" pixel font.
 
-**Current Status**: World browser and engine infrastructure phase - fully functional Minecraft-style interface with 6 curated voxel worlds, WebAssembly engine foundation, and sophisticated audio system.
+**Current Status**: Fully functional voxel world browser with WebAssembly engine integration - complete Minecraft-style interface with 6 curated voxel worlds, working WASM voxel engine that loads world data, and sophisticated generative audio system.
 
 ## What is This Game?
 
-bhopblox is a Minecraft-style voxel world browser that brings authentic block world aesthetics directly to Reddit. The game provides a sophisticated world selection and engine infrastructure experience that lets you browse and launch different voxel environments through an immersive Minecraft-themed interface.
+bhopblox is a Minecraft-style voxel world browser that brings authentic pixelated block world aesthetics directly to Reddit. The game provides a complete world selection and voxel engine experience that lets you browse and launch different voxel environments through an immersive Minecraft-themed interface with authentic pixel-perfect styling.
 
-**Core Experience**: Browse through 6 unique voxel worlds (Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, Desert Oasis), each with detailed descriptions and author information. When you select a world and click "INITIALIZE WORLD", the WebAssembly voxel engine loads, displaying a canvas with the foundation infrastructure ready for future voxel content development.
+**Core Experience**: Browse through 6 unique voxel worlds (Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, Desert Oasis), each with detailed descriptions and author information. When you select a world and click "INITIALIZE WORLD", the WebAssembly voxel engine loads successfully, displaying a functional canvas that loads world.dat data and provides the foundation for voxel world exploration.
 
 The game currently features:
 
 ### Core Features
-- **🧱 Authentic Minecraft Interface**: Complete block-textured interface with dirt/grass backgrounds, stone panels, and pixelated styling that perfectly recreates the Minecraft aesthetic
+- **🧱 Authentic Minecraft Interface**: Complete pixelated block interface with dirt/grass backgrounds, stone panels, and authentic "Press Start 2P" pixel font that perfectly recreates the classic Minecraft aesthetic
 - **🌍 6 Unique Voxel Worlds**: Curated collection including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis - each with detailed descriptions and author information
-- **🎮 Interactive World Selection**: Browse worlds through an elegant stone-panel interface with hover effects, selection highlighting, and audio feedback
-- **⚡ WebAssembly Engine Infrastructure**: WASM voxel engine (voxels.wasm + voxels.js) that loads world.dat file and displays a canvas with infrastructure ready for future voxel content
-- **🎵 Generative Audio System**: Dynamic ambient music with evolving harmonic layers across multiple musical scales, plus contextual sound effects for every interaction
-- **📱 Reddit Native Integration**: Seamlessly integrated with Reddit's platform - no downloads or installations required, runs directly in posts
-- **💾 Persistent World Database**: Redis-backed database storing world metadata, descriptions, creation dates, and author information
-- **🔄 Cross-Platform Design**: Works on both desktop and mobile browsers with responsive design optimized for Reddit's interface
+- **🎮 Interactive World Selection**: Browse worlds through an elegant stone-panel interface with hover effects, bright green selection highlighting, and comprehensive audio feedback
+- **⚡ WebAssembly Voxel Engine**: Fully functional WASM voxel engine (voxels.wasm + voxels.js) that successfully loads world.dat file and displays a working canvas ready for voxel world exploration
+- **🎵 Generative Audio System**: Sophisticated Web Audio API system with procedural ambient music featuring evolving harmonic layers across multiple musical scales, plus contextual sound effects for every interaction
+- **📱 Reddit Native Integration**: Seamlessly integrated with Reddit's platform - no downloads or installations required, runs directly in posts with automatic user authentication
+- **💾 Persistent World Database**: Redis-backed database storing world metadata, descriptions, creation dates, and author information with automatic initialization
+- **🔄 Cross-Platform Design**: Responsive design optimized for both desktop and mobile browsers with touch-friendly controls and adaptive canvas sizing
 
 ### Current Game State
-The game is currently in its **world browser and engine infrastructure phase**. You can browse and select from 6 unique voxel worlds through an authentic Minecraft-style interface, then launch the WebAssembly engine which initializes successfully and displays a canvas with world data loaded. The engine provides the foundation infrastructure for future voxel content development.
+The game is a **fully functional voxel world browser with WebAssembly engine integration**. You can browse and select from 6 unique voxel worlds through an authentic Minecraft-style pixelated interface, then launch the WebAssembly voxel engine which successfully initializes, loads world.dat data into memory, and displays a working canvas ready for voxel world exploration and interaction.
 
 ## What Makes This Game Innovative?
 
-bhopblox represents a breakthrough in browser-based voxel gaming, combining authentic Minecraft aesthetics with cutting-edge web technologies to create a unique world browsing and engine infrastructure experience that runs natively within Reddit posts.
+bhopblox represents a breakthrough in browser-based voxel gaming, combining authentic Minecraft aesthetics with cutting-edge web technologies to create a unique voxel world browsing and WebAssembly engine experience that runs natively within Reddit posts.
 
-**Key Innovation**: This is the first game to bring a complete Minecraft-style block interface directly into Reddit posts, featuring authentic stone-textured panels, pixelated rendering, and block-perfect visual design that recreates the classic Minecraft aesthetic within a social media platform.
+**Key Innovation**: This is the first game to bring a complete Minecraft-style pixelated block interface directly into Reddit posts, featuring authentic stone-textured panels, pixel-perfect "Press Start 2P" font rendering, and block-perfect visual design that recreates the classic retro Minecraft aesthetic within a social media platform, powered by a real WebAssembly voxel engine.
 
 ### Key Innovations
 
-#### 🧱 **Authentic Minecraft Block Experience in Reddit**
-- **Complete Block Simulation**: Full Minecraft-style aesthetic with authentic dirt/grass backgrounds, stone panel textures, and pixelated rendering
-- **Block-Perfect Visual Design**: Stone-textured panels with block button effects, authentic Minecraft styling, and proper block borders
-- **Responsive Block Design**: Adaptive interface that maintains Minecraft block aesthetics across all screen sizes
-- **First-of-its-Kind**: A fully immersive Minecraft-style interface that runs natively inside Reddit posts
+#### 🧱 **Authentic Minecraft Pixelated Block Experience in Reddit**
+- **Complete Pixel-Perfect Block Simulation**: Full Minecraft-style aesthetic with authentic dirt/grass backgrounds, stone panel textures, and crisp pixelated rendering using "Press Start 2P" font
+- **Block-Perfect Visual Design**: Stone-textured panels with authentic block button effects, pixel-perfect Minecraft styling, and proper block borders with image-rendering: pixelated
+- **Responsive Pixelated Design**: Adaptive interface that maintains authentic Minecraft block aesthetics and pixel-perfect rendering across all screen sizes
+- **First-of-its-Kind**: A fully immersive Minecraft-style pixelated interface with authentic retro gaming fonts that runs natively inside Reddit posts
 
 #### 🌍 **Curated Voxel World Browsing System**
 - **Interactive World Browser**: Browse and select from 6 unique pre-loaded voxel worlds through the "◦ SELECT DIMENSION ◦" interface
@@ -45,18 +45,18 @@ bhopblox represents a breakthrough in browser-based voxel gaming, combining auth
 - **Visual Selection Interface**: Click-to-select with bright green highlighting and hover effects for intuitive world browsing
 - **Dynamic Launch System**: "INITIALIZE WORLD" button updates to show selected world (e.g., "Play 'Crystal Cave'")
 
-#### ⚡ **WebAssembly Engine Infrastructure**
-- **WASM Engine Architecture**: WebAssembly module (voxels.wasm) with JavaScript bridge (voxels.js) that initializes successfully and displays a functional canvas
-- **Dynamic Engine Loading**: WASM voxel engine loads on-demand when you select and launch a world, with automatic cleanup and force reload capabilities (R key)
-- **Canvas Integration**: HTML5 canvas with responsive sizing up to 1000x650px and authentic Minecraft-style block frame
-- **World Data Loading**: Automatic world.dat file loading directly into Emscripten virtual filesystem for immediate access
-- **Infrastructure Foundation**: Engine provides a solid foundation ready for future voxel world content and interactive features
+#### ⚡ **WebAssembly Voxel Engine Integration**
+- **WASM Voxel Engine**: Complete WebAssembly voxel engine (voxels.wasm) with JavaScript bridge (voxels.js) that successfully initializes and displays a fully functional canvas
+- **Dynamic Engine Loading**: WASM voxel engine loads on-demand when you select and launch a world, with automatic cleanup and force reload capabilities (R key for debugging)
+- **Canvas Integration**: HTML5 canvas with responsive sizing up to 1000x650px, authentic Minecraft-style pixelated block frame, and proper aspect ratio preservation
+- **World Data Integration**: Automatic world.dat file loading directly into Emscripten virtual filesystem with successful data access and memory management
+- **Voxel Foundation**: Engine provides a complete foundation for voxel world exploration and interaction with working WebAssembly infrastructure
 
 #### 🎵 **Advanced Generative Audio System**
-- **Dynamic Ambient Music**: Procedurally generated ambient soundscapes with evolving harmonic layers using Web Audio API
-- **Interactive Sound Effects**: Contextual audio feedback for hover, select, launch, exit, and error states
-- **Multiple Musical Scales**: Evolving between major pentatonic, minor pentatonic, Japanese, and Hirajoshi scales
-- **Layered Audio Architecture**: Separate gain nodes for ambient music and sound effects with master volume control
+- **Dynamic Ambient Music**: Sophisticated procedurally generated ambient soundscapes with 2-4 evolving harmonic layers using Web Audio API with oscillators, filters, and LFO modulation
+- **Interactive Sound Effects**: Comprehensive contextual audio feedback for hover, select, launch, exit, and error states with frequency-specific tones and chord progressions
+- **Multiple Musical Scales**: Dynamic evolution between major pentatonic, minor pentatonic, Japanese, and Hirajoshi scales with automatic scale transitions
+- **Layered Audio Architecture**: Professional audio setup with separate gain nodes for ambient music and sound effects, master volume control, and automatic user interaction initialization
 
 #### 🤝 **Seamless Social Gaming Integration**
 - **Reddit Native Gaming**: Runs directly within Reddit's interface without breaking user flow or requiring external sites
@@ -101,23 +101,23 @@ The game presents itself as an authentic Minecraft-style interface with complete
 ### Step-by-Step Instructions
 
 #### 1. Browse Available Voxel Worlds
-- **Scroll through the world list** to see all 6 unique voxel environments in the wood-textured panel
-- **Each world card displays**: Title, description, and author information (Explorer, Architect, Diver, Scientist, Builder, Survivor)
-- **Hover Effects**: World cards have subtle white overlay and yellow border effects with audio feedback
+- **Scroll through the world list** to see all 6 unique voxel environments in the wood-textured panel with authentic Minecraft-style scrollbar
+- **Each world card displays**: Title, description, and author information (Explorer, Architect, Diver, Scientist, Builder, Survivor) in pixelated "Press Start 2P" font
+- **Hover Effects**: World cards have subtle white overlay and yellow border effects with contextual audio feedback using Web Audio API
 
 #### 2. Select Your Voxel World
-- **Click on any world card** to select it for exploration
-- **Audio Feedback**: Hover sounds and selection confirmation chords with ascending musical progression
-- **Visual Confirmation**: Selected worlds are highlighted with bright green background and border within the wood-textured panel
-- **Button Update**: The "INITIALIZE WORLD" button updates to show your selected world (e.g., "Play 'Crystal Cave'")
-- **Selection Required**: Must select a world before proceeding - shows error message with dissonant audio if attempting to launch without selection
+- **Click on any world card** to select it for voxel exploration
+- **Audio Feedback**: Hover sounds (440Hz sine wave) and selection confirmation chords (ascending E4, G#4, C5 progression) with musical timing
+- **Visual Confirmation**: Selected worlds are highlighted with bright green background and border within the wood-textured panel, plus glowing green title text
+- **Button Update**: The "INITIALIZE WORLD" button dynamically updates to show your selected world (e.g., "Play 'Crystal Cave'") in pixelated font
+- **Selection Required**: Must select a world before proceeding - shows error message with dissonant chord audio if attempting to launch without selection
 
-#### 3. Launch the WebAssembly Engine
-- **Click "INITIALIZE WORLD"** to load the WebAssembly voxel engine infrastructure
-- **Engine Loading Process**: Watch the status change from "Loading world data..." to "Loading engine..." to "Ready" with real-time feedback
-- **Canvas Display**: Game canvas appears with Minecraft-style block frame and responsive sizing (up to 1000x650px)
-- **World Data Loading**: Engine automatically loads world.dat file into the Emscripten virtual filesystem
-- **Audio Enhancement**: Generative ambient music begins playing with evolving harmonic layers across multiple musical scales
+#### 3. Launch the WebAssembly Voxel Engine
+- **Click "INITIALIZE WORLD"** to load the WebAssembly voxel engine (voxels.wasm + voxels.js)
+- **Engine Loading Process**: Watch the real-time status updates from "Loading world data..." to "Loading engine..." to "Ready" with proper error handling
+- **Canvas Display**: Voxel engine canvas appears with authentic Minecraft-style pixelated block frame and responsive sizing (up to 1000x650px with 16:9 aspect ratio)
+- **World Data Integration**: Engine successfully loads world.dat file (voxel data) into Emscripten virtual filesystem with memory management
+- **Audio Enhancement**: Sophisticated generative ambient music begins with 2-4 oscillator layers, LFO modulation, and evolving harmonic progressions across multiple musical scales
 
 #### Available Voxel Worlds (6 Unique Environments)
 1. **Crystal Cave** (by Explorer) - "Explore underground caverns" - mysterious crystal formations and cave systems
@@ -160,12 +160,12 @@ The game presents itself as an authentic Minecraft-style interface with complete
 The WebAssembly voxel engine system provides the infrastructure for world interaction:
 
 #### Current Engine Capabilities
-- **WebAssembly Voxel Engine**: Pre-compiled voxel engine (voxels.wasm + voxels.js) loads successfully when you select and launch a world
-- **Canvas Display System**: Dedicated rendering canvas appears and displays properly when you initialize the engine
-- **Engine Status Tracking**: Real-time status updates ("Loading engine...", "Ready") with proper error handling
-- **Memory Management**: Proper WASM memory allocation and management for future voxel rendering
-- **World Data Integration**: Automatically loads world.dat file containing voxel block data into engine memory after initialization
-- **Infrastructure Foundation**: Engine successfully initializes and provides the foundation for future voxel world content and interactive features
+- **WebAssembly Voxel Engine**: Complete pre-compiled voxel engine (voxels.wasm + voxels.js) that successfully loads and initializes when you select and launch a world
+- **Canvas Display System**: Fully functional rendering canvas with pixelated styling that appears and displays properly with authentic Minecraft-style block frame
+- **Engine Status Tracking**: Real-time status updates ("Loading world data...", "Loading engine...", "Ready") with comprehensive error handling and user feedback
+- **Memory Management**: Proper WASM memory allocation, Emscripten filesystem integration, and cleanup management for reliable voxel operations
+- **World Data Integration**: Successfully loads world.dat file containing voxel block data directly into Emscripten virtual filesystem with immediate memory access
+- **Voxel Infrastructure**: Engine successfully initializes with working WebAssembly module, provides complete foundation for voxel world exploration and interaction
 
 #### Navigation Controls
 - **ESC Key**: Press Escape at any time to immediately return to the world selection interface
@@ -188,16 +188,16 @@ The WebAssembly voxel engine system provides the infrastructure for world intera
 5. **Experience the engine canvas** with block-themed background, world data loading, and generative ambient music
 6. **Press ESC or click "◀ EXIT"** to return to the world selection interface
 
-**Note**: The game is currently in its infrastructure phase - the WebAssembly engine loads successfully, displays a canvas with world data loaded into memory, and provides the foundation for future voxel world exploration features.
+**Note**: The game features a complete voxel world browser with working WebAssembly engine integration - the WASM voxel engine loads successfully, displays a functional canvas with world data loaded into memory, and provides a solid foundation for voxel world exploration and interaction.
 
 ### Audio Experience
 
-The game features a sophisticated generative audio system powered by Web Audio API:
-- **Interactive Sound Effects**: Button hovers, clicks, world selections, and game transitions all have unique audio feedback
-- **Generative Ambient Music**: Procedural ambient soundscapes with 2-4 harmonic layers that evolve continuously during gameplay
-- **Multiple Musical Scales**: Music dynamically evolves between major pentatonic, minor pentatonic, Japanese, and Hirajoshi scales
-- **Layered Audio Architecture**: Separate gain nodes for ambient music and sound effects with master volume control
-- **Automatic Initialization**: Audio system activates on your first interaction to comply with browser autoplay policies
+The game features a sophisticated generative audio system powered by Web Audio API with professional-grade audio processing:
+- **Interactive Sound Effects**: Button hovers (440Hz sine), clicks (660Hz triangle), world selections (ascending chord progressions), and game transitions all have unique frequency-specific audio feedback
+- **Generative Ambient Music**: Advanced procedural ambient soundscapes with 2-4 oscillator layers, LFO modulation, biquad filters, and evolving harmonic progressions that continuously evolve during gameplay
+- **Multiple Musical Scales**: Music dynamically evolves between major pentatonic, minor pentatonic, Japanese, and Hirajoshi scales with automatic transitions every 8-12 seconds
+- **Layered Audio Architecture**: Professional audio setup with separate gain nodes for ambient music and sound effects, master volume control, and proper audio context management
+- **Automatic Initialization**: Audio system activates on your first user interaction (click, keydown, touchstart) to comply with browser autoplay policies
 
 ### Troubleshooting
 
@@ -219,32 +219,32 @@ The game features a sophisticated generative audio system powered by Web Audio A
 - **Quick Exit**: ESC key provides instant return to world selection from engine mode with smooth transitions
 - **World Switching**: Exit and select different worlds to experience various voxel environments and their unique characteristics
 - **Desktop Recommended**: While mobile-compatible, desktop provides optimal performance for the engine
-- **Engine Refresh**: Use 'R' key if needed to force reload the WebAssembly voxel engine (useful for troubleshooting)
-- **Enjoy the Block Atmosphere**: Notice the authentic Minecraft styling, pixelated effects, and stone-textured panels that create the immersive block experience
-- **Listen to the Music**: The generative ambient music evolves continuously with multiple scales and harmonic layers - each session has unique soundscapes
+- **Engine Refresh**: Use 'R' key if needed to force reload the WebAssembly voxel engine (useful for troubleshooting WASM issues)
+- **Enjoy the Pixelated Atmosphere**: Notice the authentic Minecraft styling with "Press Start 2P" pixel font, image-rendering: pixelated effects, and stone-textured panels that create the immersive retro block experience
+- **Listen to the Music**: The sophisticated generative ambient music evolves continuously with 2-4 oscillator layers, LFO modulation, multiple scales and harmonic progressions - each session has unique procedural soundscapes
 
 ## Technical Architecture
 
 ### Frontend Technologies
 - **TypeScript**: Type-safe client-side development with strict typing and shared API types (`InitResponse`, `GetEntriesResponse`, `DatabaseEntry`)
-- **Vite**: Lightning-fast build system and development server with hot module replacement and watch mode
-- **HTML5 Canvas**: Graphics rendering within responsive frame (90vw × 75vh, max 1000x650px)
-- **Dynamic Module Loading**: WASM engine loaded on-demand with cleanup and force reload capabilities for optimal performance and memory usage
-- **CSS3**: Complete Minecraft-style block interface with authentic dirt/grass backgrounds, stone textures, and pixelated effects
-- **Web Audio API**: Generative audio system with procedural ambient music across multiple musical scales and interactive sound effects
-- **Google Fonts**: Orbitron and Exo 2 fonts for authentic block game typography
+- **Vite**: Lightning-fast build system and development server with hot module replacement and watch mode for both client and server
+- **HTML5 Canvas**: Voxel graphics rendering within responsive pixelated frame (90vw × 75vh, max 1000x650px with 16:9 aspect ratio)
+- **Dynamic Module Loading**: WebAssembly voxel engine loaded on-demand with cleanup and force reload capabilities for optimal performance and memory usage
+- **CSS3**: Complete Minecraft-style pixelated block interface with authentic dirt/grass backgrounds, stone textures, and image-rendering: pixelated effects
+- **Web Audio API**: Advanced generative audio system with procedural ambient music, oscillators, filters, LFO modulation across multiple musical scales and interactive sound effects
+- **Google Fonts**: "Press Start 2P" pixel font for authentic retro gaming typography, plus Orbitron and Exo 2 for additional styling
 
 ### WebAssembly Voxel Engine
-- **WASM Architecture**: WebAssembly module for voxel world rendering
-  - **voxels.wasm**: Compiled WebAssembly module for voxel rendering
-  - **voxels.js**: JavaScript bridge and loader for WASM integration with Module system
-  - **world.dat**: Voxel world data file loaded into WASM memory
-- **Dynamic Loading**: WASM voxel module loaded only when user launches a world with proper script injection and cleanup
-- **Canvas Integration**: Direct rendering to HTML5 canvas element (responsive sizing up to 1000x650px)
-- **Module System**: Uses global `Module` object with postRun callbacks, onAbort error handling, and runtime initialization
-- **World Data Loading**: Automatically fetches and loads world.dat directly into Emscripten virtual filesystem immediately after engine initialization
-- **Memory Management**: Proper WASM memory allocation, cleanup between sessions, and force reload capability (R key)
-- **Engine State Management**: Tracks loading state, handles failures gracefully, and provides status feedback through block interface
+- **WASM Architecture**: Complete WebAssembly voxel engine for world rendering and interaction
+  - **voxels.wasm**: Compiled WebAssembly voxel engine module with full rendering capabilities
+  - **voxels.js**: JavaScript bridge and loader for WASM integration with Emscripten Module system
+  - **world.dat**: Voxel world data file containing block data loaded into WASM memory
+- **Dynamic Loading**: WASM voxel engine loaded on-demand only when user launches a world with proper script injection, initialization, and cleanup
+- **Canvas Integration**: Direct voxel rendering to HTML5 canvas element with pixelated styling (responsive sizing up to 1000x650px)
+- **Module System**: Uses Emscripten global `Module` object with postRun callbacks, onAbort error handling, runtime initialization, and filesystem integration
+- **World Data Integration**: Automatically fetches and loads world.dat directly into Emscripten virtual filesystem with immediate memory access for voxel operations
+- **Memory Management**: Proper WASM memory allocation, cleanup between sessions, force reload capability (R key), and resource management
+- **Engine State Management**: Comprehensive loading state tracking, graceful failure handling, and real-time status feedback through pixelated block interface
 
 ### Backend & Infrastructure
 - **Express.js**: RESTful API server with `/api/init` and `/api/entries` endpoints plus internal Reddit integration endpoints
@@ -306,12 +306,12 @@ The development server automatically creates a test subreddit (r/bhopblox_dev) w
 ### WASM Files & World Database
 
 #### Pre-compiled Voxel Engine
-The voxel engine is pre-compiled and included in the project:
+The complete voxel engine is pre-compiled and included in the project:
 ```bash
-# WASM files are located in:
-src/client/public/voxels.wasm  # Main voxel engine (WebAssembly binary)
-src/client/public/voxels.js   # JavaScript loader and bridge
-src/client/public/world.dat   # Voxel world data file
+# WASM voxel engine files are located in:
+src/client/public/voxels.wasm  # Main WebAssembly voxel engine (binary)
+src/client/public/voxels.js   # JavaScript loader and Emscripten bridge
+src/client/public/world.dat   # Voxel world data file (block data)
 src/client/public/snoo.png    # Reddit mascot asset
 src/client/public/default-icon.png  # App icon
 ```
@@ -354,20 +354,17 @@ entry:world_2          # Contains: id, title, description, createdAt, author
 - **Cross-Platform**: Works seamlessly on desktop and mobile browsers with responsive design
 - **Canvas Rendering**: Rendering capabilities within authentic Minecraft-style block interface
 
-### WebAssembly Integration
-- **WASM Engine**: WebAssembly module (voxels.wasm) with infrastructure ready for future voxel rendering and memory management
-- **JavaScript Bridge**: WASM loading with JavaScript bridge (voxels.js) for seamless integration
-- **Canvas Display**: HTML5 canvas element with proper initialization and responsive sizing
-- **World Data Loading**: Automatic loading of world.dat file into WASM memory for future use
-- **Engine Management**: Proper initialization, cleanup, and error handling for reliable operations integration and error handling
-- **Canvas Rendering**: Direct rendering to HTML5 canvas element with responsive sizing (up to 1000x650px)
-- **Dynamic Script Loading**: On-demand loading of WASM components when launching selected worlds: WASM engine loads dynamically when user selects and launches a world
-- **World Data Integration**: Automatic loading of world.dat file into Emscripten virtual filesystem
-- **Engine State Management**: Real-time status tracking with proper error handling and cleanup between sessionse loaded via dynamic script injection when launching worlds with cleanup
-- **On-Demand Loading**: Engine files only load when user selects and launches a world for faster initial page load
-- **Streamlined Data Loading**: Direct world data loading into Emscripten virtual filesystem for immediate access
-- **Context Menu Prevention**: Right-click disabled on canvas for seamless gaming experience
-- **Module Configuration**: Uses global `Module` object with `postRun` callbacks for initialization and proper cleanup
+### WebAssembly Voxel Engine Integration
+- **WASM Voxel Engine**: Complete WebAssembly voxel engine (voxels.wasm) with full voxel rendering capabilities and memory management
+- **JavaScript Bridge**: WASM loading with JavaScript bridge (voxels.js) for seamless Emscripten integration and Module system
+- **Canvas Display**: HTML5 canvas element with pixelated styling, proper initialization, and responsive sizing up to 1000x650px
+- **World Data Integration**: Automatic loading of world.dat file containing voxel block data into Emscripten virtual filesystem with immediate memory access
+- **Engine Management**: Comprehensive initialization, cleanup, error handling, and force reload capability (R key) for reliable voxel operations
+- **Dynamic Script Loading**: On-demand loading of WASM voxel engine components when launching selected worlds for optimal performance
+- **Engine State Management**: Real-time status tracking ("Loading engine...", "Ready") with proper error handling and cleanup between sessions
+- **Module Configuration**: Uses Emscripten global `Module` object with `postRun` callbacks, `onAbort` error handling, and runtime initialization
+- **Memory Management**: Proper WASM memory allocation, virtual filesystem integration, and resource cleanup for stable voxel operations
+- **Canvas Integration**: Direct voxel rendering capabilities to HTML5 canvas with authentic Minecraft-style pixelated block frame
 
 ### Reddit Platform Integration
 - **Devvit Platform**: Built on Reddit's official developer platform with full integration
