@@ -1,4 +1,4 @@
-# Voxel World - 3D Adventure Game
+# BhopBlox - 3D Adventure Game
 
 A Minecraft-inspired voxel world browser and 3D adventure game that runs directly inside Reddit posts, featuring authentic pixelated block aesthetics, WebAssembly-powered voxel engine, and generative windchime audio. Browse and select from 6 unique voxel worlds, then explore 3D environments through an immersive retro-style interface with complete Minecraft visual theming using the classic "Press Start 2P" pixel font.
 
@@ -6,7 +6,7 @@ A Minecraft-inspired voxel world browser and 3D adventure game that runs directl
 
 ## What is This Game?
 
-Voxel World is a Minecraft-style 3D adventure game that brings authentic pixelated block world aesthetics directly to Reddit. The game provides a complete world selection and voxel exploration experience that lets you browse and launch different 3D voxel environments through an immersive Minecraft-themed interface with authentic pixel-perfect styling.
+BhopBlox is a Minecraft-style 3D adventure game that brings authentic pixelated block world aesthetics directly to Reddit. The game provides a complete world selection and voxel exploration experience that lets you browse and launch different 3D voxel environments through an immersive Minecraft-themed interface with authentic pixel-perfect styling.
 
 **Core Experience**: Browse through 6 unique voxel worlds (Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, Desert Oasis), each with detailed descriptions and author information. When you select a world and click "INITIALIZE WORLD", the WebAssembly voxel engine loads successfully, displaying a functional 3D canvas that loads world data and player state for immersive voxel exploration and adventure gameplay.
 
