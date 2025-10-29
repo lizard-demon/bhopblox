@@ -22,6 +22,17 @@ The game provides an immersive Minecraft-style world browsing experience, combin
 
 bhopblox represents a breakthrough in browser-based voxel gaming, combining authentic Minecraft aesthetics with cutting-edge web technologies to create a unique experience that runs natively within Reddit posts.
 
+### Current Game State
+
+The game is currently in its **world browser and engine infrastructure phase**, providing:
+
+- **Complete Minecraft-Style Interface**: Fully functional world selection system with authentic block aesthetics, stone panels, and pixelated styling
+- **6 Curated Voxel Worlds**: Browse and select from Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
+- **WebAssembly Engine Foundation**: Working WASM voxel engine that loads successfully and displays a canvas ready for 3D content
+- **Immediate World Data Loading**: Engine automatically loads world.dat file (262,144 bytes) directly into WASM memory for optimal performance
+- **Rich Audio Experience**: Complete generative audio system with ambient music and interactive sound effects
+- **Reddit Integration**: Fully functional within Reddit posts with persistent world database and user authentication
+
 ### 🧱 **Authentic Minecraft Block Experience in Reddit**
 - **Complete Block Simulation**: Full Minecraft-style aesthetic with authentic dirt/grass backgrounds, stone panel textures, and pixelated rendering
 - **Block-Perfect Visual Design**: Stone-textured panels with 3D block button effects, authentic Minecraft styling, and proper block borders
@@ -128,7 +139,7 @@ The game presents itself as an authentic Minecraft-style interface with complete
 - **Engine Loading Process**: Watch the status change from "Loading engine..." to "Ready" as the WASM module initializes
 - **Canvas Display**: Game canvas appears with Minecraft-style block background and proper responsive sizing
 - **Engine Initialization**: The WebAssembly voxel engine initializes successfully and displays a canvas ready for future voxel content
-- **World Data Loading**: After 1 second, the engine automatically fetches and loads world.dat (64x64x64 voxel block data) directly into the Emscripten virtual filesystem
+- **World Data Loading**: The engine automatically fetches and loads world.dat (262,144 bytes for 64x64x64 voxel block data) directly into the Emscripten virtual filesystem
 - **Audio Enhancement**: Generative ambient music begins playing with evolving harmonic layers
 
 #### Available Voxel Worlds (6 Unique Environments)
@@ -176,7 +187,7 @@ The WebAssembly voxel engine system provides the infrastructure for world intera
 - **Canvas Display System**: Dedicated rendering canvas appears and displays properly when you initialize the engine
 - **Engine Status Tracking**: Real-time status updates ("Loading engine...", "Ready") with proper error handling
 - **Memory Management**: Proper WASM memory allocation and management for voxel rendering with 64x64x64 block structure
-- **World Data Integration**: Automatically loads world.dat file containing voxel block data into engine memory after initialization
+- **World Data Integration**: Automatically loads world.dat file (262,144 bytes) containing voxel block data into engine memory immediately after initialization
 - **Infrastructure Foundation**: Engine successfully initializes and provides the foundation for future voxel world content
 
 #### Navigation Controls
@@ -248,25 +259,25 @@ The game features a sophisticated generative audio system:
   - **voxels.wasm**: Compiled WebAssembly module for 3D voxel rendering with WebGL acceleration
   - **voxels.js**: JavaScript bridge and loader for WASM integration with Module system
   - **world.dat**: Voxel world data file (64x64x64 block structure, 262,144 bytes) loaded into WASM memory
-- **Dynamic Loading**: WASM voxel module loaded only when user launches a dimension with proper script injection and cleanup
-- **Canvas Integration**: Direct rendering to HTML5 canvas element (90vw × 75vh, max 1000x650px)
+- **Dynamic Loading**: WASM voxel module loaded only when user launches a world with proper script injection and cleanup
+- **Canvas Integration**: Direct rendering to HTML5 canvas element (responsive sizing up to 1000x650px)
 - **Module System**: Uses global `Module` object with postRun callbacks, onAbort error handling, and runtime initialization
-- **World Data Loading**: Automatically fetches and loads world.dat directly into Emscripten virtual filesystem after 1-second delay
+- **World Data Loading**: Automatically fetches and loads world.dat directly into Emscripten virtual filesystem immediately after engine initialization
 - **Memory Management**: Proper WASM memory allocation, cleanup between sessions, and force reload capability (R key)
-- **Engine State Management**: Tracks loading state, handles failures gracefully, and provides status feedback through CRT interface
+- **Engine State Management**: Tracks loading state, handles failures gracefully, and provides status feedback through block interface
 
 ### Backend & Infrastructure
 - **Express.js**: RESTful API server with `/api/init` and `/api/entries` endpoints plus internal Reddit integration endpoints
 - **Redis Database**: Persistent world database using Redis sorted sets (`voxel_entries`) and hash maps (`entry:world_*`) with automatic initialization
-- **World Management**: 6 pre-loaded worlds (Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, Desert Oasis) with metadata
+- **World Management**: 6 pre-loaded worlds (Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, Desert Oasis) with metadata including titles, descriptions, authors, and creation timestamps
 - **Devvit Platform**: Reddit's official developer platform (@devvit/web) for hosting, authentication, and Reddit API integration
 - **Node.js**: Modern JavaScript runtime with automatic post creation, user authentication, and Redis operations
 - **Auto-Installation**: Automatic post creation on app install with manual creation option for moderators
 
 ### Reddit Integration & Data Persistence
 - **User Authentication**: Automatic Reddit user recognition via `/api/init` endpoint with personalized greeting in block interface
-- **Dimension Database**: `/api/entries` endpoint serves dimension metadata from Redis with proper error handling
-- **Persistent Storage**: Dimension data persists across sessions using Redis infrastructure with sorted sets for ordering
+- **World Database**: `/api/entries` endpoint serves world metadata from Redis with proper error handling
+- **Persistent Storage**: World data persists across sessions using Redis infrastructure with sorted sets for ordering
 - **Post Integration**: Runs directly within Reddit posts as webview content with full Minecraft-style block interface
 - **Custom Splash Screen**: Configured splash screen with app branding and "Tap to Start" button
 - **Native Experience**: No external redirects or separate websites required - fully contained within Reddit with authentic Minecraft-style interface
@@ -310,7 +321,7 @@ npm run login
 3. Run `npm run dev` to start development server
 4. Visit the provided Reddit playtest URL to test the game
 
-The development server automatically creates a test subreddit where you can interact with the 3D voxel world in real-time.
+The development server automatically creates a test subreddit (r/bhopblox_dev) where you can interact with the voxel world browser in real-time.
 
 ### WASM Files & World Database
 
@@ -347,27 +358,29 @@ entry:world_2          # Contains: id, title, description, createdAt, author
 
 ## Advanced Features
 
-### Dimension Selection & Database System
-- **Redis-Backed Database**: Persistent dimension storage using Redis sorted sets (`voxel_entries`) and hash maps (`entry:*`)
-- **6 Pre-loaded Dimensions**: Diverse collection including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
-- **Dimension Metadata**: Each dimension includes id, title, description, author, and creation timestamp with proper data validation
-- **Dynamic Loading**: Dimension list loads from `/api/entries` endpoint on app initialization with error handling
-- **Selection Interface**: Interactive dimension browser within glass panel interface with click-to-select and audio feedback
-- **Selection Validation**: Prevents launching without dimension selection with clear error messaging and audio feedback
-- **Scrollable Interface**: Elegant scrollable dimension list with CRT scanline effects and custom styling
+### World Selection & Database System
+- **Redis-Backed Database**: Persistent world storage using Redis sorted sets (`voxel_entries`) and hash maps (`entry:*`)
+- **6 Pre-loaded Worlds**: Diverse collection including Crystal Cave, Sky Islands, Ocean Mining, Volcano Base, Ice Palace, and Desert Oasis
+- **World Metadata**: Each world includes id, title, description, author, and creation timestamp with proper data validation
+- **Dynamic Loading**: World list loads from `/api/entries` endpoint on app initialization with error handling
+- **Selection Interface**: Interactive world browser within stone panel interface with click-to-select and audio feedback
+- **Selection Validation**: Prevents launching without world selection with clear error messaging and audio feedback
+- **Scrollable Interface**: Elegant scrollable world list with wood-textured panel and custom Minecraft-style scrollbar
 
-### 3D Voxel Dimension Engine
-- **WebAssembly Rendering**: High-performance 3D graphics using WebAssembly engine (voxels.wasm) within CRT frame for selected dimensions
-- **Interactive Navigation**: 3D dimension exploration with FPS controls, mouse look, and keyboard movement in chosen environments
-- **Dynamic Loading**: WASM engine loads on-demand only when launching a selected dimension with proper initialization
-- **Cross-Platform**: Works seamlessly on desktop and mobile browsers with touch support and responsive CRT design
-- **Hardware Acceleration**: WebGL-accelerated 3D rendering with pointer lock support for immersive experience within authentic CRT monitor
+### 3D Voxel World Engine
+- **WebAssembly Rendering**: High-performance 3D graphics using WebAssembly engine (voxels.wasm) within Minecraft-style frame for selected worlds
+- **Engine Infrastructure**: Foundation for 3D world exploration with canvas display and world data loading
+- **Dynamic Loading**: WASM engine loads on-demand only when launching a selected world with proper initialization
+- **Cross-Platform**: Works seamlessly on desktop and mobile browsers with responsive design
+- **Hardware Acceleration**: WebGL-accelerated 3D rendering capabilities within authentic Minecraft-style block interface
 
 ### WebAssembly Integration
 - **WASM Engine**: Optimized WebAssembly module (voxels.wasm) for 3D rendering of selected worlds with memory management
 - **JavaScript Bridge**: WASM loading with JavaScript bridge (voxels.js) for seamless integration and error handling
-- **Canvas Rendering**: Direct rendering to HTML5 canvas element with id="canvas" (90vw × 75vh, max 1000x650px)
-- **Dynamic Script Loading**: WASM engine loaded via dynamic script injection when launching worlds with cleanup
+- **Canvas Rendering**: Direct rendering to HTML5 canvas element with responsive sizing (up to 1000x650px)
+- **Dynamic Script Loading**: WASM engine loads dynamically when user selects and launches a world
+- **World Data Integration**: Automatic loading of world.dat file (262,144 bytes) into Emscripten virtual filesystem
+- **Engine State Management**: Real-time status tracking with proper error handling and cleanup between sessionse loaded via dynamic script injection when launching worlds with cleanup
 - **On-Demand Loading**: Engine files only load when user selects and launches a world for faster initial page load
 - **Streamlined Data Loading**: Direct world data loading into Emscripten virtual filesystem for immediate access
 - **Context Menu Prevention**: Right-click disabled on canvas for seamless gaming experience

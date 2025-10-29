@@ -119,31 +119,16 @@ async function loadEngine() {
         status.textContent = "Ready";
         console.log("Engine loaded successfully");
 
-        // Debug what's available at different points
-        console.log("PostRun - Module properties:", Object.keys((window as any).Module));
-        console.log("PostRun - Module.FS:", typeof (window as any).Module.FS);
-
-        // Load world.dat into Emscripten filesystem after 1 second delay
-        setTimeout(() => {
-          console.log("After 1s - Module properties:", Object.keys((window as any).Module));
-          console.log("After 1s - Module.FS:", typeof (window as any).Module.FS);
-          console.log("After 1s - Module.FS.writeFile:", typeof (window as any).Module.FS?.writeFile);
-
-          try {
-            // Fetch and write world.dat to the virtual filesystem
-            fetch('/world.dat')
-              .then(r => r.arrayBuffer())
-              .then(data => {
-                (window as any).Module.FS.writeFile('/world.dat', new Uint8Array(data));
-                console.log(`World.dat loaded into filesystem: ${data.byteLength} bytes`);
-              })
-              .catch(error => {
-                console.error("Failed to load world.dat:", error);
-              });
-          } catch (error) {
-            console.error("Failed to write to filesystem:", error);
-          }
-        }, 1000);
+        // Load world.dat into Emscripten filesystem
+        fetch('/world.dat')
+          .then(r => r.arrayBuffer())
+          .then(data => {
+            (window as any).Module.FS.writeFile('/world.dat', new Uint8Array(data));
+            console.log(`world.dat loaded into filesystem: ${data.byteLength} bytes`);
+          })
+          .catch(error => {
+            console.error("Failed to load world.dat:", error);
+          });
 
         resolve();
       }],
