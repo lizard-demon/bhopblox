@@ -112,23 +112,24 @@ async function loadEngine() {
 
     (window as any).Module = {
       canvas,
+      preRun: [() => {
+        // Load world.dat into Emscripten filesystem before any initialization
+        fetch('/world.dat')
+          .then(r => r.arrayBuffer())
+          .then(data => {
+            (window as any).Module.FS.writeFile('/world.dat', new Uint8Array(data));
+            console.log(`World.dat loaded into filesystem: ${data.byteLength} bytes`);
+          })
+          .catch(error => {
+            console.error("Failed to load world.dat:", error);
+          });
+      }],
       postRun: [() => {
         engineLoaded = true;
         engineModule = (window as any).Module;
         canvas.classList.remove("loading");
         status.textContent = "Ready";
         console.log("Engine loaded successfully");
-
-        // Load world.dat into Emscripten filesystem
-        fetch('/world.dat')
-          .then(r => r.arrayBuffer())
-          .then(data => {
-            (window as any).Module.FS.writeFile('/world.dat', new Uint8Array(data));
-            console.log(`world.dat loaded into filesystem: ${data.byteLength} bytes`);
-          })
-          .catch(error => {
-            console.error("Failed to load world.dat:", error);
-          });
 
         resolve();
       }],
