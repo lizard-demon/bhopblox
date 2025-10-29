@@ -750,6 +750,89 @@ body::before {
   transform: translate(1px, 1px);
 }
 
+.publish-button {
+  font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
+  background:
+    repeating-linear-gradient(0deg,
+      #FFD700 0px, #FFD700 2px,
+      #FFF700 2px, #FFF700 4px,
+      #E6C200 4px, #E6C200 6px,
+      #FFD700 6px, #FFD700 8px);
+  background-size: 8px 8px;
+  color: #000000;
+  border: 2px solid #000000;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+  margin-top: 1rem;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.5),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.5),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.publish-button:hover {
+  background:
+    repeating-linear-gradient(0deg,
+      #FFED00 0px, #FFED00 2px,
+      #FFFF00 2px, #FFFF00 4px,
+      #F0D000 4px, #F0D000 6px,
+      #FFED00 6px, #FFED00 8px);
+  background-size: 8px 8px;
+}
+
+.publish-button:active {
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
+  box-shadow:
+    inset -1px -1px 0 rgba(255, 255, 255, 0.5),
+    inset 1px 1px 0 rgba(0, 0, 0, 0.5),
+    1px 1px 2px rgba(0, 0, 0, 0.3);
+  transform: translate(1px, 1px);
+}
+
+.build-mode-indicator {
+  background: rgba(255, 215, 0, 0.2);
+  border: 2px solid #FFD700;
+  border-top-color: #FFFF00;
+  border-left-color: #FFFF00;
+  border-right-color: #E6C200;
+  border-bottom-color: #E6C200;
+  padding: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.build-badge {
+  font-family: 'Press Start 2P', 'Courier New', 'Monaco', monospace;
+  color: #000000;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.build-description {
+  font-size: 0.6rem;
+  color: #333333;
+  line-height: 1.4;
+}
+
 
 
 /* Removed scrollbar styles - no longer needed */
@@ -785,6 +868,11 @@ body::before {
     right: 1rem;
     padding: 8px 16px;
     font-size: 0.75rem;
+  }
+
+  .publish-button {
+    padding: 8px 16px;
+    font-size: 0.5rem;
   }
 
 

@@ -3,6 +3,8 @@ export type InitResponse = {
   postId: string;
   username: string;
   worldData: FullWorldData;
+  mode?: "speedrun" | "build";
+  isCreator?: boolean;
 };
 
 export type WorldData = {
@@ -29,4 +31,17 @@ export type RemixRequest = {
   description: string;
   mapData: string;
   leaderboard: LeaderboardEntry[];
+};
+
+export type PublishRequest = {
+  title: string;
+  description: string;
+  mapData: string;
+};
+
+export type BuildModeResponse = {
+  success: boolean;
+  postId?: string;
+  navigateTo?: string;
+  error?: string;
 };

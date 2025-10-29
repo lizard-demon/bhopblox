@@ -1,5 +1,5 @@
 import express from "express";
-import { InitResponse, RemixRequest, WorldMetadata } from "../shared/types/api";
+import { InitResponse, RemixRequest, PublishRequest, BuildModeResponse, WorldMetadata } from "../shared/types/api";
 import { createServer, context, getServerPort, reddit, redis } from "@devvit/web/server";
 import { createPost, createRemixPost } from "./core/post";
 
@@ -32,6 +32,10 @@ app.get("/api/init", async (_req, res) => {
     // Get metadata from postData or use default
     const metadata = (context.postData?.worldData as WorldMetadata) || defaultMetadata;
 
+    // Check if this is a build mode post (empty leaderboard indicates build mode)
+    const isBuildMode = !metadata.leaderboard || metadata.leaderboard.length === 0;
+    const isCreator = username === metadata.author;
+
     // Get map data from Redis
     let mapData = await redis.get(`map:${postId}`);
     if (!mapData) {
@@ -43,7 +47,9 @@ app.get("/api/init", async (_req, res) => {
       type: "init",
       postId,
       username: username || "anonymous",
-      worldData: { ...metadata, mapData }
+      worldData: { ...metadata, mapData },
+      mode: isBuildMode ? "build" : "speedrun",
+      isCreator
     } as InitResponse);
   } catch (error) {
     console.error("Init error:", error);
@@ -86,10 +92,10 @@ app.post("/api/leaderboard", async (req, res) => {
   }
 });
 
-// Create remix
+// Create remix (build mode)
 app.post("/api/remix", async (req, res) => {
   try {
-    const { title, description, mapData, leaderboard }: RemixRequest = req.body;
+    const { title, description, mapData }: RemixRequest = req.body;
     if (!title || !description || !mapData) {
       return res.status(400).json({ error: "Missing fields" });
     }
@@ -100,7 +106,7 @@ app.post("/api/remix", async (req, res) => {
       description,
       author: username || "Anonymous",
       createdAt: new Date().toISOString(),
-      leaderboard: leaderboard || []
+      leaderboard: [] // Empty leaderboard indicates build mode
     };
 
     const post = await createRemixPost(metadata, mapData);
@@ -112,6 +118,72 @@ app.post("/api/remix", async (req, res) => {
   } catch (error) {
     console.error("Remix error:", error);
     res.status(500).json({ error: "Failed to create remix" });
+  }
+});
+
+// Publish from build mode
+app.post("/api/publish", async (req, res) => {
+  try {
+    const { title, description, mapData }: PublishRequest = req.body;
+    if (!title || !description || !mapData) {
+      return res.status(400).json({ error: "Missing fields" });
+    }
+
+    const username = await reddit.getCurrentUsername();
+    
+    // Verify user is the creator of the current post
+    const currentMetadata = (context.postData?.worldData as WorldMetadata) || defaultMetadata;
+    if (username !== currentMetadata.author) {
+      return res.status(403).json({ error: "Only the creator can publish this world" });
+    }
+
+    const metadata: WorldMetadata = {
+      title,
+      description,
+      author: username || "Anonymous",
+      createdAt: new Date().toISOString(),
+      leaderboard: [
+        // Add a dummy entry to indicate this is speedrun mode
+        { username: "System", time: 999999 }
+      ]
+    };
+
+    const post = await createRemixPost(metadata, mapData);
+    res.json({
+      success: true,
+      postId: post.id,
+      navigateTo: `https://reddit.com/r/${context.subredditName}/comments/${post.id}`
+    } as BuildModeResponse);
+  } catch (error) {
+    console.error("Publish error:", error);
+    res.status(500).json({ error: "Failed to publish world" });
+  }
+});
+
+// Save map data in build mode
+app.post("/api/save-map", async (req, res) => {
+  try {
+    const { mapData } = req.body;
+    if (!mapData) {
+      return res.status(400).json({ error: "Missing map data" });
+    }
+
+    const username = await reddit.getCurrentUsername();
+    const postId = context.postId || "unknown";
+    
+    // Verify user is the creator
+    const metadata = (context.postData?.worldData as WorldMetadata) || defaultMetadata;
+    if (username !== metadata.author) {
+      return res.status(403).json({ error: "Only the creator can save this world" });
+    }
+
+    // Save map data to Redis
+    await redis.set(`map:${postId}`, mapData);
+    
+    res.json({ success: true });
+  } catch (error) {
+    console.error("Save map error:", error);
+    res.status(500).json({ error: "Failed to save map" });
   }
 });
 
